@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModel="clr-namespace:DrivingLiscenceScanner.ViewModel"
+                    xmlns:view="clr-namespace:DrivingLiscenceScanner.View">
+    <Storyboard x:Key="Storyboard"
+                TargetName="View"
+                TargetProperty="Opacity">
+        <DoubleAnimationUsingKeyFrames>
+            <LinearDoubleKeyFrame  KeyTime="0"
+                                   Value="0" />
+            <LinearDoubleKeyFrame  KeyTime="0:0:0.3"
+                                   Value="1" />
+
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+    <DataTemplate DataType="{x:Type viewModel:ScanViewModel}">
+        <view:ScanView x:Name="View" />
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded"
+                          SourceName="View">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}"/>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
+        <view:CustomerView x:Name="View"/>
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded"
+                          SourceName="View">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}"/>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+
+    </DataTemplate>
+</ResourceDictionary>

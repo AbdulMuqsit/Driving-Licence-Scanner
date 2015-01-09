@@ -1,0 +1,68 @@
+﻿<viewModel:ScanViewModel
+    xmlns:entities="clr-namespace:DrivingLiscenceScanner.Entities;assembly=DrivingLiscenceScanner.Entities"
+                         xmlns:viewModel="clr-namespace:DrivingLiscenceScanner.ViewModel"
+                         xmlns:infrastructure="clr-namespace:DrivingLiscenceScanner.Infrastructure"
+                         ScanText="Class curae maecenas">
+	<viewModel:ScanViewModel.Customer>
+		<entities:Customer City="Aenean maecenas" DoB="12/30/2014 03:17:44" EyeColor="Accumsan" FirstName="Aaberg, Jesper" Height="33" HairColor="Aenean" Id="88" LastName="Aaberg, Jesper" LicenceId="46" MiddleName="Sed vestibulum dis" Sex="Nam" State="Aenean aliquam" Street="Accumsan phasellus" Weight="75" ZipCode="Nunc nullam">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Nec non" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="36" Number="Consequat mus convallis aptent amet"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+	</viewModel:ScanViewModel.Customer>
+	<viewModel:ScanViewModel.Customers>
+		<entities:Customer City="Aliquam" DoB="12/30/2014 03:17:44" EyeColor="Bibendum" FirstName="Adams, Ellen" Height="36" HairColor="Class" Id="21" LastName="Adams, Ellen" LicenceId="62" MiddleName="Dictumst facilisis auctor adipiscing fermentum" Sex="Class" State="Cras" Street="Augue eget" Weight="54" ZipCode="Vivamus eros hendrerit nibh cursus">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Nisl aliquam nunc vestibulum vestibulum" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="31" Number="Dictum nisi inceptos lectus per"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Nam" DoB="12/30/2014 03:17:44" EyeColor="Dictumst" FirstName="Adams, Terry" Height="59" HairColor="Curae" Id="99" LastName="Adams, Terry" LicenceId="97" MiddleName="Himenaeos interdum" Sex="Cras" State="Mauris" Street="Pharetra justo sit malesuada vel" Weight="46" ZipCode="Penatibus sed luctus">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Quis adipiscing" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="76" Number="Lacus dis"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Cras" DoB="12/30/2014 03:17:44" EyeColor="Eget" FirstName="Adams, Terry" Height="59" HairColor="Donec" Id="46" LastName="Adams, Terry" LicenceId="37" MiddleName="Mattis dapibus egestas mauris tincidunt" Sex="Curae" State="Class maecenas" Street="Vestibulum leo mus lacinia" Weight="48" ZipCode="Parturient montes amet nostra ornare">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Vulputate curabitur senectus" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="45" Number="Sagittis massa natoque posuere metus"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Praesent class" DoB="12/30/2014 03:17:44" EyeColor="Commodo" FirstName="Pfeiffer, Michael" Height="33" HairColor="Aliquam" Id="30" LastName="Pfeiffer, Michael" LicenceId="78" MiddleName="Pretium morbi adipiscing" Sex="Donec" State="Nullam" Street="Nulla eget torquent non" Weight="24" ZipCode="Vestibulum vehicula adipiscing">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Volutpat sed integer" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="48" Number="Aliquam semper"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Sed" DoB="12/30/2014 03:17:44" EyeColor="Dictum" FirstName="Philips, Carol" Height="84" HairColor="Maecenas" Id="43" LastName="Philips, Carol" LicenceId="64" MiddleName="Risus velit" Sex="Etiam" State="Curae aptent" Street="Class facilisis tempor" Weight="12" ZipCode="Accumsan vel nam bibendum quisque">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Vestibulum vestibulum dictumst" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="91" Number="Sed etiam"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Curae" DoB="12/30/2014 03:17:44" EyeColor="Lectus" FirstName="Poe, Toni" Height="73" HairColor="Nam" Id="79" LastName="Poe, Toni" LicenceId="78" MiddleName="Parturient eleifend vestibulum hendrerit" Sex="Aliquam" State="Auctor nam" Street="Faucibus aliquet malesuada blandit" Weight="32" ZipCode="Penatibus inceptos parturient tortor interdum">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Nascetur turpis quis vestibulum conubia" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="36" Number="Fusce lobortis porttitor"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Dis est" DoB="12/30/2014 03:17:44" EyeColor="Elit" FirstName="Hicks, Cassie" Height="21" HairColor="Sed" Id="84" LastName="Hicks, Cassie" LicenceId="84" MiddleName="Morbi aenean tristique" Sex="Duis" State="Congue praesent" Street="Adipiscing augue" Weight="41" ZipCode="Sagittis amet ante senectus">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Non dolor fames phasellus" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="71" Number="Congue vestibulum curabitur nec"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Donec duis" DoB="12/30/2014 03:17:44" EyeColor="Curae" FirstName="Argentiero, Luca" Height="39" HairColor="Cras" Id="51" LastName="Argentiero, Luca" LicenceId="73" MiddleName="Torquent consequat felis ipsum" Sex="Fusce" State="Accumsan sed" Street="Sem sit" Weight="36" ZipCode="Facilisis vehicula laoreet diam vestibulum">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Vestibulum adipiscing maecenas" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="12" Number="Volutpat natoque"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Integer mauris" DoB="12/30/2014 03:17:44" EyeColor="Enim" FirstName="Perry, Brian" Height="72" HairColor="Etiam" Id="15" LastName="Perry, Brian" LicenceId="40" MiddleName="Praesent eget hendrerit" Sex="Nunc" State="Bibendum" Street="Nam eleifend sed" Weight="31" ZipCode="Parturient rhoncus">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Elit faucibus" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="83" Number="Mollis massa dis montes nostra"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+		<entities:Customer City="Nullam" DoB="12/30/2014 03:17:44" EyeColor="Conubia" FirstName="Ramos, Luciana" Height="11" HairColor="Integer" Id="31" LastName="Ramos, Luciana" LicenceId="37" MiddleName="Aliquam morbi hac porttitor tincidunt" Sex="Sed" State="Dis cursus" Street="Platea integer netus" Weight="59" ZipCode="Inceptos interdum">
+			<entities:Customer.Licence>
+				<entities:Licence ClassCode="Curabitur quam phasellus" ExpiryDate="12/30/2014 03:17:44" IssueDate="12/30/2014 03:17:44" Id="27" Number="Odio orci pede"/>
+			</entities:Customer.Licence>
+		</entities:Customer>
+	</viewModel:ScanViewModel.Customers>
+	<viewModel:ScanViewModel.ScanCommand>
+		<infrastructure:RelayCommand/>
+	</viewModel:ScanViewModel.ScanCommand>
+</viewModel:ScanViewModel>
