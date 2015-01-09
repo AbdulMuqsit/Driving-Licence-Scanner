@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DrivingLiscenceScanner.View
+namespace DrivingLicenceScanner.View
 {
     /// <summary>
     /// Interaction logic for CustomerView.xaml

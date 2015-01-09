@@ -7,8 +7,8 @@
     <ProjectGuid>{C23D4546-2E0E-4B04-AFC4-9784A23201B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DrivingLiscenceScanner</RootNamespace>
-    <AssemblyName>DrivingLiscenceScanner</AssemblyName>
+    <RootNamespace>DrivingLicenceScanner</RootNamespace>
+    <AssemblyName>DrivingLicenceScanner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -127,13 +127,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DrivingLiscenceScanner.Entities\DrivingLiscenceScanner.Entities.csproj">
+    <ProjectReference Include="..\DrivingLiscenceScanner.Entities\DrivingLicenceScanner.Entities.csproj">
       <Project>{bab6b486-9520-4fca-888c-f152a00064a7}</Project>
-      <Name>DrivingLiscenceScanner.Entities</Name>
+      <Name>DrivingLicenceScanner.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DrivingLiscenceScanner.EntityFramework\DrivingLiscenceScanner.EntityFramework.csproj">
+    <ProjectReference Include="..\DrivingLiscenceScanner.EntityFramework\DrivingLicenceScanner.EntityFramework.csproj">
       <Project>{6733489a-2577-4ef8-b057-2952647fad63}</Project>
-      <Name>DrivingLiscenceScanner.EntityFramework</Name>
+      <Name>DrivingLicenceScanner.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

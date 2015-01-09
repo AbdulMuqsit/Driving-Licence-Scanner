@@ -1,4 +1,4 @@
-﻿namespace DrivingLiscenceScanner.Infrastructure
+﻿namespace DrivingLicenceScanner.Infrastructure
 {
     public static class Navigator
     {

@@ -1,8 +1,8 @@
 ﻿<viewModel:ScanViewModel
-    xmlns:entities="clr-namespace:DrivingLiscenceScanner.Entities;assembly=DrivingLiscenceScanner.Entities"
-                         xmlns:viewModel="clr-namespace:DrivingLiscenceScanner.ViewModel"
-                         xmlns:infrastructure="clr-namespace:DrivingLiscenceScanner.Infrastructure"
-                         ScanText="Class curae maecenas">
+    xmlns:viewModel="clr-namespace:DrivingLicenceScanner.ViewModel"
+    xmlns:entities="clr-namespace:DrivingLicenceScanner.Entities;assembly=DrivingLicenceScanner.Entities"
+    xmlns:infrastructure="clr-namespace:DrivingLicenceScanner.Infrastructure"
+    ScanText="Class curae maecenas">
 	<viewModel:ScanViewModel.Customer>
 		<entities:Customer City="Aenean maecenas" DoB="12/30/2014 03:17:44" EyeColor="Accumsan" FirstName="Aaberg, Jesper" Height="33" HairColor="Aenean" Id="88" LastName="Aaberg, Jesper" LicenceId="46" MiddleName="Sed vestibulum dis" Sex="Nam" State="Aenean aliquam" Street="Accumsan phasellus" Weight="75" ZipCode="Nunc nullam">
 			<entities:Customer.Licence>

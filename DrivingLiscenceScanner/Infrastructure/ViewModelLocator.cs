@@ -1,6 +1,6 @@
-﻿using DrivingLiscenceScanner.ViewModel;
+﻿using DrivingLicenceScanner.ViewModel;
 
-namespace DrivingLiscenceScanner.Infrastructure
+namespace DrivingLicenceScanner.Infrastructure
 {
     public class ViewModelLocator
     {

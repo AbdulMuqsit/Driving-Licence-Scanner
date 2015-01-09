@@ -1,7 +1,7 @@
 ﻿using System;
-using DrivingLiscenceScanner.Entities.Infrastructure;
+using DrivingLicenceScanner.Entities.Infrastructure;
 
-namespace DrivingLiscenceScanner.Entities
+namespace DrivingLicenceScanner.Entities
 {
     public class Licence : ObjectBase
     {

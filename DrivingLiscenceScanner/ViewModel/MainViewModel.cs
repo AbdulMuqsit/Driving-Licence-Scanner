@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using DrivingLiscenceScanner.Infrastructure;
+﻿using DrivingLicenceScanner.Infrastructure;
 
-namespace DrivingLiscenceScanner.ViewModel
+namespace DrivingLicenceScanner.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {

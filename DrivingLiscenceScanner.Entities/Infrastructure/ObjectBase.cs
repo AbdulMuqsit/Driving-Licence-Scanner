@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using DrivingLiscenceScanner.Entities.Annotations;
 
-namespace DrivingLiscenceScanner.Entities.Infrastructure
+namespace DrivingLicenceScanner.Entities.Infrastructure
 {
     public class ObjectBase:INotifyPropertyChanged
     {

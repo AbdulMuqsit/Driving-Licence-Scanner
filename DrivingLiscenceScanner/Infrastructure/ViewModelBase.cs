@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using DrivingLiscenceScanner.Entities.Infrastructure;
+using DrivingLicenceScanner.Entities.Infrastructure;
 
-namespace DrivingLiscenceScanner.Infrastructure
+namespace DrivingLicenceScanner.Infrastructure
 {
     public class ViewModelBase : ObjectBase
     {

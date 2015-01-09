@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLiscenceScanner", "DrivingLiscenceScanner\DrivingLiscenceScanner.csproj", "{C23D4546-2E0E-4B04-AFC4-9784A23201B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLicenceScanner", "DrivingLiscenceScanner\DrivingLicenceScanner.csproj", "{C23D4546-2E0E-4B04-AFC4-9784A23201B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLiscenceScanner.Entities", "DrivingLiscenceScanner.Entities\DrivingLiscenceScanner.Entities.csproj", "{BAB6B486-9520-4FCA-888C-F152A00064A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLicenceScanner.Entities", "DrivingLiscenceScanner.Entities\DrivingLicenceScanner.Entities.csproj", "{BAB6B486-9520-4FCA-888C-F152A00064A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLiscenceScanner.EntityFramework", "DrivingLiscenceScanner.EntityFramework\DrivingLiscenceScanner.EntityFramework.csproj", "{6733489A-2577-4EF8-B057-2952647FAD63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingLicenceScanner.EntityFramework", "DrivingLiscenceScanner.EntityFramework\DrivingLicenceScanner.EntityFramework.csproj", "{6733489A-2577-4EF8-B057-2952647FAD63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

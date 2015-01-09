@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewModel="clr-namespace:DrivingLiscenceScanner.ViewModel"
-                    xmlns:view="clr-namespace:DrivingLiscenceScanner.View">
+                    xmlns:viewModel="clr-namespace:DrivingLicenceScanner.ViewModel"
+                    xmlns:view="clr-namespace:DrivingLicenceScanner.View">
     <Storyboard x:Key="Storyboard"
                 TargetName="View"
                 TargetProperty="Opacity">

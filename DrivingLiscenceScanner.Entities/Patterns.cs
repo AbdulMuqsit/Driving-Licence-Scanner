@@ -1,4 +1,4 @@
-﻿namespace DrivingLiscenceScanner.Entities
+﻿namespace DrivingLicenceScanner.Entities
 {
     public static class Patterns
     {

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using DrivingLiscenceScanner.Entities;
-using DrivingLiscenceScanner.Infrastructure;
+using DrivingLicenceScanner.Entities;
+using DrivingLicenceScanner.Infrastructure;
 
-namespace DrivingLiscenceScanner.ViewModel
+namespace DrivingLicenceScanner.ViewModel
 {
     public class ScanViewModel : ViewModelBase
     {

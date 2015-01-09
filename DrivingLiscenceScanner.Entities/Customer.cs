@@ -1,7 +1,8 @@
 ﻿using System;
-using DrivingLiscenceScanner.Entities.Infrastructure;
+using DrivingLicenceScanner.Entities.Infrastructure;
+using DrivingLiscenceScanner.Entities;
 
-namespace DrivingLiscenceScanner.Entities
+namespace DrivingLicenceScanner.Entities
 {
     public class Customer :ObjectBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DrivingLiscenceScanner.Infrastructure
+namespace DrivingLicenceScanner.Infrastructure
 {
     public class RelayCommand : ICommand
     {
