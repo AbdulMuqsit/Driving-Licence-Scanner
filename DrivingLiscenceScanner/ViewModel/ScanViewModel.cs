@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
+using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {

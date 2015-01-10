@@ -39,11 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckIn.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Infrastructure\ObjectBase.cs" />
     <Compile Include="LegalAge.cs" />
     <Compile Include="Licence.cs" />
-    <Compile Include="Patterns.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

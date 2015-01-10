@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DrivingLicenceScanner.Entities.Infrastructure;
 using DrivingLiscenceScanner.Entities;
 
@@ -25,6 +26,8 @@ namespace DrivingLicenceScanner.Entities
         private string _lastName;
         private string _firstName;
         private int _id;
+        private ICollection<CheckIn> _checkIns;
+
         #endregion
 
         #region Properties
@@ -202,6 +205,17 @@ namespace DrivingLicenceScanner.Entities
                 if (Equals(value, _licence)) return;
                 _licence = value;
                 OnPropertyChanged("Licence");
+            }
+        }
+
+        public virtual ICollection<CheckIn> CheckIns
+        {
+            get { return _checkIns; }
+            set
+            {
+                if (Equals(value, _checkIns)) return;
+                _checkIns = value;
+                OnPropertyChanged("CheckIns");
             }
         }
 
