@@ -35,7 +35,7 @@
         public const string StreetExitToken = "DAI";
 
         public const string CityInitToken = "DAI";
-        public const string CityExitToken = "DAG";
+        public const string CityExitToken = "DAJ";
 
         public const string StateInitToken = "DAJ";
         public const string StateExitToken = "DAK";
