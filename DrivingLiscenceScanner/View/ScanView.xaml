@@ -67,6 +67,7 @@
                  Grid.ColumnSpan="2"
                  AcceptsReturn="True"
                  AcceptsTab="True"
+                 Name="Box"
                  Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Button Content="Scan"
                 Grid.Row="0"

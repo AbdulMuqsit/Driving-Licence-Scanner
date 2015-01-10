@@ -14,5 +14,9 @@ namespace DrivingLicenceScanner.EntityFramework
         public DbSet<CheckIn> CheckIns { get; set; }
         public DbSet<LegalAge> LegalAges { get; set; }
         public DbSet<Licence> Licences { get; set; }
+        public DrivingLicenceScannerDbContext():base("DrivingLicenceScannerDb")
+        {
+            
+        }
     }
 }
