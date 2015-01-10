@@ -62,7 +62,5 @@
 			</entities:Customer.Licence>
 		</entities:Customer>
 	</viewModel:ScanViewModel.Customers>
-	<viewModel:ScanViewModel.ScanCommand>
-		<infrastructure:RelayCommand/>
-	</viewModel:ScanViewModel.ScanCommand>
+	
 </viewModel:ScanViewModel>

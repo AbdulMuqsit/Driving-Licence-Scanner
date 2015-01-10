@@ -1,8 +1,9 @@
-﻿<Window x:Class="DrivingLicenceScanner.MainWindow"
+﻿<windows:CustomWindow x:Class="DrivingLicenceScanner.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:windows="clr-namespace:Amuqsit.CustomControls.Windows;assembly=Amuqsit.CustomControls"
         Title="MainWindow"
         Height="600"
         Width="900">
     <ContentControl Content="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel.CurrentViewModel}"></ContentControl>
-</Window>
+</windows:CustomWindow>
