@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,16 +14,19 @@ namespace DrivingLicenceScanner.View
         public ScanView()
         {
             InitializeComponent();
-            this.Focus();
-            var window = Window.GetWindow(this);
-            Application.Current.MainWindow.KeyDown += ScanView_KeyDown;
-            this.Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
-           
+            if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
+                this.Focus();
+                var window = Window.GetWindow(this);
+                Application.Current.MainWindow.KeyDown += ScanView_KeyDown;
+                this.Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
+            }
+
         }
         void ScanView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            Box.Focusable = true;
-            Keyboard.Focus(Box);
+            //TxtBoxScan.Focusable = true;
+            //Keyboard.Focus(TxtBoxScan);
            
         }
 

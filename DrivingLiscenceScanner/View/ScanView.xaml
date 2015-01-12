@@ -4,122 +4,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="300"
-             d:DesignWidth="300">
-    <Grid>
-        <Grid.Resources>
-            <DataTemplate x:Key="CustomerTemplate">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding FirstName}"
-                                   FontSize="21.333"
-                                   Margin="5" />
-                        <TextBlock Text="{Binding LastName}"
-                                   FontSize="21.333"
-                                   Margin="5" />
-                    </StackPanel>
-                    <TextBlock Text="{Binding City}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding DoB}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding EyeColor}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding HairColor}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding Height}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding MiddleName}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding Sex}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding State}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding Street}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding Weight}"
-                               Margin="5,0,5,5" />
-                    <TextBlock Text="{Binding ZipCode}"
-                               Margin="5,0,5,5" />
+             d:DesignHeight="600"
+             d:DesignWidth="900">
+    <UserControl.Template>
+        <ControlTemplate>
+            <Grid>
+                <Grid.Resources>
+                    <DataTemplate x:Key="CustomerTemplate">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding FirstName}"
+                                           FontSize="21.333"
+                                           Margin="5" />
+                                <TextBlock Text="{Binding LastName}"
+                                           FontSize="21.333"
+                                           Margin="5" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding City}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding DoB}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding EyeColor}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding HairColor}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding Height}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding MiddleName}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding Sex}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding State}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding Street}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding Weight}"
+                                       Margin="5,0,5,5" />
+                            <TextBlock Text="{Binding ZipCode}"
+                                       Margin="5,0,5,5" />
+                        </StackPanel>
+                    </DataTemplate>
+                    <Style TargetType="{x:Type Run}"
+                           x:Key="TextBlockBoldStyle">
+
+                        <Setter Property="FontWeight"
+                                Value="Bold" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.DataContext>
+                    <Binding Path="ScanViewModel"
+                             Source="{StaticResource ViewModelLocator}" />
+                </Grid.DataContext>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="TxtBoxScan"
+                         Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Content="Scan"
+                        Command="{Binding ScanCommand}"
+                        IsDefault="True" />
+                <StackPanel Name="StkPnlMenu"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                    <Button Content="Customers"></Button>
                 </StackPanel>
-            </DataTemplate>
-            <Style TargetType="{x:Type Run}"
-                   x:Key="TextBlockBoldStyle">
-
-                <Setter Property="FontWeight"
-                        Value="Bold" />
-            </Style>
-        </Grid.Resources>
-        <Grid.DataContext>
-            <Binding Path="ScanViewModel"
-                     Source="{StaticResource ViewModelLocator}" />
-        </Grid.DataContext>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="659*" />
-            <ColumnDefinition Width="199*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBox Margin="5"
-                 MinHeight="30"
-                 Grid.ColumnSpan="2"
-                 AcceptsReturn="True"
-                 AcceptsTab="True"
-                 Name="Box"
-                 Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Content="Scan"
-                Grid.Row="0"
-                Grid.Column="2"
-                HorizontalAlignment="Right"
-                Margin="5"
-                Width="100"
-                Command="{Binding ScanCommand}" />
-        <ListBox  Margin="5"
-                  Grid.Row="1"
-                  Grid.Column="0"
-                  ItemsSource="{Binding Customers}"
-                  ItemTemplate="{DynamicResource CustomerTemplate}"
-                  d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}" />
-        <StackPanel Grid.Row="1"
-                    Grid.Column="1"
-                    Grid.ColumnSpan="2">
-            <TextBlock Margin="5"><Run Text="First Name: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.FirstName}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Last Name: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.LastName}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Middle Name: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.MiddleName}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Date of Birth: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.DoB, StringFormat=\{0:d\}}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Sex: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Sex}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Height: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Height}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Weight: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Weight}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Eye Color: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.EyeColor}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Hair Color: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.HairColor}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Street: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Street}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="City: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.City}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="State: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.State}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Zip Code: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.ZipCode}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Driving Licence: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Licence.Number}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Licence Class Code: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Licence.ClassCode}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Licence Issue Date: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Licence.IssueDate, StringFormat=\{0:d\}}" /></TextBlock>
-            <TextBlock Margin="5"><Run Text="Licence Expire Date: "
-                                       Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.Licence.ExpiryDate, StringFormat=\{0:d\}}" /></TextBlock>
-        </StackPanel>
-    </Grid>
-
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Ready to scan..."></TextBlock>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>
 </UserControl>

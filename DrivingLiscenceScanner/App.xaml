@@ -5,6 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/BaseStyles.xaml" />
                 <ResourceDictionary Source="Resources/ViewModelLocator.xaml" />
                 <ResourceDictionary Source="Resources/ViewDataTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
