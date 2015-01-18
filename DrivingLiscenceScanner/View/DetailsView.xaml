@@ -57,14 +57,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
             </Grid.RowDefinitions>
-            <ListBox  Margin="5"
+            <ListBox Grid.Column="1"  Margin="5"
                   Grid.Row="1"
-                  Grid.Column="0"
                   ItemsSource="{Binding Customers}"
                   ItemTemplate="{DynamicResource CustomerTemplate}"
                   d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}" />
         <StackPanel Grid.Row="1"
-                    Grid.Column="1"
+                    Grid.Column="0"
                     Grid.ColumnSpan="2">
             <TextBlock Margin="5"><Run Text="First Name: "
                                        Style="{StaticResource TextBlockBoldStyle}" /><Run Text=" " /><Run Text="{Binding Customer.FirstName}" /></TextBlock>

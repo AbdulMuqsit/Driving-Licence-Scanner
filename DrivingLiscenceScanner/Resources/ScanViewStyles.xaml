@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="TxtBoxScanStyle"
+           TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource TxtBoxBaseStyle}">
+
+    </Style>
+    <Style x:Key="TxtBlkMessageStyle"
+           TargetType="{x:Type TextBlock}"
+           BasedOn="{StaticResource TxtBlkBaseStyle}">
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Top"></Setter>
+        <Setter Property="Foreground" Value="#FFC3C3C3"/>
+        <Setter Property="FontSize" Value="30"></Setter>
+    </Style>
+    <Style x:Key="BtnScanViewStyle"
+           TargetType="ButtonBase"
+           BasedOn="{StaticResource BtnBaseStyle}">
+        <Setter Property="MinWidth"
+                Value="70" />
+        <Setter Property="MaxHeight"
+                Value="30"></Setter>
+    </Style>
+</ResourceDictionary>

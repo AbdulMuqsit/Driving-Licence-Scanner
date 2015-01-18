@@ -27,7 +27,7 @@ namespace DrivingLicenceScanner.View
         {
             //TxtBoxScan.Focusable = true;
             //Keyboard.Focus(TxtBoxScan);
-           
+
         }
 
     }

@@ -7,19 +7,25 @@
              d:DesignHeight="300"
              d:DesignWidth="300">
     <Grid>
-        <StackPanel Grid.Row="1"
-                    Name="StkPnlScannedData"
-                    Grid.Column="0">
-
-            <TextBlock>
-                <Run Text="{Binding Customer.FirstName}" /><Run Text="Name" /><Run />
-            </TextBlock>
-            <TextBlock Text="Age" />
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Details" />
-
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Ellipse Width="100" Height="100"  Fill="{Binding Status.Alc, FallbackValue={StaticResource Button.Disabled.Border}}"/>
+            <Ellipse Width="100" Height="100" Fill="{Binding Customer.Age, FallbackValue=Blue}"/>
+            <Ellipse Width="100" Height="100" Fill="{Binding Customer.Age, FallbackValue=Blue}"/>
         </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+
+            <TextBlock  Style="{DynamicResource TxtBlkNameStyle}">
+                <Run Text="{Binding Customer.FirstName, FallbackValue=Jane}" /><Run Text=" " /><Run Text="{Binding Customer.LastName, FallbackValue=Doe}"/>
+            </TextBlock>
+            <TextBlock  Text="{Binding Customer.Age, FallbackValue=19}" Style="{DynamicResource TxtBlkAgeStyle}" />
+        </StackPanel>
+        <Button Grid.Row="3"  Content="Details" Style="{DynamicResource BtnBaseStyle}" />
 
     </Grid>
 </UserControl>

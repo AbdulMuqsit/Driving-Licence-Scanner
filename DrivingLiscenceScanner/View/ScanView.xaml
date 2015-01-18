@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="600"
-             d:DesignWidth="900">
+             d:DesignHeight="300"
+             d:DesignWidth="300">
     <UserControl.Template>
         <ControlTemplate>
             <Grid>
@@ -46,7 +46,6 @@
                     </DataTemplate>
                     <Style TargetType="{x:Type Run}"
                            x:Key="TextBlockBoldStyle">
-
                         <Setter Property="FontWeight"
                                 Value="Bold" />
                     </Style>
@@ -64,18 +63,20 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBox Name="TxtBoxScan"
-                         Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{DynamicResource TxtBoxScanStyle}" />
                 <Button Grid.Row="0"
-                        Grid.Column="0"
+                        Grid.Column="1"
                         Content="Scan"
                         Command="{Binding ScanCommand}"
-                        IsDefault="True" />
+                        Style="{StaticResource BtnScanViewStyle}" />
                 <StackPanel Name="StkPnlMenu"
                             Grid.Row="1"
-                            Grid.Column="1">
-                    <Button Content="Customers"></Button>
-                </StackPanel>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Ready to scan..."></TextBlock>
+                            Grid.Column="1" />
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Ready to scan..."
+                           Style="{DynamicResource TxtBlkMessageStyle}" />
             </Grid>
         </ControlTemplate>
     </UserControl.Template>
