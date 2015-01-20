@@ -1,6 +1,6 @@
 ﻿namespace DrivingLicenceScanner.ViewModel
 {
-    public class CustomerViewModel
+    public class CustomersViewModel
     {
     }
 }

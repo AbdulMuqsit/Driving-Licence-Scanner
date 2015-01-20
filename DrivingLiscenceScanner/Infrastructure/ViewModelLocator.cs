@@ -6,13 +6,13 @@ namespace DrivingLicenceScanner.Infrastructure
     {
         public MainViewModel MainViewModel { get; set; }
         public ScanViewModel ScanViewModel { get; set; }
-        public CustomerViewModel CustomerViewModel { get; set; }
+        public CustomersViewModel CustomersViewModel { get; set; }
 
         public ViewModelLocator()
         {
             MainViewModel = new MainViewModel();
             ScanViewModel = new ScanViewModel();
-            CustomerViewModel = new CustomerViewModel();
+            CustomersViewModel = new CustomersViewModel();
         }
 
     }

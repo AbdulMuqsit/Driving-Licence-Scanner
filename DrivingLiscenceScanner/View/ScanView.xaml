@@ -8,76 +8,129 @@
              d:DesignWidth="300">
     <UserControl.Template>
         <ControlTemplate>
-            <Grid>
-                <Grid.Resources>
-                    <DataTemplate x:Key="CustomerTemplate">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding FirstName}"
-                                           FontSize="21.333"
-                                           Margin="5" />
-                                <TextBlock Text="{Binding LastName}"
-                                           FontSize="21.333"
-                                           Margin="5" />
-                            </StackPanel>
-                            <TextBlock Text="{Binding City}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding DoB}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding EyeColor}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding HairColor}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding Height}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding MiddleName}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding Sex}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding State}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding Street}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding Weight}"
-                                       Margin="5,0,5,5" />
-                            <TextBlock Text="{Binding ZipCode}"
-                                       Margin="5,0,5,5" />
-                        </StackPanel>
-                    </DataTemplate>
-                    <Style TargetType="{x:Type Run}"
-                           x:Key="TextBlockBoldStyle">
-                        <Setter Property="FontWeight"
-                                Value="Bold" />
-                    </Style>
-                </Grid.Resources>
-                <Grid.DataContext>
-                    <Binding Path="ScanViewModel"
-                             Source="{StaticResource ViewModelLocator}" />
-                </Grid.DataContext>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Name="TxtBoxScan"
-                         Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Style="{DynamicResource TxtBoxScanStyle}" />
-                <Button Grid.Row="0"
-                        Grid.Column="1"
-                        Content="Scan"
-                        Command="{Binding ScanCommand}"
-                        Style="{StaticResource BtnScanViewStyle}" />
-                <StackPanel Name="StkPnlMenu"
-                            Grid.Row="1"
-                            Grid.Column="1" />
-                <TextBlock Grid.Row="1"
-                           Grid.Column="0"
-                           Text="Ready to scan..."
-                           Style="{DynamicResource TxtBlkMessageStyle}" />
-            </Grid>
+            <Grid x:Name="RootElement" DataContext="{Binding ScanViewModel, Source={StaticResource ViewModelLocator}}">
+        		<VisualStateManager.VisualStateGroups>
+        			<VisualStateGroup x:Name="ScanStates">
+        				<VisualStateGroup.Transitions>
+        					<VisualTransition GeneratedDuration="0" To="AfterScan">
+        						<Storyboard>
+        							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+        								<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+        							</DoubleAnimationUsingKeyFrames>
+        							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+        								<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Collapsed}"/>
+        							</ObjectAnimationUsingKeyFrames>
+        							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+        								<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        							</ObjectAnimationUsingKeyFrames>
+        							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+        								<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        								<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+        							</DoubleAnimationUsingKeyFrames>
+        						</Storyboard>
+        					</VisualTransition>
+        				</VisualStateGroup.Transitions>
+        				<VisualState x:Name="BeforeScan"/>
+        				<VisualState x:Name="AfterScan">
+        					<Storyboard>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+        							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+        							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+        							<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+        						</DoubleAnimationUsingKeyFrames>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+        							<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Collapsed}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+        							<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+        						</DoubleAnimationUsingKeyFrames>
+        					</Storyboard>
+        				</VisualState>
+        			</VisualStateGroup>
+        			<VisualStateGroup x:Name="ValidationStates">
+        				<VisualState x:Name="Valid"/>
+        				<VisualState x:Name="InvalidFocused">
+        					<Storyboard>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+        							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+        							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        					</Storyboard>
+        				</VisualState>
+        				<VisualState x:Name="InvalidUnfocused">
+        					<Storyboard>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+        							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+        							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+        						</ObjectAnimationUsingKeyFrames>
+        					</Storyboard>
+        				</VisualState>
+        			</VisualStateGroup>
+        		</VisualStateManager.VisualStateGroups>
+              
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="Auto" />
+        			<RowDefinition />
+        		</Grid.RowDefinitions>
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="*"/>
+        			<ColumnDefinition Width="Auto"/>
+        		</Grid.ColumnDefinitions>
+        		<TextBox x:Name="TxtBoxScan"
+        			Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        			Style="{DynamicResource TxtBoxScanStyle}" AcceptsReturn="True" AcceptsTab="True" />
+        		<Button Grid.Row="0"
+        			Grid.Column="1"
+        			Content="Scan"
+        			Command="{Binding ScanCommand}"
+        			Style="{StaticResource BtnScanViewStyle}" />
+        		<StackPanel x:Name="StkPnlMenu"
+        			Grid.Row="1"
+        			Grid.Column="1" />
+        		<TextBlock x:Name="textBlock" Grid.Row="1"
+        			Grid.Column="0"
+        			Text="Ready to scan..."
+        			Style="{DynamicResource TxtBlkMessageStyle}" />
+        		<TextBlock x:Name="textBlock1" Grid.Row="1"
+        			Grid.Column="0"
+        			Text="{Binding ErrorMessage, FallbackValue=Error}"
+        			Style="{DynamicResource TxtBlkMessageStyle}" Foreground="#FF6E0000" Visibility="Collapsed" />
+        		<Grid x:Name="grid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Collapsed" Opacity="0">
+        			<Grid.RowDefinitions>
+        				<RowDefinition Height="Auto" />
+        				<RowDefinition Height="Auto" />
+        				<RowDefinition Height="Auto" />
+        				<RowDefinition Height="Auto" />
+        			</Grid.RowDefinitions>
+        			<StackPanel Orientation="Horizontal"
+        				Grid.Row="1">
+        				<Ellipse Width="100"
+        					Height="100"
+        					Fill="{Binding Status.Alc, FallbackValue={StaticResource Button.Disabled.Border}}" />
+        				<Ellipse Width="100"
+        					Height="100"
+        					Fill="{Binding Customer.Age, FallbackValue=Blue}" />
+        				<Ellipse Width="100"
+        					Height="100"
+        					Fill="{Binding Customer.Age, FallbackValue=Blue}" />
+        			</StackPanel>
+        			<StackPanel Grid.Row="2"
+        				Orientation="Horizontal">
+        				<TextBlock  Style="{DynamicResource TxtBlkNameStyle}"><Run Text="{Binding Customer.FirstName, FallbackValue=Jane}" /><Run Text=" " /><Run Text="{Binding Customer.LastName, FallbackValue=Doe}" /></TextBlock>
+        				<TextBlock  Text="{Binding Customer.Age, FallbackValue=19}"
+        					Style="{DynamicResource TxtBlkAgeStyle}" />
+        			</StackPanel>
+        			<Button Grid.Row="3"
+        				Content="Details"
+        				Style="{DynamicResource BtnBaseStyle}" />
+        		</Grid>
+        	</Grid>
         </ControlTemplate>
     </UserControl.Template>
 </UserControl>

@@ -11,6 +11,8 @@ namespace DrivingLicenceScanner.View
     /// </summary>
     public partial class ScanView : UserControl
     {
+        private FrameworkElement _root;
+
         public ScanView()
         {
             InitializeComponent();
@@ -21,14 +23,23 @@ namespace DrivingLicenceScanner.View
                 Application.Current.MainWindow.KeyDown += ScanView_KeyDown;
                 this.Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
             }
+        }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            _root = (FrameworkElement)GetTemplateChild("RootElement");
+            TxtBoxScan = (TextBox)GetTemplateChild("TxtBoxScan");
+            VisualStateManager.GoToElementState(_root, "BeforeScan", false);
 
         }
+
         void ScanView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            //TxtBoxScan.Focusable = true;
-            //Keyboard.Focus(TxtBoxScan);
-
+            TxtBoxScan.Focusable = true;
+            Keyboard.Focus(TxtBoxScan);
         }
 
+        public TextBox TxtBoxScan { get; set; }
     }
 }

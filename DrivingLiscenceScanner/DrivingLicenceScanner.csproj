@@ -72,17 +72,15 @@
     <Compile Include="Infrastructure\ViewModelBase.cs" />
     <Compile Include="Infrastructure\ViewModelLocator.cs" />
     <Compile Include="Model\Patterns.cs" />
-    <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\CustomersViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ScannedViewModel.cs" />
     <Compile Include="ViewModel\ScanViewModel.cs" />
     <Compile Include="View\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailsView.xaml.cs">
       <DependentUpon>DetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ScannedView.xaml.cs">
-      <DependentUpon>ScannedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ScanView.xaml.cs">
       <DependentUpon>ScanView.xaml</DependentUpon>
@@ -132,10 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ScannedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

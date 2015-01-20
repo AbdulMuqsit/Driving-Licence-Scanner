@@ -24,8 +24,8 @@
             </EventTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
-        <view:CustomerView x:Name="View"/>
+    <DataTemplate DataType="{x:Type viewModel:CustomersViewModel}">
+        <view:CustomersView x:Name="View"/>
         <DataTemplate.Triggers>
             <EventTrigger RoutedEvent="UserControl.Loaded"
                           SourceName="View">
@@ -36,4 +36,5 @@
         </DataTemplate.Triggers>
 
     </DataTemplate>
+    
 </ResourceDictionary>
