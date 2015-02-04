@@ -10,7 +10,7 @@ namespace DrivingLicenceScanner.Entities
     public class CheckIn : ObjectBase
     {
         private int _id;
-        private int _time;
+        private DateTime _time;
         private Customer _customer;
 
         public int Id
@@ -24,7 +24,7 @@ namespace DrivingLicenceScanner.Entities
             }
         }
 
-        public int Time
+        public DateTime Time
         {
             get { return _time; }
             set
