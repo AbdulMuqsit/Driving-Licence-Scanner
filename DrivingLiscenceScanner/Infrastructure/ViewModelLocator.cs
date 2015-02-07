@@ -7,6 +7,8 @@ namespace DrivingLicenceScanner.Infrastructure
         public MainViewModel MainViewModel { get; set; }
         public ScanViewModel ScanViewModel { get; set; }
         public CustomersViewModel CustomersViewModel { get; set; }
+        public DetailsViewModel DetailsViewModel { get; set; }
+        public TransactionsViewModel TransactionsViewModel { get; set; }
 
         public ViewModelLocator()
         {

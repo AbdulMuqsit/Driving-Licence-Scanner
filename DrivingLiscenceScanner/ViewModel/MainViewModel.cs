@@ -6,20 +6,20 @@ namespace DrivingLicenceScanner.ViewModel
     {
         #region Fields
 
-        private ViewModelBase _currentViewModel;
+        private ViewModelBase _currentChildViewModel;
 
         #endregion
 
         #region Properties
 
-        public ViewModelBase CurrentViewModel
+        public ViewModelBase CurrentChildViewModel
         {
-            get { return _currentViewModel; }
+            get { return _currentChildViewModel; }
             set
             {
-                if (Equals(value, _currentViewModel)) return;
-                _currentViewModel = value;
-                OnPropertyChanged("CurrentViewModel");
+                if (Equals(value, _currentChildViewModel)) return;
+                _currentChildViewModel = value;
+                OnPropertyChanged("CurrentChildViewModel");
             }
         }
 
@@ -29,7 +29,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         public MainViewModel()
         {
-            CurrentViewModel = new ScanViewModel();
+            CurrentChildViewModel = new ScanViewModel();
         }
 
         #endregion

@@ -13,7 +13,7 @@
 
         static void Navigator_OnSwitchView(ViewModelBase child, ViewModelBase parent)
         {
-            var propertyInfo = parent.GetType().GetProperty("CurrentViewModel");
+            var propertyInfo = parent.GetType().GetProperty("CurrentChildViewModel");
             if (propertyInfo != null) propertyInfo.SetValue(parent, child, null);
         }
 

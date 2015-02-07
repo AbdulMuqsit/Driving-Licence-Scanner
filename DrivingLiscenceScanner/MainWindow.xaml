@@ -15,6 +15,6 @@
                    Text="{Binding Path=Title, ElementName=Window, FallbackValue=Title}"
                    Style="{DynamicResource TxtBlkTitleStyle}"></TextBlock>
         <ContentControl Grid.Row="1"
-                        Content="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel.CurrentViewModel}"></ContentControl>
+                        Content="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel.CurrentChildViewModel}"></ContentControl>
     </Grid>
 </windows:CustomWindow>

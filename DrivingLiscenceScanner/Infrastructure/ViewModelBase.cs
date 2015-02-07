@@ -14,10 +14,7 @@ namespace DrivingLicenceScanner.Infrastructure
                        (_viewModelLocator =
                            (ViewModelLocator) Application.Current.Resources.FindName("ViewModelLocator"));
             }
-            set
-            {
-                _viewModelLocator = value;
-            }
+          
         }
     }
 }
