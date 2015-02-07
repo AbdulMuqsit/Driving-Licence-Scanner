@@ -7,14 +7,6 @@
                       Width="900"
                       Name="Window">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <TextBlock IsHitTestVisible="False"
-                   Text="{Binding Path=Title, ElementName=Window, FallbackValue=Title}"
-                   Style="{DynamicResource TxtBlkTitleStyle}"></TextBlock>
-        <ContentControl Grid.Row="1"
-                        Content="{Binding Source={StaticResource ViewModelLocator}, Path=MainViewModel.CurrentChildViewModel}"></ContentControl>
+       
     </Grid>
 </windows:CustomWindow>

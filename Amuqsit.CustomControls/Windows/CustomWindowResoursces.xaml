@@ -72,28 +72,9 @@
                             <SolidColorBrush Color="#FFB9B9B9" Opacity="0.4"/>
                         </Border.BorderBrush>
                         <Grid >
-                        	<Grid.Background>
-                        		<RadialGradientBrush GradientOrigin="1.206,1.101" RadiusY="0.498" RadiusX="0.498" Center="0.488,0.617">
-                        			<GradientStop Offset="0"/>
-                        			<GradientStop Color="#1E00E7FF" Offset="0.732"/>
-                        			<GradientStop Color="#4C00E6FF" Offset="0.134"/>
-                        			<GradientStop Color="#0AEEFDFF" Offset="0.358"/>
-                        			<GradientStop Color="#0DE9FCFF" Offset="0.754"/>
-                        			<GradientStop Color="#0BECFDFF" Offset="1"/>
-                        			<GradientStop Color="#4889F3FF" Offset="0.26"/>
-                        			<GradientStop Color="#4C3EECFF" Offset="0.522"/>
-                        			<GradientStop Color="#4C20E9FF" Offset="0.66"/>
-                        			<GradientStop Color="#4C2EEAFF" Offset="0.592"/>
-                        			<GradientStop Color="#26A0F5FF" Offset="0.43"/>
-                        			<GradientStop Color="#3773F0FF" Offset="0.472"/>
-                        			<GradientStop Color="#4A30EAFF" Offset="0.179"/>
-                        			<GradientStop Color="#267FF2FF" Offset="0.067"/>
-                        		</RadialGradientBrush>
-                        	</Grid.Background>
-                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Height="31" Fill="#FF00B8CB" >
-                                <Rectangle.Effect>
-                                    <ee:EmbossedEffect Color="#FF00B8CB" Height="0.00135" Amount="5.25"/>
-                                </Rectangle.Effect>
+                        	
+                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Fill="White" Height="31" >
+                               
                             </Rectangle>
                             <AdornerDecorator >
                             	<ContentPresenter  />
