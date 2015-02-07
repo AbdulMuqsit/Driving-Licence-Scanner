@@ -1,12 +1,18 @@
-﻿<windows:CustomWindow x:Class="DrivingLicenceScanner.MainWindow"
+﻿<windows:CustomWindow
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:windows="clr-namespace:Amuqsit.CustomControls.Windows;assembly=Amuqsit.CustomControls"
+                      xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="DrivingLicenceScanner.MainWindow"
                       Title="Driving Licence Scanner"
                       Height="600"
                       Width="900"
-                      Name="Window">
-    <Grid>
+                      x:Name="Window">
+	<Grid>
+		<Rectangle Fill="#FF0F0909" HorizontalAlignment="Left" Height="568.136" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="60">
+			<Rectangle.Effect>
+				<ee:EmbossedEffect Color="Black" Amount="3.57" Height="0.00072"/>
+			</Rectangle.Effect>
+		</Rectangle>
        
-    </Grid>
+	</Grid>
 </windows:CustomWindow>
