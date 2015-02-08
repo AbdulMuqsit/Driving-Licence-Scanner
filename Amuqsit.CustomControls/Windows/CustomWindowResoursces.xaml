@@ -71,9 +71,9 @@
                         <Border.BorderBrush>
                             <SolidColorBrush Color="#FFB9B9B9" Opacity="0.4"/>
                         </Border.BorderBrush>
-                        <Grid >
+                        <Grid Background="#E8E8E8">
                         	
-                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Fill="White" Height="50" >
+                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Fill="#595959" Height="50" >
                                
                             </Rectangle>
                             <AdornerDecorator >

@@ -84,7 +84,7 @@
         		<TextBlock x:Name="textBlock1" Grid.Row="1"
         			Grid.Column="0"
         			Text="{Binding ErrorMessage, FallbackValue=Error}"
-        			Style="{DynamicResource TxtBlkMessageStyle}" Foreground="#FF6E0000" Visibility="Collapsed" />
+        			Style="{DynamicResource TxtBlkMessageStyle}"  Visibility="Collapsed" />
         		<Grid x:Name="grid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Visibility="Collapsed" Opacity="0">
         			<Grid.RowDefinitions>
         				<RowDefinition Height="Auto" />

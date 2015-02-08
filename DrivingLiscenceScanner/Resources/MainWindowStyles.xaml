@@ -37,7 +37,7 @@
         <Setter Property="Background"
                 Value="#01FFFFFF"></Setter>
         <Setter Property="Foreground"
-                Value="LightSteelBlue">
+                Value="LightGray">
 
         </Setter>
         <Setter Property="BorderThickness"
