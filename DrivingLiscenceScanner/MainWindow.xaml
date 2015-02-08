@@ -19,7 +19,8 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-		<Rectangle IsHitTestVisible="False" Stroke="Black">
+		<Path Data="M0.66700002,49.499878 L831.62499,49.499878" Height="1" Margin="5,0" Stretch="Fill" Stroke="#FFBBBBBB" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Column="1" Fill="#FFD1D1D1"/>
+		<Rectangle IsHitTestVisible="False" Stroke="Black" Margin="-0.498,0,0,0">
 			<Rectangle.Fill>
 				<LinearGradientBrush EndPoint="1,0.5" StartPoint="0.001,0.5">
 					<GradientStop Color="#FF1D1D1D" Offset="0.033"/>
@@ -28,7 +29,7 @@
 				</LinearGradientBrush>
 			</Rectangle.Fill>
 		</Rectangle>
-       
+        
 		<Rectangle HorizontalAlignment="Left" Margin="-0.5,-0.083,0,-0.625" Stroke="Black" Width="60" Grid.Row="1"
 		           Grid.Column="0">
 			<Rectangle.Fill>
@@ -39,13 +40,10 @@
 				</LinearGradientBrush>
 			</Rectangle.Fill>
 		</Rectangle>
-		<StackPanel Orientation="Vertical" Grid.Row="1">
+		<StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" >
 			<RadioButton BorderBrush="Black"   Style="{DynamicResource BtnMainMenuBarStyle}" Height="60" Command="{Binding SwitchToScanViewCommand, Mode=OneWay}">
 				
 				<Canvas Height="33.333" Width="32" VerticalAlignment="Center" HorizontalAlignment="Center">
-				    <Canvas.Resources>
-                      
-				    </Canvas.Resources>
 				    <Path Data="M8.272,3.582C7.02,3.041 4.351,3.062 2.588,3.191 2.044,3.231 1.439,3.135 1.092,3.517 0.766,4.174 1.423,4.801 1.84,5.275 2.233,5.722 2.73,6.354 3.411,6.578 4.223,6.844 5.473,6.882 6.551,6.969 7.69,7.06 8.949,7.128 9.992,6.904 10.085,5.615 9.327,4.038 8.272,3.582 M13.806,0L19.34,0C20.747,0.076 22.63,0.173 24.425,0.391 25.827,0.561 27.872,0.756 28.464,1.498 29.156,2.365 29.143,4.136 28.539,5.145 28.042,5.976 26.68,6.437 26.445,7.164 26.197,7.931 26.538,8.854 26.819,9.704 28.169,13.79 29.48,17.477 30.708,21.492 31.212,23.143 31.851,24.808 31.979,26.441 32.223,29.554 30.337,32.251 27.94,33.084 25.438,33.953 20.688,32.424 20.761,30.414 20.784,29.787 21.58,29.174 22.033,28.59 22.485,28.006 22.991,27.229 23.079,26.506 23.268,24.956 22.069,24.154 21.359,22.925 20.148,20.826 19.16,18.05 17.844,16.021 17.495,15.783 16.869,15.785 16.498,15.565 16.21,15.446 16.551,14.781 16.125,14.784 15.608,14.744 15.506,14.537 15.376,14.263 14.774,12.992 15.415,11.559 14.778,10.355 14.128,9.127 13.199,8.567 11.562,8.141 10.256,8.749 8.298,8.52 6.252,8.206 5.09,8.027 3.702,7.791 2.962,7.49 1.571,6.923 -0.315,5.227 0.045,3.582 0.242,2.682 1.398,2.212 2.439,1.824 5.718,0.597 9.72,0.284 13.806,0" Height="33.333" Width="32" Style="{DynamicResource PthMainMenuBarButtonsStyle}" />
 					<Path Data="M13.398,0.376C13.276,0.683 12.733,0.569 12.501,0.571 8.577,0.61 4.425,0.543 0.011,0.507 0.056,0.371 -0.081,0.079 0.085,0.05L12.127,0.05C12.474,0.05,13.387,-0.191,13.398,0.376" Height="0.591" Canvas.Left="1.23" Canvas.Top="19.617" Width="13.398" Style="{DynamicResource PthMainMenuBarButtonsStyle}"/>
 					<Path Data="M0.078,0.044C3.618,0.123 8.328,0.187 12.044,0.044 12.387,0.031 13.377,-0.143 13.391,0.305 13.387,0.756 12.45,0.565 11.97,0.565 8.171,0.565 3.749,0.619 0.003,0.5L0.003,0.24C-0.003,0.147,-0.009,0.056,0.078,0.044" Height="0.605" Canvas.Left="1.238" Canvas.Top="21.382" Width="13.391" Style="{DynamicResource PthMainMenuBarButtonsStyle}"/>
@@ -92,6 +90,6 @@
 			</RadioButton>
        
 		</StackPanel>
-       
+        <ContentControl Content="{Binding CurrentChildViewModel}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"/>
 	</Grid>
 </windows:CustomWindow>

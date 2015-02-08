@@ -13,7 +13,7 @@
                 Value="Left" />
         <Setter Property="VerticalAlignment"
                 Value="Top"></Setter>
-        <Setter Property="Foreground" Value="#FFC3C3C3"/>
+        <Setter Property="Foreground" Value="Red"/>
         <Setter Property="FontSize" Value="30"></Setter>
     </Style>
     <Style x:Key="BtnScanViewStyle"

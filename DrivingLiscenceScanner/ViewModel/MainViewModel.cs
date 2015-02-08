@@ -48,7 +48,7 @@ namespace DrivingLicenceScanner.ViewModel
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
             SwitchToScanViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel)));
             SwitchToSettingsViewCommand =
                 new RelayCommand(
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.SettingsViewModel)));

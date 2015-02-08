@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -30,8 +31,8 @@ namespace DrivingLicenceScanner.View
             base.OnApplyTemplate();
             _root = (FrameworkElement)GetTemplateChild("RootElement");
             TxtBoxScan = (TextBox)GetTemplateChild("TxtBoxScan");
-            VisualStateManager.GoToElementState(_root, "BeforeScan", false);
-
+           var went = VisualStateManager.GoToElementState(_root, "BeforeScan", false);
+            Debug.Write(went);
         }
 
         void ScanView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

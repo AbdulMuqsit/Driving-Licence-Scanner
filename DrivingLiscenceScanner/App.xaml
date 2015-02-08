@@ -7,10 +7,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/ViewModelLocator.xaml" />
                 <ResourceDictionary Source="Resources/BaseStyles.xaml" />
+                <ResourceDictionary Source="Resources/TitleBarStyles.xaml" />
                 <ResourceDictionary Source="Resources/ViewDataTemplates.xaml" />
-                <ResourceDictionary Source="Resources/ScanViewStyles.xaml"/>
-                <ResourceDictionary Source="Resources/MainWindowStyles.xaml"/>
-                <ResourceDictionary Source="Resources/ScannedViewStyles.xaml"/>
+                <ResourceDictionary Source="Resources/ScanViewStyles.xaml" />
+                <ResourceDictionary Source="Resources/MainWindowStyles.xaml" />
+                <ResourceDictionary Source="Resources/ScannedViewStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
