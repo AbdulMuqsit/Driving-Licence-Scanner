@@ -1,4 +1,6 @@
-﻿using DrivingLicenceScanner.ViewModel;
+﻿using System.ComponentModel;
+using System.Windows;
+using DrivingLicenceScanner.ViewModel;
 
 namespace DrivingLicenceScanner.Infrastructure
 {
@@ -8,13 +10,20 @@ namespace DrivingLicenceScanner.Infrastructure
         public ScanViewModel ScanViewModel { get; set; }
         public CustomersViewModel CustomersViewModel { get; set; }
         public DetailsViewModel DetailsViewModel { get; set; }
-        public TransactionsViewModel TransactionsViewModel { get; set; }
+        public CheckInsViewModel CheckInsViewMode { get; set; }
+        public SettingsViewModel SettingsViewModel { get; set; }
 
         public ViewModelLocator()
         {
-            MainViewModel = new MainViewModel();
-            ScanViewModel = new ScanViewModel();
-            CustomersViewModel = new CustomersViewModel();
+            if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+            {
+                MainViewModel = new MainViewModel();
+                ScanViewModel = new ScanViewModel();
+                CustomersViewModel = new CustomersViewModel(); 
+                DetailsViewModel = new DetailsViewModel();
+                CheckInsViewMode = new CheckInsViewModel();
+                SettingsViewModel= new SettingsViewModel();
+            }
         }
 
     }

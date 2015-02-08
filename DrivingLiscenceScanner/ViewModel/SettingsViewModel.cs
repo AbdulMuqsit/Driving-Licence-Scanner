@@ -2,7 +2,7 @@
 
 namespace DrivingLicenceScanner.ViewModel
 {
-    public class TransactionsViewModel: ViewModelBase
+    public class SettingsViewModel:ViewModelBase
     {
     }
 }

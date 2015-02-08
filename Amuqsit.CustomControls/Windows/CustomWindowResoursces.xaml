@@ -73,7 +73,7 @@
                         </Border.BorderBrush>
                         <Grid >
                         	
-                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Fill="White" Height="31" >
+                            <Rectangle x:Name="tittleBar" VerticalAlignment="Top"  HorizontalAlignment="Stretch" Fill="White" Height="50" >
                                
                             </Rectangle>
                             <AdornerDecorator >

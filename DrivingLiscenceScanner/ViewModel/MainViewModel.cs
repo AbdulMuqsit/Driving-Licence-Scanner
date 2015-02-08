@@ -1,4 +1,6 @@
-﻿using DrivingLicenceScanner.Infrastructure;
+﻿using System.Threading.Tasks;
+using DrivingLicenceScanner.Infrastructure;
+using Microsoft.Expression.Interactivity.Core;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -12,6 +14,12 @@ namespace DrivingLicenceScanner.ViewModel
 
         #region Properties
 
+        public ActionCommand SwitchToScanViewCommand { get; private set; }
+        public RelayCommand SwitchToCustomersViewCommand { get; private set; }
+        public RelayCommand SwitchToDetailsViewCommand { get; private set; }
+        public RelayCommand SwitchToCheckInsViewCommand { get; private set; }
+        public RelayCommand SwitchToSettingsViewCommand { get; private set; }
+
         public ViewModelBase CurrentChildViewModel
         {
             get { return _currentChildViewModel; }
@@ -19,6 +27,7 @@ namespace DrivingLicenceScanner.ViewModel
             {
                 if (Equals(value, _currentChildViewModel)) return;
                 _currentChildViewModel = value;
+
                 OnPropertyChanged("CurrentChildViewModel");
             }
         }
@@ -30,9 +39,28 @@ namespace DrivingLicenceScanner.ViewModel
         public MainViewModel()
         {
             CurrentChildViewModel = new ScanViewModel();
+            InitializeCommands();
+        }
+
+        private void InitializeCommands()
+        {
+            SwitchToCheckInsViewCommand =
+                new RelayCommand(
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
+            SwitchToScanViewCommand =
+                new ActionCommand(
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
+            SwitchToSettingsViewCommand =
+                new RelayCommand(
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.SettingsViewModel)));
+            SwitchToCustomersViewCommand =
+                new RelayCommand(
+                    async () => { await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel)); });
+            SwitchToDetailsViewCommand =
+                new RelayCommand(
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)));
         }
 
         #endregion
-
     }
 }

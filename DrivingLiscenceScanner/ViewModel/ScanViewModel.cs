@@ -77,7 +77,6 @@ namespace DrivingLicenceScanner.ViewModel
         {
             ScanCommand = new RelayCommand(FillCustomer, () => !String.IsNullOrWhiteSpace(ScanText));
             SwitchToDetailsCommand= new RelayCommand(()=>Navigator.SwitchView(ViewModelLocator.DetailsViewModel));
-            SwitchToTransactionsCommand = new RelayCommand(()=>Navigator.SwitchView(ViewModelLocator.TransactionsViewModel));
         }
 
         private void NavigateView()

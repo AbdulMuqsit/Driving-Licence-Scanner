@@ -12,7 +12,7 @@ namespace DrivingLicenceScanner.Infrastructure
             get {
                 return _viewModelLocator ??
                        (_viewModelLocator =
-                           (ViewModelLocator) Application.Current.Resources.FindName("ViewModelLocator"));
+                           (ViewModelLocator) Application.Current.Resources["ViewModelLocator"]);
             }
           
         }
