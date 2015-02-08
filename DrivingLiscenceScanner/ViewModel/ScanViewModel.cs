@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Text.RegularExpressions;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
@@ -15,6 +16,7 @@ namespace DrivingLicenceScanner.ViewModel
         private string _scanText;
         private Customer _customer;
         private string _errorMessage;
+        private ObservableCollection<CustomerLegalStatus> _customerLegalStatuses;
 
         #endregion
 
@@ -58,6 +60,20 @@ namespace DrivingLicenceScanner.ViewModel
             }
         }
 
+        #region Collections
+
+        public ObservableCollection<CustomerLegalStatus> CustomerLegalStatuses
+        {
+            get { return _customerLegalStatuses; }
+            set
+            {
+                if (Equals(value, _customerLegalStatuses)) return;
+                _customerLegalStatuses = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
         #endregion
 
         #region Methods
@@ -71,12 +87,12 @@ namespace DrivingLicenceScanner.ViewModel
         private void InitializeObjects()
         {
             _customer = new Customer { Licence = new Licence() };
+            CustomerLegalStatuses = new ObservableCollection<CustomerLegalStatus>();
         }
 
         private void InitializeCommands()
         {
-            ScanCommand = new RelayCommand(FillCustomer, () => !String.IsNullOrWhiteSpace(ScanText));
-            SwitchToDetailsCommand= new RelayCommand(()=>Navigator.SwitchView(ViewModelLocator.DetailsViewModel));
+            ScanCommand = new RelayCommand(Scan, () => !String.IsNullOrWhiteSpace(ScanText));
         }
 
         private void NavigateView()
@@ -85,7 +101,7 @@ namespace DrivingLicenceScanner.ViewModel
         }
 
         #region HelperMethods
-        private void FillCustomer()
+        private async void Scan()
         {
 
 
@@ -151,6 +167,18 @@ namespace DrivingLicenceScanner.ViewModel
 
             }
 
+            //checking legal status of customer
+            var legalAges = await Context.LegalAges.ToListAsync();
+            DateTime today = DateTime.Today;
+            int cusotmerAge = today.Year - Customer.DoB.Year;
+            if (Customer.DoB > today.AddYears(-cusotmerAge)) cusotmerAge--;
+            var legal= new ObservableCollection<CustomerLegalStatus>();
+            foreach (var legality in legalAges)
+            {
+                
+                legal.Add(new CustomerLegalStatus() { Allowed = cusotmerAge >= legality.Age, Name = legality.Name });
+            }
+            CustomerLegalStatuses = legal;
         }
         #endregion
         #endregion

@@ -28,17 +28,20 @@ namespace DrivingLicenceScanner.View
 
         public override void OnApplyTemplate()
         {
-            base.OnApplyTemplate();
-            _root = (FrameworkElement)GetTemplateChild("RootElement");
-            TxtBoxScan = (TextBox)GetTemplateChild("TxtBoxScan");
-           var went = VisualStateManager.GoToElementState(_root, "BeforeScan", false);
-            Debug.Write(went);
+            // base.OnApplyTemplate();
+            // _root = (FrameworkElement)GetTemplateChild("RootElement");
+            // TxtBoxScan = (TextBox)GetTemplateChild("TxtBoxScan");
+            //var went = VisualStateManager.GoToElementState(_root, "BeforeScan", false);
+            // Debug.Write(went);
         }
 
         void ScanView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            TxtBoxScan.Focusable = true;
-            Keyboard.Focus(TxtBoxScan);
+            if (TxtBoxScan != null)
+            {
+                TxtBoxScan.Focusable = true;
+                Keyboard.Focus(TxtBoxScan);
+            }
         }
 
         public TextBox TxtBoxScan { get; set; }

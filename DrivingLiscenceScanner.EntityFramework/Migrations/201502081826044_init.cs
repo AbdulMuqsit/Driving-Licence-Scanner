@@ -12,7 +12,7 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Time = c.Int(nullable: false),
+                        Time = c.DateTime(nullable: false),
                         Customer_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -24,19 +24,19 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        MiddleName = c.String(),
+                        FirstName = c.String(maxLength: 4000),
+                        LastName = c.String(maxLength: 4000),
+                        MiddleName = c.String(maxLength: 4000),
                         DoB = c.DateTime(nullable: false),
-                        Sex = c.String(),
+                        Sex = c.String(maxLength: 4000),
                         Height = c.Int(nullable: false),
                         Weight = c.Int(nullable: false),
-                        HairColor = c.String(),
-                        EyeColor = c.String(),
-                        Street = c.String(),
-                        City = c.String(),
-                        State = c.String(),
-                        ZipCode = c.String(),
+                        HairColor = c.String(maxLength: 4000),
+                        EyeColor = c.String(maxLength: 4000),
+                        Street = c.String(maxLength: 4000),
+                        City = c.String(maxLength: 4000),
+                        State = c.String(maxLength: 4000),
+                        ZipCode = c.String(maxLength: 4000),
                         LicenceId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -50,8 +50,8 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         IssueDate = c.DateTime(nullable: false),
                         ExpiryDate = c.DateTime(nullable: false),
-                        Number = c.String(),
-                        ClassCode = c.String(),
+                        Number = c.String(maxLength: 4000),
+                        ClassCode = c.String(maxLength: 4000),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -60,7 +60,7 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.Int(nullable: false),
+                        Name = c.String(maxLength: 4000),
                         Age = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);

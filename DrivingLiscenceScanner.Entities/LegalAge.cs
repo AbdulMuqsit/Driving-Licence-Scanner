@@ -9,9 +9,41 @@ namespace DrivingLicenceScanner.Entities
 {
     public class LegalAge : ObjectBase
     {
-        public int Id { get; set; }
-        public int Name { get; set; }
-        public int Age { get; set; }
-        
+        private int _id;
+        private string _name;
+        private int _age;
+
+        public int Id
+        {
+            get { return _id; }
+            set
+            {
+                if (value == _id) return;
+                _id = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value == _name) return;
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int Age
+        {
+            get { return _age; }
+            set
+            {
+                if (value == _age) return;
+                _age = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }

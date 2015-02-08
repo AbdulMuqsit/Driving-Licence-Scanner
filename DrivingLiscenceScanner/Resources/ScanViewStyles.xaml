@@ -24,4 +24,13 @@
         <Setter Property="MaxHeight"
                 Value="30"></Setter>
     </Style>
+    <ItemsPanelTemplate x:Key="ItemsPanelTemplate">
+    	<VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+    </ItemsPanelTemplate>
+    <DataTemplate x:Key="LstBoxAgeLimitsTemplate">
+    	<Grid>
+    		<Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="3.333,2.5,0,0" VerticalAlignment="Top" Width="100"/>
+    		<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+    	</Grid>
+    </DataTemplate>
 </ResourceDictionary>

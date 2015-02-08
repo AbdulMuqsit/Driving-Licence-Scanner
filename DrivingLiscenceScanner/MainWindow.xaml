@@ -19,7 +19,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-		<Canvas x:Name="Layer_1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="44.5" Width="49.5">
+		<Canvas x:Name="Logo" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False" Height="44.5" Width="49.5">
         	<Path Data="M0.889,0C2.82,0.656 1.901,3.407 1.923,4.828 2.112,16.637 2.34,31.991 1.234,43.103 -0.697,42.447 0.222,39.696 0.199,38.276 0.01,26.467 -0.217,11.112 0.889,0" Fill="#FF231F20" Canvas.Left="0" Canvas.Top="0.126"/>
         	<Path Data="M0.889,0C3.352,1.348 2.268,6.437 2.268,10 2.268,19.124 2.615,29.085 2.268,38.62 2.22,39.949 3.078,42.486 1.234,43.103 -0.697,42.447 0.222,39.696 0.2,38.276 0.011,26.467 -0.216,11.112 0.889,0" Fill="#FF231F20" Canvas.Left="2.758" Canvas.Top="0.126"/>
         	<Path Data="M4.164,0.471C3.936,14.61,4.622,29.664,3.819,43.229L0.026,43.229 0.026,1.161C-0.353,-0.741,3.471,0.205,4.164,0.471" Fill="#FF231F20" Canvas.Left="9.138" Canvas.Top="0"/>

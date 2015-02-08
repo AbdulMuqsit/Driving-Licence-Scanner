@@ -123,19 +123,17 @@
         <Setter Property="FocusVisualStyle"
                 Value="{StaticResource FocusVisual}" />
         <Setter Property="Background">
-            <Setter.Value>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FF00B8CB"
-                                  Offset="1" />
-                    <GradientStop Color="#FF0ACEE2"
-                                  Offset="0" />
-                </RadialGradientBrush>
-            </Setter.Value>
+        	<Setter.Value>
+        		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        			<GradientStop Color="#FF4D4D4D" Offset="0"/>
+        			<GradientStop Color="#FF4F4F4F" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Setter.Value>
         </Setter>
         <Setter Property="BorderBrush"
                 Value="{x:Null}" />
         <Setter Property="Foreground"
-                Value="White" />
+                Value="#FFB8B8B8" />
         <Setter Property="HorizontalContentAlignment"
                 Value="Center" />
         <Setter Property="VerticalContentAlignment"
@@ -199,6 +197,7 @@
         <Setter Property="Margin"
                 Value="5" />
         <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
     </Style>
     <Style TargetType="{x:Type TextBlock}"
            x:Key="TxtBlkBaseStyle">

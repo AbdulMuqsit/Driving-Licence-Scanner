@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using DrivingLicenceScanner.Entities.Infrastructure;
+using DrivingLicenceScanner.EntityFramework;
 
 namespace DrivingLicenceScanner.Infrastructure
 {
@@ -7,14 +9,23 @@ namespace DrivingLicenceScanner.Infrastructure
     {
         private static ViewModelLocator _viewModelLocator;
 
+        public ViewModelBase()
+        {
+           
+            Context = new DrivingLicenceScannerDbContext();
+        }
+
+        public DrivingLicenceScannerDbContext Context { get; private set; }
+
         public static ViewModelLocator ViewModelLocator
         {
-            get {
+            get
+            {
                 return _viewModelLocator ??
                        (_viewModelLocator =
-                           (ViewModelLocator) Application.Current.Resources["ViewModelLocator"]);
+                           (ViewModelLocator)Application.Current.Resources["ViewModelLocator"]);
             }
-          
+
         }
     }
 }

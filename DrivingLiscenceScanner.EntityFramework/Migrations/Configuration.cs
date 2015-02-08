@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using DrivingLicenceScanner.Entities;
+
 namespace DrivingLicenceScanner.EntityFramework.Migrations
 {
     using System;
@@ -9,23 +13,20 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DrivingLicenceScanner.EntityFramework.DrivingLicenceScannerDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            Random rand = new Random();
+            var customers = new List<Customer>();
+            var checkIns = new List<CheckIn>();
+            var legalAges = new List<LegalAge>();
+            for (int i = 0; i < 10; i++)
+            {
+                legalAges.Add(new LegalAge() { Age = rand.Next(15, 23), Name = Ipsum.GetWord() });
+            }
+            context.LegalAges.AddRange(legalAges);
         }
     }
 }
