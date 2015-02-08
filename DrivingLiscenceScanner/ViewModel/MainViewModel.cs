@@ -45,7 +45,7 @@ namespace DrivingLicenceScanner.ViewModel
         {
             SwitchToCheckInsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)), () => ViewModelLocator.ScanViewModel.Customer != null);
             SwitchToScanViewCommand =
                 new RelayCommand(
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel)));
@@ -57,7 +57,7 @@ namespace DrivingLicenceScanner.ViewModel
                     async () => { await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel)); });
             SwitchToDetailsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)));
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)),()=>ViewModelLocator.ScanViewModel.Customer!=null);
         }
 
         #endregion

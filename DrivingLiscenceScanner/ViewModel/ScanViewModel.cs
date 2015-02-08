@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
 using DrivingLicenceScanner.Model;
@@ -18,6 +19,17 @@ namespace DrivingLicenceScanner.ViewModel
         private string _errorMessage;
         private ObservableCollection<CustomerLegalStatus> _customerLegalStatuses;
 
+        public int Age
+        {
+            get
+            {
+                DateTime today = DateTime.Today;
+                int cusotmerAge = today.Year - Customer.DoB.Year;
+                if (Customer.DoB > today.AddYears(-cusotmerAge)) cusotmerAge--;
+                return cusotmerAge;
+            }
+        }
+
         #endregion
 
         #region Properties
@@ -30,6 +42,7 @@ namespace DrivingLicenceScanner.ViewModel
                 if (Equals(value, _customer)) return;
                 _customer = value;
                 OnPropertyChanged("Customer");
+                OnPropertyChanged("Age");
             }
         }
 
@@ -104,81 +117,84 @@ namespace DrivingLicenceScanner.ViewModel
         private async void Scan()
         {
 
-
-            try
+            ErrorMessage = String.Empty;
+            await Task.Run(async () =>
             {
-                Customer.FirstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
-                    .Replace(Patterns.FirstNameInitToken, String.Empty)
-                    .Replace(Patterns.FirstNameExitToken, String.Empty);
+                try
+                {
 
-                Customer.LastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
-                    .Replace(Patterns.LastNameInitToken, String.Empty)
-                    .Replace(Patterns.LastNameExitToken, String.Empty);
+                    Customer = new Customer() { Licence = new Licence() };
+                    Customer.FirstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
+                        .Replace(Patterns.FirstNameInitToken, String.Empty)
+                        .Replace(Patterns.FirstNameExitToken, String.Empty);
 
-                Customer.DoB = DateTime.Parse(Regex.Match(ScanText, Patterns.DoBPattern).Value
-                    .Replace(Patterns.DoBInitToken, String.Empty)
-                    .Replace(Patterns.DoBExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
+                    Customer.LastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
+                        .Replace(Patterns.LastNameInitToken, String.Empty)
+                        .Replace(Patterns.LastNameExitToken, String.Empty);
 
-                Customer.EyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
-                    .Replace(Patterns.EyeColorInitToken, String.Empty)
-                    .Replace(Patterns.EyeColorExitToken, String.Empty);
+                    Customer.DoB = DateTime.Parse(Regex.Match(ScanText, Patterns.DoBPattern).Value
+                        .Replace(Patterns.DoBInitToken, String.Empty)
+                        .Replace(Patterns.DoBExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
 
-                Customer.Height = Int32.Parse(Regex.Match(ScanText, Patterns.HeightPattern).Value
-                    .Replace(Patterns.HeightInitToken, String.Empty)
-                    .Replace(Patterns.HeightExitToken, String.Empty));
+                    Customer.EyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
+                        .Replace(Patterns.EyeColorInitToken, String.Empty)
+                        .Replace(Patterns.EyeColorExitToken, String.Empty);
 
-                Customer.Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
-                    .Replace(Patterns.SexInitToken, String.Empty)
-                    .Replace(Patterns.SexExitToken, String.Empty);
+                    Customer.Height = Int32.Parse(Regex.Match(ScanText, Patterns.HeightPattern).Value
+                        .Replace(Patterns.HeightInitToken, String.Empty)
+                        .Replace(Patterns.HeightExitToken, String.Empty));
 
-                Customer.State = Regex.Match(ScanText, Patterns.StatePattern).Value
-                    .Replace(Patterns.StateInitToken, String.Empty)
-                    .Replace(Patterns.StateExitToken, String.Empty);
+                    Customer.Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
+                        .Replace(Patterns.SexInitToken, String.Empty)
+                        .Replace(Patterns.SexExitToken, String.Empty);
 
-                Customer.City = Regex.Match(ScanText, Patterns.CityPattern).Value
-                    .Replace(Patterns.CityInitToken, String.Empty)
-                    .Replace(Patterns.CityExitToken, String.Empty);
+                    Customer.State = Regex.Match(ScanText, Patterns.StatePattern).Value
+                        .Replace(Patterns.StateInitToken, String.Empty)
+                        .Replace(Patterns.StateExitToken, String.Empty);
 
-                Customer.Street = Regex.Match(ScanText, Patterns.StreetPattern).Value
-                    .Replace(Patterns.StreetInitToken, String.Empty)
-                    .Replace(Patterns.StreetExitToken, String.Empty);
+                    Customer.City = Regex.Match(ScanText, Patterns.CityPattern).Value
+                        .Replace(Patterns.CityInitToken, String.Empty)
+                        .Replace(Patterns.CityExitToken, String.Empty);
 
-                Customer.ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
-                    .Replace(Patterns.ZipCodeInitToken, String.Empty)
-                    .Replace(Patterns.ZipCodeExitToken, String.Empty);
+                    Customer.Street = Regex.Match(ScanText, Patterns.StreetPattern).Value
+                        .Replace(Patterns.StreetInitToken, String.Empty)
+                        .Replace(Patterns.StreetExitToken, String.Empty);
 
-                Customer.Licence.ExpiryDate = DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceExpireDatePattern).Value
-                    .Replace(Patterns.LicenceExpireDateInitToken, String.Empty)
-                    .Replace(Patterns.LicenceExpireDateExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
+                    Customer.ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
+                        .Replace(Patterns.ZipCodeInitToken, String.Empty)
+                        .Replace(Patterns.ZipCodeExitToken, String.Empty);
 
-                Customer.Licence.IssueDate = DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceIssueDatePattern).Value
-                    .Replace(Patterns.LicenceIssueDateInitToken, String.Empty)
-                    .Replace(Patterns.LicenceIssueDateExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
+                    Customer.Licence.ExpiryDate =
+                        DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceExpireDatePattern).Value
+                            .Replace(Patterns.LicenceExpireDateInitToken, String.Empty)
+                            .Replace(Patterns.LicenceExpireDateExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
 
-                Customer.Licence.Number = Regex.Match(ScanText, Patterns.LastNamePattern).Value
-                    .Replace(Patterns.LastNameInitToken, String.Empty)
-                    .Replace(Patterns.LastNameExitToken, String.Empty);
+                    Customer.Licence.IssueDate =
+                        DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceIssueDatePattern).Value
+                            .Replace(Patterns.LicenceIssueDateInitToken, String.Empty)
+                            .Replace(Patterns.LicenceIssueDateExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
 
-            }
-            catch (Exception)
-            {
+                    Customer.Licence.Number = Regex.Match(ScanText, Patterns.LastNamePattern).Value
+                        .Replace(Patterns.LastNameInitToken, String.Empty)
+                        .Replace(Patterns.LastNameExitToken, String.Empty);
+                    OnPropertyChanged("Age");
 
-                ErrorMessage = "Invalid Data, Please Scan again.";
+                }
+                catch (Exception)
+                {
+                    ErrorMessage = "Invalid Data, Please Scan again.";
+                }
 
-            }
+                //checking legal status of customer
+                var legalAges = await Context.LegalAges.ToListAsync();
 
-            //checking legal status of customer
-            var legalAges = await Context.LegalAges.ToListAsync();
-            DateTime today = DateTime.Today;
-            int cusotmerAge = today.Year - Customer.DoB.Year;
-            if (Customer.DoB > today.AddYears(-cusotmerAge)) cusotmerAge--;
-            var legal= new ObservableCollection<CustomerLegalStatus>();
-            foreach (var legality in legalAges)
-            {
-                
-                legal.Add(new CustomerLegalStatus() { Allowed = cusotmerAge >= legality.Age, Name = legality.Name });
-            }
-            CustomerLegalStatuses = legal;
+                var legal = new ObservableCollection<CustomerLegalStatus>();
+                foreach (var legality in legalAges)
+                {
+                    legal.Add(new CustomerLegalStatus() { Allowed = Age >= legality.Age, Name = legality.Name });
+                }
+                CustomerLegalStatuses = legal;
+            });
         }
         #endregion
         #endregion

@@ -9,13 +9,8 @@ namespace DrivingLicenceScanner.Infrastructure
     {
         private static ViewModelLocator _viewModelLocator;
 
-        public ViewModelBase()
-        {
-           
-            Context = new DrivingLicenceScannerDbContext();
-        }
 
-        public DrivingLicenceScannerDbContext Context { get; private set; }
+        public DrivingLicenceScannerDbContext Context { get { return new DrivingLicenceScannerDbContext(); } }
 
         public static ViewModelLocator ViewModelLocator
         {

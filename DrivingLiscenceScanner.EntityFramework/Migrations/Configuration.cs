@@ -22,10 +22,11 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
             var customers = new List<Customer>();
             var checkIns = new List<CheckIn>();
             var legalAges = new List<LegalAge>();
-            for (int i = 0; i < 10; i++)
-            {
-                legalAges.Add(new LegalAge() { Age = rand.Next(15, 23), Name = Ipsum.GetWord() });
-            }
+
+            legalAges.Add(new LegalAge() { Age = 17, Name = "Cigerettes" });
+            legalAges.Add(new LegalAge() { Age = 20, Name = "Alcohol" });
+            legalAges.Add(new LegalAge() { Age = 21, Name = "Lottery" });
+
             context.LegalAges.AddRange(legalAges);
         }
     }

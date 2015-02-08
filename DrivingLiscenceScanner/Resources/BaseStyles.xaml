@@ -169,14 +169,21 @@
                             <Setter Property="BorderBrush"
                                     TargetName="border"
                                     Value="{StaticResource Button.MouseOver.Border}" />
-                            <Setter Property="Background" TargetName="border" Value="#FF71DBEC"/>
+                            <Setter Property="Background" TargetName="border" Value="#FF8B8B8B"/>
                         </Trigger>
                         <Trigger Property="IsPressed"
                                  Value="true">
                             <Setter Property="BorderBrush"
                                     TargetName="border"
                                     Value="{StaticResource Button.Pressed.Border}" />
-                            <Setter Property="Background" TargetName="border" Value="#FF036D7E"/>
+                            <Setter Property="Background" TargetName="border">
+                            	<Setter.Value>
+                            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            			<GradientStop Color="#FF474747" Offset="0"/>
+                            			<GradientStop Color="#FF636363" Offset="1"/>
+                            		</LinearGradientBrush>
+                            	</Setter.Value>
+                            </Setter>
                         </Trigger>
                         <Trigger Property="IsEnabled"
                                  Value="false">
