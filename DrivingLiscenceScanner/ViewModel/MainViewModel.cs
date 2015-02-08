@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using DrivingLicenceScanner.Infrastructure;
-using Microsoft.Expression.Interactivity.Core;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -14,7 +13,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         #region Properties
 
-        public ActionCommand SwitchToScanViewCommand { get; private set; }
+        public RelayCommand SwitchToScanViewCommand { get; private set; }
         public RelayCommand SwitchToCustomersViewCommand { get; private set; }
         public RelayCommand SwitchToDetailsViewCommand { get; private set; }
         public RelayCommand SwitchToCheckInsViewCommand { get; private set; }
@@ -48,7 +47,7 @@ namespace DrivingLicenceScanner.ViewModel
                 new RelayCommand(
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
             SwitchToScanViewCommand =
-                new ActionCommand(
+                new RelayCommand(
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)));
             SwitchToSettingsViewCommand =
                 new RelayCommand(

@@ -38,24 +38,19 @@
                 </Setter>
 
             </Trigger>
+            <Trigger Property="IsEnabled"
+                     Value="false">
+                <Setter Property="Foreground"
+                        Value="Black" />
+            </Trigger>
         </Style.Triggers>
         <Setter Property="FocusVisualStyle"
                 Value="{StaticResource FocusVisual}" />
         <Setter Property="Background"
                 Value="#01FFFFFF"></Setter>
-        <Setter Property="Foreground"  Value="LightSteelBlue">
-          <!--<Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                                     StartPoint="0.5,0">
-                    <GradientStop Color="#FFA8DFFF"
-                                  Offset="1" />
-                    <GradientStop Color="Cyan" />
-                    <GradientStop Color="#FF42D0D6"
-                                  Offset="0.423" />
-                    <GradientStop Color="#FF25F3F3"
-                                  Offset="0.199" />
-                </LinearGradientBrush>
-            </Setter.Value>-->
+        <Setter Property="Foreground"
+                Value="LightSteelBlue">
+
         </Setter>
         <Setter Property="BorderThickness"
                 Value="0,0,0,2" />
@@ -102,12 +97,7 @@
                                     TargetName="border"
                                     Value="Black" />
                         </Trigger>
-                        <Trigger Property="IsEnabled"
-                                 Value="false">
-                            <Setter Property="TextElement.Foreground"
-                                    TargetName="contentPresenter"
-                                    Value="Black" />
-                        </Trigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
