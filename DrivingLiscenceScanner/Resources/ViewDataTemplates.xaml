@@ -36,5 +36,41 @@
         </DataTemplate.Triggers>
 
     </DataTemplate>
-    
+    <DataTemplate DataType="{x:Type viewModel:CheckInsViewModel}">
+        <view:CheckInsView x:Name="View" />
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded"
+                          SourceName="View">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:DetailsViewModel}">
+        <view:DetailsView x:Name="View" />
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded"
+                          SourceName="View">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+        <view:SettingsView x:Name="View" />
+        <DataTemplate.Triggers>
+            <EventTrigger RoutedEvent="UserControl.Loaded"
+                          SourceName="View">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </DataTemplate.Triggers>
+
+    </DataTemplate>
+
 </ResourceDictionary>
