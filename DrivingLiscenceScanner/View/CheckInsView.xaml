@@ -1,11 +1,42 @@
 ﻿<UserControl x:Class="DrivingLicenceScanner.View.CheckInsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="588"
+             d:DesignWidth="892">
+	<UserControl.Resources>
+		<DataTemplate x:Key="CheckInTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Time, StringFormat=\{0:F\}}" FontSize="16" Foreground="#FF363636"/>
+			</StackPanel>
+		</DataTemplate>
+	</UserControl.Resources>
+    <Grid DataContext="{Binding CheckInsViewMode, Source={StaticResource ViewModelLocator}}" d:DataContext="{d:DesignData /SampleData/CheckInsViewModelSampleData.xaml}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{DynamicResource TxtBlkTitleStyle}"><Run Text="CheckIns" /></TextBlock>
+
+        <ListBox Grid.Row="1" Grid.Column="0" Background="{x:Null}" Width="300" Margin="10,5,10,10" ItemTemplate="{DynamicResource CheckInTemplate}" ItemsSource="{Binding CheckIns}" ItemContainerStyle="{DynamicResource ItemsContainerStyleCustomersListBox}" ItemsPanel="{DynamicResource ItemsPanelTemplateCustomersList}" SelectedItem="{Binding CheckIn}"/>
+        <Grid Grid.Column="1" Grid.Row="1">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="Auto"/>
+        		<ColumnDefinition/>
+        	</Grid.ColumnDefinitions>
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="Auto"/>
+        		<RowDefinition Height="Auto"/>
+        	</Grid.RowDefinitions>
+        	<TextBlock Text="{Binding CheckIn.Customer.FirstName}" Style="{DynamicResource TxtBlkNameStyle}"/>
+        	<TextBlock Text="{Binding CheckIn.Customer.LastName}" Style="{DynamicResource TxtBlkNameStyle}" Grid.Column="1"/>
+        	<TextBlock Text="{Binding CheckIn.Time, StringFormat=\{0:F\}}" Style="{DynamicResource TxtBlkAgeStyle}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,5,5,5"/>
+        </Grid>
     </Grid>
 </UserControl>

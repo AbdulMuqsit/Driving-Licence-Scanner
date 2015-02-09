@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Resources/ScanViewStyles.xaml" />
                 <ResourceDictionary Source="Resources/MainWindowStyles.xaml" />
                 <ResourceDictionary Source="Resources/ScannedViewStyles.xaml" />
+                <ResourceDictionary Source="CustomersViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -69,7 +69,7 @@
                 <ControlTemplate TargetType="{x:Type cc:CustomWindow}" x:Name="PART_WindowTemplate">
                     <Border BorderThickness="1"  x:Name="PART_WindowFrame"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,10,10,10" d:DesignWidth="710.9" d:DesignHeight="415" Background="White">
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="#FFB9B9B9" Opacity="0.4"/>
+                            <SolidColorBrush Color="#FFB9B9B9" Opacity="0.1"/>
                         </Border.BorderBrush>
                         <Grid Background="#E8E8E8">
                         	

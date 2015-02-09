@@ -115,6 +115,10 @@
     <Compile Include="View\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomersViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\MainWindowStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -225,6 +229,8 @@
     <Resource Include="Scanner.ico" />
   </ItemGroup>
   <ItemGroup>
+    <DesignData Include="SampleData\CheckInsViewModelSampleData.xaml" />
+    <DesignData Include="SampleData\CustomersViewModelSampleData.xaml" />
     <DesignData Include="SampleData\DetailsViewModelSampleData.xaml" />
     <DesignData Include="SampleData\ScanViewModelSampleData.xaml" />
   </ItemGroup>

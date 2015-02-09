@@ -4,8 +4,8 @@
                       xmlns:windows="clr-namespace:Amuqsit.CustomControls.Windows;assembly=Amuqsit.CustomControls"
                       xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="DrivingLicenceScanner.MainWindow"
                       Title="Driving Licence Scanner"
-                      Height="600"
-                      Width="900"
+                      Height="650"
+                      Width="1070"
                       x:Name="Window" WindowStyle="None">
 	<windows:CustomWindow.Effect>
 		<DropShadowEffect BlurRadius="10" Opacity="0.33"/>

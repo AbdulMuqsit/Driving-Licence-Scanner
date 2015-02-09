@@ -23,7 +23,7 @@
                 <Setter Property="FontWeight"
                         Value="Bold" />
                 <Setter Property="Foreground"
-                        Value="#424242"></Setter>
+                        Value="#535151"></Setter>
                 <Setter Property="FontSize"
                         Value="23"></Setter>
             </Style>
@@ -34,7 +34,7 @@
                 <Setter Property="FontFamily"
                         Value="Myriad Web Pro" />
                 <Setter Property="Foreground"
-                        Value="#424242"></Setter>
+                        Value="#535151"></Setter>
             </Style>
         </Grid.Resources>
     	<Grid.DataContext>

@@ -5,7 +5,17 @@ namespace DrivingLicenceScanner.ViewModel
 {
     public class DetailsViewModel : ViewModelBase
     {
-        public Customer Customer { get; set; }
+        private Customer _customer;
 
+        public Customer Customer
+        {
+            get { return _customer; }
+            set
+            {
+                if (Equals(value, _customer)) return;
+                _customer = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
