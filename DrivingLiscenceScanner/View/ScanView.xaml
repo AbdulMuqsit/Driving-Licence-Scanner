@@ -214,7 +214,7 @@
             		<Button
             			Content="X"
             			Command="{Binding ClearCommand}"
-            			Style="{StaticResource BtnScanViewStyle}" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" MinWidth="0" ToolTip="Clear" Padding="5,0,5,3" Grid.RowSpan="4" Margin="15,-32,90,5" />
+            			Style="{StaticResource BtnScanViewStyle}" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" MinWidth="0" ToolTip="Clear" Padding="5,0,5,3" Grid.RowSpan="4" Margin="15,-32,88,5" />
             	</Grid>
             </Grid>
         </ControlTemplate>

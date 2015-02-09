@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
@@ -126,37 +127,54 @@ namespace DrivingLicenceScanner.ViewModel
                     Customer = new Customer
                     {
                         Licence = new Licence(),
-                        FirstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
-                            .Replace(Patterns.FirstNameInitToken, String.Empty)
-                            .Replace(Patterns.FirstNameExitToken, String.Empty),
-                        LastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
-                            .Replace(Patterns.LastNameInitToken, String.Empty)
-                            .Replace(Patterns.LastNameExitToken, String.Empty),
+
                         DoB = DateTime.Parse(Regex.Match(ScanText, Patterns.DoBPattern).Value
                             .Replace(Patterns.DoBInitToken, String.Empty)
                             .Replace(Patterns.DoBExitToken, String.Empty).Insert(2, "-").Insert(5, "-")),
-                        EyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
-                            .Replace(Patterns.EyeColorInitToken, String.Empty)
-                            .Replace(Patterns.EyeColorExitToken, String.Empty),
+
                         Height = Int32.Parse(Regex.Match(ScanText, Patterns.HeightPattern).Value
                             .Replace(Patterns.HeightInitToken, String.Empty)
                             .Replace(Patterns.HeightExitToken, String.Empty)),
                         Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
                             .Replace(Patterns.SexInitToken, String.Empty)
-                            .Replace(Patterns.SexExitToken, String.Empty),
-                        State = Regex.Match(ScanText, Patterns.StatePattern).Value
-                            .Replace(Patterns.StateInitToken, String.Empty)
-                            .Replace(Patterns.StateExitToken, String.Empty),
-                        City = Regex.Match(ScanText, Patterns.CityPattern).Value
-                            .Replace(Patterns.CityInitToken, String.Empty)
-                            .Replace(Patterns.CityExitToken, String.Empty),
-                        Street = Regex.Match(ScanText, Patterns.StreetPattern).Value
-                            .Replace(Patterns.StreetInitToken, String.Empty)
-                            .Replace(Patterns.StreetExitToken, String.Empty),
+                            .Replace(Patterns.SexExitToken, String.Empty) == "1" ? "Male" : "Female",
+                       
+                    
                         ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
                             .Replace(Patterns.ZipCodeInitToken, String.Empty)
                             .Replace(Patterns.ZipCodeExitToken, String.Empty)
                     };
+                    var firstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
+                        .Replace(Patterns.FirstNameInitToken, String.Empty)
+                        .Replace(Patterns.FirstNameExitToken, String.Empty);
+                    Customer.FirstName = String.Concat(firstName.Substring(0,1), firstName.Substring(1).ToLower());
+
+
+                    var lastName= Regex.Match(ScanText, Patterns.LastNamePattern).Value
+                        .Replace(Patterns.LastNameInitToken, String.Empty)
+                        .Replace(Patterns.LastNameExitToken, String.Empty);
+                    Customer.LastName = String.Concat(lastName.Substring(0, 1), lastName.Substring(1).ToLower());
+
+
+                    var eyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
+                        .Replace(Patterns.EyeColorInitToken, String.Empty)
+                        .Replace(Patterns.EyeColorExitToken, String.Empty);
+                    Customer.EyeColor = String.Concat(eyeColor.Substring(0, 1), eyeColor.Substring(1).ToLower());
+
+                    var state = Regex.Match(ScanText, Patterns.StatePattern).Value
+                        .Replace(Patterns.StateInitToken, String.Empty)
+                        .Replace(Patterns.StateExitToken, String.Empty);
+                    Customer.State = String.Concat(state.Substring(0, 1), state.Substring(1).ToLower());
+
+                    var city = Regex.Match(ScanText, Patterns.CityPattern).Value
+                        .Replace(Patterns.CityInitToken, String.Empty)
+                        .Replace(Patterns.CityExitToken, String.Empty);
+                    Customer.City = String.Concat(city.Substring(0, 1), city.Substring(1).ToLower());
+
+                    var street = Regex.Match(ScanText, Patterns.StreetPattern).Value
+                        .Replace(Patterns.StreetInitToken, String.Empty)
+                        .Replace(Patterns.StreetExitToken, String.Empty);
+                    Customer.Street = String.Concat(street.Substring(0, 1), street.Substring(1).ToLower());
 
                     Customer.Licence.ExpiryDate =
                         DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceExpireDatePattern).Value
@@ -168,9 +186,9 @@ namespace DrivingLicenceScanner.ViewModel
                             .Replace(Patterns.LicenceIssueDateInitToken, String.Empty)
                             .Replace(Patterns.LicenceIssueDateExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
 
-                    Customer.Licence.Number = Regex.Match(ScanText, Patterns.LastNamePattern).Value
-                        .Replace(Patterns.LastNameInitToken, String.Empty)
-                        .Replace(Patterns.LastNameExitToken, String.Empty);
+                    Customer.Licence.Number = Regex.Match(ScanText, Patterns.LicenceNumberPattern).Value
+                        .Replace(Patterns.LicenceNumberInitToken, String.Empty)
+                        .Replace(Patterns.LicenceNumberExitToken, String.Empty);
                     ViewModelLocator.DetailsViewModel.Customer = Customer;
                     OnPropertyChanged("Age");
 
