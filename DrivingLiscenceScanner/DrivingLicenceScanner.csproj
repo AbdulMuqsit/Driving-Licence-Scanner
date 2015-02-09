@@ -225,6 +225,7 @@
     <Resource Include="Scanner.ico" />
   </ItemGroup>
   <ItemGroup>
+    <DesignData Include="SampleData\DetailsViewModelSampleData.xaml" />
     <DesignData Include="SampleData\ScanViewModelSampleData.xaml" />
   </ItemGroup>
   <ItemGroup>

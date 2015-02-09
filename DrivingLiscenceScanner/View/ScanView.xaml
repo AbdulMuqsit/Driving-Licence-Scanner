@@ -139,10 +139,14 @@
                 	<ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
             	<i:Interaction.Triggers>
-            		<ei:DataTrigger Binding="{Binding Customer}" Value="{}{x:NuLL}">
-            			<ei:GoToStateAction StateName="BeforeState" TargetName="RootElement"/>
-            		</ei:DataTrigger>
-            		<ei:DataTrigger Binding="{Binding Customer}" Value="{}{x:NuLL}" Comparison="NotEqual">
+                    <ei:DataTrigger Binding="{Binding Customer}"
+                                    Value="{x:Null}"
+                                    Comparison="Equal">
+                        <ei:GoToStateAction StateName="BeforeState"
+                                            TargetName="RootElement" />
+                    </ei:DataTrigger>
+                    <ei:DataTrigger Binding="{Binding Customer}"
+                                    Value="{x:Null}" Comparison="NotEqual">
             			<ei:GoToStateAction StateName="AfterState" TargetName="RootElement"/>
             		</ei:DataTrigger>
             		<ei:DataTrigger Binding="{Binding ErrorMessage}" Comparison="NotEqual">
@@ -199,14 +203,18 @@
             		</Grid.RowDefinitions>
             		<StackPanel Grid.Row="0"
             			Orientation="Horizontal">
-            			<TextBlock  Style="{DynamicResource TxtBlkNameStyle}"><Run Text="{Binding Customer.FirstName, FallbackValue=Jane}" /><Run Text=" " /><Run Text="{Binding Customer.LastName, FallbackValue=Doe}" /></TextBlock>
-            			<TextBlock x:Name="textBlock"  Text="{Binding Age, FallbackValue=19}"
-            				Style="{DynamicResource TxtBlkAgeStyle}" />
+            			<TextBlock  Style="{DynamicResource TxtBlkNameStyle}"><Run Text="{Binding Customer.FirstName}" /><Run Text=" " /><Run Text="{Binding Customer.LastName}" /></TextBlock>
+            			<TextBlock x:Name="textBlock"
+            				Style="{DynamicResource TxtBlkAgeStyle}" Text="{Binding Age}" ><Run Text="0"/></TextBlock>
             		</StackPanel>
             		<ListBox x:Name="listBox"  ItemsPanel="{DynamicResource ItemsPanelTemplate}"
             			Grid.Row="2"
             			ItemTemplate="{DynamicResource CustomerLegalStatusTemplate}"
             			ItemsSource="{Binding CustomerLegalStatuses}" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" ScrollViewer.CanContentScroll="False" SnapsToDevicePixels="True" Margin="10,50,10,0" ItemContainerStyle="{DynamicResource LstBoxLegalAgesContainerStyle}" />
+            		<Button
+            			Content="X"
+            			Command="{Binding ClearCommand}"
+            			Style="{StaticResource BtnScanViewStyle}" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Right" MinWidth="0" ToolTip="Clear" Padding="5,0,5,3" Grid.RowSpan="4" Margin="15,-32,90,5" />
             	</Grid>
             </Grid>
         </ControlTemplate>

@@ -23,10 +23,14 @@ namespace DrivingLicenceScanner.ViewModel
         {
             get
             {
-                DateTime today = DateTime.Today;
-                int cusotmerAge = today.Year - Customer.DoB.Year;
-                if (Customer.DoB > today.AddYears(-cusotmerAge)) cusotmerAge--;
-                return cusotmerAge;
+                if (Customer != null)
+                {
+                    DateTime today = DateTime.Today;
+                    int cusotmerAge = today.Year - Customer.DoB.Year;
+                    if (Customer.DoB > today.AddYears(-cusotmerAge)) cusotmerAge--;
+                    return cusotmerAge;
+                }
+                return 0;
             }
         }
 
@@ -59,8 +63,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         #region Commands
         public RelayCommand ScanCommand { get; private set; }
-        public RelayCommand SwitchToTransactionsCommand { get; private set; }
-        public RelayCommand SwitchToDetailsCommand { get; private set; }
+        public RelayCommand ClearCommand { get; private set; }
         #endregion
         public string ErrorMessage
         {
@@ -99,70 +102,61 @@ namespace DrivingLicenceScanner.ViewModel
 
         private void InitializeObjects()
         {
-            _customer = new Customer { Licence = new Licence() };
+            // _customer = new Customer { Licence = new Licence() };
             CustomerLegalStatuses = new ObservableCollection<CustomerLegalStatus>();
         }
 
         private void InitializeCommands()
         {
             ScanCommand = new RelayCommand(Scan, () => !String.IsNullOrWhiteSpace(ScanText));
+            ClearCommand = new RelayCommand(Clear, () => Customer != null);
         }
 
-        private void NavigateView()
-        {
-            Navigator.SwitchView(ViewModelLocator.DetailsViewModel);
-        }
 
         #region HelperMethods
         private async void Scan()
         {
-
+            Customer = null;
             ErrorMessage = String.Empty;
             await Task.Run(async () =>
             {
                 try
                 {
 
-                    Customer = new Customer() { Licence = new Licence() };
-                    Customer.FirstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
-                        .Replace(Patterns.FirstNameInitToken, String.Empty)
-                        .Replace(Patterns.FirstNameExitToken, String.Empty);
-
-                    Customer.LastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
-                        .Replace(Patterns.LastNameInitToken, String.Empty)
-                        .Replace(Patterns.LastNameExitToken, String.Empty);
-
-                    Customer.DoB = DateTime.Parse(Regex.Match(ScanText, Patterns.DoBPattern).Value
-                        .Replace(Patterns.DoBInitToken, String.Empty)
-                        .Replace(Patterns.DoBExitToken, String.Empty).Insert(2, "-").Insert(5, "-"));
-
-                    Customer.EyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
-                        .Replace(Patterns.EyeColorInitToken, String.Empty)
-                        .Replace(Patterns.EyeColorExitToken, String.Empty);
-
-                    Customer.Height = Int32.Parse(Regex.Match(ScanText, Patterns.HeightPattern).Value
-                        .Replace(Patterns.HeightInitToken, String.Empty)
-                        .Replace(Patterns.HeightExitToken, String.Empty));
-
-                    Customer.Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
-                        .Replace(Patterns.SexInitToken, String.Empty)
-                        .Replace(Patterns.SexExitToken, String.Empty);
-
-                    Customer.State = Regex.Match(ScanText, Patterns.StatePattern).Value
-                        .Replace(Patterns.StateInitToken, String.Empty)
-                        .Replace(Patterns.StateExitToken, String.Empty);
-
-                    Customer.City = Regex.Match(ScanText, Patterns.CityPattern).Value
-                        .Replace(Patterns.CityInitToken, String.Empty)
-                        .Replace(Patterns.CityExitToken, String.Empty);
-
-                    Customer.Street = Regex.Match(ScanText, Patterns.StreetPattern).Value
-                        .Replace(Patterns.StreetInitToken, String.Empty)
-                        .Replace(Patterns.StreetExitToken, String.Empty);
-
-                    Customer.ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
-                        .Replace(Patterns.ZipCodeInitToken, String.Empty)
-                        .Replace(Patterns.ZipCodeExitToken, String.Empty);
+                    Customer = new Customer
+                    {
+                        Licence = new Licence(),
+                        FirstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
+                            .Replace(Patterns.FirstNameInitToken, String.Empty)
+                            .Replace(Patterns.FirstNameExitToken, String.Empty),
+                        LastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
+                            .Replace(Patterns.LastNameInitToken, String.Empty)
+                            .Replace(Patterns.LastNameExitToken, String.Empty),
+                        DoB = DateTime.Parse(Regex.Match(ScanText, Patterns.DoBPattern).Value
+                            .Replace(Patterns.DoBInitToken, String.Empty)
+                            .Replace(Patterns.DoBExitToken, String.Empty).Insert(2, "-").Insert(5, "-")),
+                        EyeColor = Regex.Match(ScanText, Patterns.EyeColorPattern).Value
+                            .Replace(Patterns.EyeColorInitToken, String.Empty)
+                            .Replace(Patterns.EyeColorExitToken, String.Empty),
+                        Height = Int32.Parse(Regex.Match(ScanText, Patterns.HeightPattern).Value
+                            .Replace(Patterns.HeightInitToken, String.Empty)
+                            .Replace(Patterns.HeightExitToken, String.Empty)),
+                        Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
+                            .Replace(Patterns.SexInitToken, String.Empty)
+                            .Replace(Patterns.SexExitToken, String.Empty),
+                        State = Regex.Match(ScanText, Patterns.StatePattern).Value
+                            .Replace(Patterns.StateInitToken, String.Empty)
+                            .Replace(Patterns.StateExitToken, String.Empty),
+                        City = Regex.Match(ScanText, Patterns.CityPattern).Value
+                            .Replace(Patterns.CityInitToken, String.Empty)
+                            .Replace(Patterns.CityExitToken, String.Empty),
+                        Street = Regex.Match(ScanText, Patterns.StreetPattern).Value
+                            .Replace(Patterns.StreetInitToken, String.Empty)
+                            .Replace(Patterns.StreetExitToken, String.Empty),
+                        ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
+                            .Replace(Patterns.ZipCodeInitToken, String.Empty)
+                            .Replace(Patterns.ZipCodeExitToken, String.Empty)
+                    };
 
                     Customer.Licence.ExpiryDate =
                         DateTime.Parse(Regex.Match(ScanText, Patterns.LicenceExpireDatePattern).Value
@@ -177,6 +171,7 @@ namespace DrivingLicenceScanner.ViewModel
                     Customer.Licence.Number = Regex.Match(ScanText, Patterns.LastNamePattern).Value
                         .Replace(Patterns.LastNameInitToken, String.Empty)
                         .Replace(Patterns.LastNameExitToken, String.Empty);
+                    ViewModelLocator.DetailsViewModel.Customer = Customer;
                     OnPropertyChanged("Age");
 
                 }
@@ -196,6 +191,12 @@ namespace DrivingLicenceScanner.ViewModel
                 CustomerLegalStatuses = legal;
             });
         }
+        private void Clear()
+        {
+            Customer = null;
+            ScanText = String.Empty;
+        }
+
         #endregion
         #endregion
     }

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using DrivingLicenceScanner.Infrastructure;
 
 namespace DrivingLicenceScanner.ViewModel
@@ -45,7 +47,7 @@ namespace DrivingLicenceScanner.ViewModel
         {
             SwitchToCheckInsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)), () => ViewModelLocator.ScanViewModel.Customer != null);
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CheckInsViewMode)), () => ViewModelLocator.ScanViewModel.Customer !=null);
             SwitchToScanViewCommand =
                 new RelayCommand(
                     async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel)));
@@ -57,7 +59,7 @@ namespace DrivingLicenceScanner.ViewModel
                     async () => { await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel)); });
             SwitchToDetailsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)),()=>ViewModelLocator.ScanViewModel.Customer!=null);
+                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)),()=>ViewModelLocator.ScanViewModel.Customer != null);
         }
 
         #endregion

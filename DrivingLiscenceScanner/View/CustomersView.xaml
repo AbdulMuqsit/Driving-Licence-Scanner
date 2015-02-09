@@ -9,10 +9,10 @@
              d:DesignWidth="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <ListBox></ListBox>
-            
+        <view:DetailsView Grid.Column="1"></view:DetailsView>
     </Grid>
 </UserControl>
