@@ -138,8 +138,8 @@ namespace DrivingLicenceScanner.ViewModel
                         Sex = Regex.Match(ScanText, Patterns.SexPattern).Value
                             .Replace(Patterns.SexInitToken, String.Empty)
                             .Replace(Patterns.SexExitToken, String.Empty) == "1" ? "Male" : "Female",
-                       
-                    
+
+
                         ZipCode = Regex.Match(ScanText, Patterns.ZipCodePattern).Value
                             .Replace(Patterns.ZipCodeInitToken, String.Empty)
                             .Replace(Patterns.ZipCodeExitToken, String.Empty)
@@ -147,10 +147,10 @@ namespace DrivingLicenceScanner.ViewModel
                     var firstName = Regex.Match(ScanText, Patterns.FirstNamePattern).Value
                         .Replace(Patterns.FirstNameInitToken, String.Empty)
                         .Replace(Patterns.FirstNameExitToken, String.Empty);
-                    Customer.FirstName = String.Concat(firstName.Substring(0,1), firstName.Substring(1).ToLower());
+                    Customer.FirstName = String.Concat(firstName.Substring(0, 1), firstName.Substring(1).ToLower());
 
 
-                    var lastName= Regex.Match(ScanText, Patterns.LastNamePattern).Value
+                    var lastName = Regex.Match(ScanText, Patterns.LastNamePattern).Value
                         .Replace(Patterns.LastNameInitToken, String.Empty)
                         .Replace(Patterns.LastNameExitToken, String.Empty);
                     Customer.LastName = String.Concat(lastName.Substring(0, 1), lastName.Substring(1).ToLower());
@@ -190,9 +190,31 @@ namespace DrivingLicenceScanner.ViewModel
                         .Replace(Patterns.LicenceNumberInitToken, String.Empty)
                         .Replace(Patterns.LicenceNumberExitToken, String.Empty);
                     ViewModelLocator.DetailsViewModel.Customer = Customer;
+                    using (var context = Context)
+                    {
+
+
+                        //if customer alrady exists, add a new checkin
+                        var customer = await context.Customers.FirstOrDefaultAsync(cust => cust.Licence.Number == Customer.Licence.Number);
+                        if ((customer != null))
+                        {
+                            customer.CheckIns.Add(new CheckIn() { Time = DateTime.Now });
+                        }
+                        else
+                        {
+                            context.Customers.Add(Customer);
+                            Customer.CheckIns = new Collection<CheckIn> { new CheckIn() { Time = DateTime.Now } };
+                        }
+                        await context.SaveChangesAsync();
+                    }
                     OnPropertyChanged("Age");
 
                 }
+                catch (InvalidOperationException)
+                {
+                    ErrorMessage = "Application encountered an error while saving new check in.";
+                }
+
                 catch (Exception)
                 {
                     ErrorMessage = "Invalid Data, Please Scan again.";

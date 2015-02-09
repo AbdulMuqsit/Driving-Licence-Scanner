@@ -17,7 +17,7 @@ namespace DrivingLicenceScanner.EntityFramework
         public DbSet<Licence> Licences { get; set; }
         public DrivingLicenceScannerDbContext():base("DrivingLicenceScannerDb")
         {
-            Configuration.LazyLoadingEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
         }
     }
 }
