@@ -144,6 +144,7 @@
                                     Comparison="Equal">
                         <ei:GoToStateAction StateName="BeforeState"
                                             TargetName="RootElement" />
+                        
                     </ei:DataTrigger>
                     <ei:DataTrigger Binding="{Binding Customer}"
                                     Value="{x:Null}" Comparison="NotEqual">

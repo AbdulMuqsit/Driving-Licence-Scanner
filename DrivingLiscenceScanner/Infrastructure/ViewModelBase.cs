@@ -11,7 +11,7 @@ namespace DrivingLicenceScanner.Infrastructure
 
         private static ViewModelLocator _viewModelLocator;
         private string _busyMessage;
-        private BusyState _busyState;
+        private bool _busyState;
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace DrivingLicenceScanner.Infrastructure
             }
         }
 
-        public BusyState BusyState
+        public bool BusyState
         {
             get { return _busyState; }
             set

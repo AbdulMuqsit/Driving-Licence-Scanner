@@ -128,7 +128,7 @@ namespace DrivingLicenceScanner.ViewModel
             Customer = new Customer();
 
             BusyMessage = "Scanning...";
-            BusyState = BusyState.Busy;
+            BusyState = true;
             await Task.Run(async () =>
             {
                 try
@@ -222,13 +222,13 @@ namespace DrivingLicenceScanner.ViewModel
                 catch (DbException)
                 {
                     ErrorMessage = "Application encountered an error while saving new check in.";
-                    BusyState = BusyState.Free;
+                    BusyState = false;
                 }
 
                 catch (Exception)
                 {
                     ErrorMessage = "Invalid Data, Please Scan again.";
-                    BusyState = BusyState.Free;
+                    BusyState = false;
                 }
 
 
@@ -241,7 +241,7 @@ namespace DrivingLicenceScanner.ViewModel
                     legal.Add(new CustomerLegalStatus {Allowed = Age >= legality.Age, Name = legality.Name});
                 }
                 CustomerLegalStatuses = legal;
-                BusyState = BusyState.Free;
+                BusyState = false;
             });
         }
 

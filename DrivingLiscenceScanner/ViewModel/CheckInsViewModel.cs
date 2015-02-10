@@ -58,7 +58,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         private async void LoadCheckIns()
         {
-            BusyState = BusyState.Busy;
+            BusyState = true;
             await
                 Task.Run(
                     async () =>
@@ -71,7 +71,7 @@ namespace DrivingLicenceScanner.ViewModel
                                             e.Customer.Licence.Number ==
                                             ViewModelLocator.ScanViewModel.Customer.Licence.Number).ToListAsync());
                     });
-            BusyState = BusyState.Free;
+            BusyState = false;
         }
 
         #endregion

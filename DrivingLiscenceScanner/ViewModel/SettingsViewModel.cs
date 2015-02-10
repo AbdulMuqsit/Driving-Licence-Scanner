@@ -70,7 +70,7 @@ namespace DrivingLicenceScanner.ViewModel
         private async void RemoveLegalAge()
         {
             BusyMessage = "Saving Changes...";
-            BusyState = BusyState.Busy;
+            BusyState = true;
             await Task.Run(async () =>
             {
                 using (DrivingLicenceScannerDbContext context = Context)
@@ -86,13 +86,13 @@ namespace DrivingLicenceScanner.ViewModel
                     LoadLegalAges();
                 }
             });
-            BusyState = BusyState.Free;
+            BusyState = false;
         }
 
         private async void AddLegalAge()
         {
             BusyMessage = "Saving Changes...";
-            BusyState = BusyState.Busy;
+            BusyState = true;
             using (DrivingLicenceScannerDbContext context = Context)
             {
                 if (LegalAge.Id == 0)
@@ -114,13 +114,13 @@ namespace DrivingLicenceScanner.ViewModel
                 LegalAge = new LegalAge {Age = 18};
             }
 
-            BusyState = BusyState.Free;
+            BusyState = false;
         }
 
         private async void LoadLegalAges()
         {
             BusyMessage = "Loading Legal Ages...";
-            BusyState = BusyState.Busy;
+            BusyState = true;
             await Task.Run(async () =>
             {
                 LegalAges = new ObservableCollection<LegalAge>(await Context.LegalAges.ToListAsync());
@@ -143,7 +143,7 @@ namespace DrivingLicenceScanner.ViewModel
                 }
             });
 
-            BusyState = BusyState.Free;
+            BusyState = false;
         }
 
         #endregion

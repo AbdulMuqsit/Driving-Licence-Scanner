@@ -9,8 +9,20 @@ namespace DrivingLicenceScanner.ViewModel
         #region Fields
 
         private ViewModelBase _currentChildViewModel;
+        private bool _busy;
 
         #endregion
+
+        public bool Busy
+        {
+            get { return _busy; }
+            set
+            {
+                if (value.Equals(_busy)) return;
+                _busy = value;
+                OnPropertyChanged();
+            }
+        }
 
         #region Properties
 
@@ -53,13 +65,13 @@ namespace DrivingLicenceScanner.ViewModel
                     async () =>
                     {
                         BusyMessage = "Loading Check Ins...";
-                        BusyState = BusyState.Busy;
+                        BusyState = true;
                         await Task.Run(() =>
                         {
                             Navigator.SwitchView(ViewModelLocator.CheckInsViewMode);
                             ViewModelLocator.CheckInsViewMode.LoadCheckInsCommand.Execute(null);
                         });
-                        BusyState = BusyState.Free;
+                        BusyState = false;
                     }, () =>
                         ViewModelLocator.ScanViewModel.Customer != null ||
                         ViewModelLocator.DetailsViewModel.Customer != null);
@@ -69,9 +81,9 @@ namespace DrivingLicenceScanner.ViewModel
                     async () =>
                     {
                         BusyMessage = "";
-                        BusyState = BusyState.Busy;
+                        BusyState = true;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel));
-                        BusyState = BusyState.Free;
+                        BusyState = false;
                     });
 
             SwitchToSettingsViewCommand =
@@ -79,9 +91,9 @@ namespace DrivingLicenceScanner.ViewModel
                     async () =>
                     {
                         BusyMessage = "";
-                        BusyState = BusyState.Busy;
+                        BusyState = true;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.SettingsViewModel));
-                        BusyState = BusyState.Free;
+                        BusyState = false;
                     });
 
             SwitchToCustomersViewCommand =
@@ -89,10 +101,10 @@ namespace DrivingLicenceScanner.ViewModel
                     async () =>
                     {
                         BusyMessage = "Loading Customers...";
-                        BusyState = BusyState.Busy;
+                        BusyState = true;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel));
                         ViewModelLocator.CustomersViewModel.LoadCustomersCommand.Execute(null);
-                        BusyState = BusyState.Free;
+                        BusyState = false;
                     });
 
             SwitchToDetailsViewCommand =
@@ -100,9 +112,9 @@ namespace DrivingLicenceScanner.ViewModel
                     async () =>
                     {
                         BusyMessage = "";
-                        BusyState = BusyState.Busy;
+                        BusyState = true;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel));
-                        BusyState = BusyState.Free;
+                        BusyState = false;
                     },
                     () => ViewModelLocator.ScanViewModel.Customer != null);
         }
