@@ -16,19 +16,7 @@
                           Opacity="0.33" />
     </windows:CustomWindow.Effect>
     <Grid DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}">
-    	<i:Interaction.Triggers>
-    		<ei:DataTrigger Binding="{Binding BusyState}" Value="True">
-    			<ei:ChangePropertyAction TargetName="BusyAnimation" PropertyName="Visibility"/>
-    		</ei:DataTrigger>
-    		<ei:DataTrigger Binding="{Binding BusyState}" Value="False">
-    			<ei:ChangePropertyAction TargetName="BusyAnimation" PropertyName="Visibility">
-    				<ei:ChangePropertyAction.Value>
-    					<Visibility>Collapsed</Visibility>
-    				</ei:ChangePropertyAction.Value>
-    			</ei:ChangePropertyAction>
-    		</ei:DataTrigger>
-    	</i:Interaction.Triggers>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition />
@@ -331,11 +319,11 @@
         <view:BusyAnimation x:Name="BusyAnimation"
                             Grid.Row="1"
                             Grid.Column="1"
-                            Visibility="Collapsed"
+                            Opacity="0"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Right"
                             Margin="50"
-                            >
-        </view:BusyAnimation>
+                            Busy="{Binding BusyState}"
+                            BusyMessage="{Binding BusyMessage}"/>
     </Grid>
 </windows:CustomWindow>

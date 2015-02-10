@@ -46,14 +46,16 @@ namespace DrivingLicenceScanner.ViewModel
 
         private async void LoadCustomers()
         {
-            BusyState = true;
+            BusyMessage = "Loading Customers...";
             await
                 Task.Run(
                     async () =>
                     {
+
                         Customers = new ObservableCollection<Customer>(await Context.Customers.ToListAsync());
                     });
-            BusyState = false;
+            ViewModelLocator.MainViewModel.BusyState = false;
+         
         }
 
         #endregion

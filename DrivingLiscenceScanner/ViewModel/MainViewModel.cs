@@ -9,20 +9,11 @@ namespace DrivingLicenceScanner.ViewModel
         #region Fields
 
         private ViewModelBase _currentChildViewModel;
-        private bool _busy;
+
 
         #endregion
 
-        public bool Busy
-        {
-            get { return _busy; }
-            set
-            {
-                if (value.Equals(_busy)) return;
-                _busy = value;
-                OnPropertyChanged();
-            }
-        }
+
 
         #region Properties
 
@@ -71,7 +62,7 @@ namespace DrivingLicenceScanner.ViewModel
                             Navigator.SwitchView(ViewModelLocator.CheckInsViewMode);
                             ViewModelLocator.CheckInsViewMode.LoadCheckInsCommand.Execute(null);
                         });
-                        BusyState = false;
+                       
                     }, () =>
                         ViewModelLocator.ScanViewModel.Customer != null ||
                         ViewModelLocator.DetailsViewModel.Customer != null);
@@ -104,7 +95,6 @@ namespace DrivingLicenceScanner.ViewModel
                         BusyState = true;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel));
                         ViewModelLocator.CustomersViewModel.LoadCustomersCommand.Execute(null);
-                        BusyState = false;
                     });
 
             SwitchToDetailsViewCommand =

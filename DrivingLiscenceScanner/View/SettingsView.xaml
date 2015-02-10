@@ -5,6 +5,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:view="clr-namespace:DrivingLicenceScanner.View"
              x:Class="DrivingLicenceScanner.View.SettingsView"
              mc:Ignorable="d"
              d:DesignHeight="628"
@@ -185,7 +186,7 @@
                                     <ei:GoToStateAction StateName="AddState"
                                                         TargetName="RootElement" />
                                 </i:EventTrigger>
-                                <i:EventTrigger EventName="MouseLeftButtonDown"
+                                <i:EventTrigger EventName="Click"
                                                 SourceName="button2">
                                     <ei:GoToStateAction StateName="ViewState"
                                                         TargetName="RootElement" />
@@ -265,6 +266,12 @@
                                         Command="{Binding AddLegalAgeCommand}"
                                         Margin="5,8,5,5" />
                             </StackPanel>
+                            <view:BusyAnimation Opacity="0"
+                                                Grid.Row="2"
+                                                Grid.Column="0"
+                                                Busy="{Binding BusyState}"
+                                                BusyMessage="{Binding BusyMessage}"
+                                                VerticalAlignment="Center" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
