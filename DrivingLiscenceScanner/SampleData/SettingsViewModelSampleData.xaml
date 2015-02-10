@@ -1,0 +1,24 @@
+﻿<ViewModel:SettingsViewModel xmlns:ViewModel="clr-namespace:DrivingLicenceScanner.ViewModel"
+                             xmlns:Infrastructure="clr-namespace:DrivingLicenceScanner.Infrastructure"
+                             xmlns:EntityFramework="clr-namespace:DrivingLicenceScanner.EntityFramework;assembly=DrivingLicenceScanner.EntityFramework"
+                             xmlns:Infrastructure1="clr-namespace:System.Data.Entity.Infrastructure;assembly=EntityFramework"
+                             xmlns:Entity="clr-namespace:System.Data.Entity;assembly=EntityFramework"
+                             xmlns:Common="clr-namespace:System.Data.Common;assembly=System.Data"
+                             xmlns:Entities="clr-namespace:DrivingLicenceScanner.Entities;assembly=DrivingLicenceScanner.Entities"
+                             xmlns:Model="clr-namespace:DrivingLicenceScanner.Model">
+    <ViewModel:SettingsViewModel.LegalAges>
+        <Entities:LegalAge Age="72" Id="97" Name="Phasellus nam class aliquam consequat" />
+        <Entities:LegalAge Age="16" Id="91" Name="Praesent integer duis aenean convallis" />
+        <Entities:LegalAge Age="19" Id="33" Name="Vestibulum sed quisque adipiscing" />
+        <Entities:LegalAge Age="80" Id="30" Name="Vivamus accumsan mauris aliquam nullam" />
+        <Entities:LegalAge Age="78" Id="30" Name="Dignissim nunc" />
+        <Entities:LegalAge Age="97" Id="72" Name="Amet parturient curae" />
+        <Entities:LegalAge Age="87" Id="35" Name="Bibendum aptent" />
+        <Entities:LegalAge Age="43" Id="53" Name="Dictumst ante" />
+        <Entities:LegalAge Age="68" Id="42" Name="Auctor elementum donec aliquet dis" />
+        <Entities:LegalAge Age="22" Id="97" Name="Facilisis blandit" />
+    </ViewModel:SettingsViewModel.LegalAges>
+    <ViewModel:SettingsViewModel.LegalAge>
+        <Entities:LegalAge Age="87" Id="50" Name="Curabitur maecenas cras" />
+    </ViewModel:SettingsViewModel.LegalAge>
+</ViewModel:SettingsViewModel>

@@ -1,0 +1,672 @@
+﻿<ViewModel:CustomersViewModel xmlns:ViewModel="clr-namespace:DrivingLicenceScanner.ViewModel"
+                              xmlns:EntityFramework="clr-namespace:DrivingLicenceScanner.EntityFramework;assembly=DrivingLicenceScanner.EntityFramework"
+                              xmlns:Infrastructure="clr-namespace:System.Data.Entity.Infrastructure;assembly=EntityFramework"
+                              xmlns:Entity="clr-namespace:System.Data.Entity;assembly=EntityFramework"
+                              xmlns:Entities="clr-namespace:DrivingLicenceScanner.Entities;assembly=DrivingLicenceScanner.Entities"
+                              xmlns:Infrastructure1="clr-namespace:DrivingLicenceScanner.Infrastructure"
+                              xmlns:Common="clr-namespace:System.Data.Common;assembly=System.Data"
+                              xmlns:Model="clr-namespace:DrivingLicenceScanner.Model">
+    <ViewModel:CustomersViewModel.Customers>
+        <Entities:Customer City="Himenaeos donec amet ante adipiscing" DoB="02/09/2015 22:36:26"
+                           EyeColor="Habitasse duis aenean vestibulum" FirstName="Nam" Height="68"
+                           HairColor="Facilisis fermentum sed fringilla" Id="15" LastName="Class" LicenceId="42"
+                           MiddleName="Aliquam convallis" Sex="Dignissim class elementum" State="Praesent dis etiam"
+                           Street="Nunc mauris hendrerit curae" Weight="21" ZipCode="Nullam arcu">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="59" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nec proin facilisi" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Cursus leo commodo conubia" FirstName="Integer" Height="85"
+                                           HairColor="Vestibulum hac vestibulum nulla eget" Id="58" LastName="Cras"
+                                           LicenceId="13" MiddleName="Vivamus morbi auctor congue"
+                                           Sex="Aliquam aliquet parturient blandit" State="Elit dictum lectus"
+                                           Street="Mus malesuada" Weight="47" ZipCode="Cubilia adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="67" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Vestibulum tincidunt interdum adipiscing litora"
+                                           DoB="02/09/2015 22:36:26" EyeColor="Porttitor nibh" FirstName="Aenean"
+                                           Height="32" HairColor="Euismod eros feugiat ligula" Id="34"
+                                           LastName="Praesent" LicenceId="61" MiddleName="Erat faucibus"
+                                           Sex="Egestas habitant vestibulum penatibus" State="Luctus tristique"
+                                           Street="Gravida inceptos non" Weight="36" ZipCode="Iaculis parturient" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="69" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Laoreet sagittis" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Placerat sem vulputate dolor" FirstName="Sed" Height="59"
+                                           HairColor="Pharetra nunc" Id="91" LastName="Duis" LicenceId="52"
+                                           MiddleName="Nisi ultricies nisl venenatis" Sex="Lobortis nascetur"
+                                           State="Senectus fames" Street="Pulvinar magnis" Weight="20"
+                                           ZipCode="Natoque sit parturient mattis sociosqu" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="49" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Orci nostra torquent pretium" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Adipiscing montes" FirstName="Cras" Height="29"
+                                           HairColor="Suscipit ipsum justo" Id="31" LastName="Nam" LicenceId="12"
+                                           MiddleName="Phasellus vestibulum mollis" Sex="Odio vestibulum nam"
+                                           State="Parturient rhoncus" Street="Lacus sed potenti" Weight="25"
+                                           ZipCode="Lorem ornare pede consequat platea" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="64" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nulla accumsan" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Neque urna netus elementum praesent" FirstName="Dis" Height="23"
+                                           HairColor="Vestibulum morbi est" Id="60" LastName="Nunc" LicenceId="78"
+                                           MiddleName="Magna convallis viverra volutpat massa"
+                                           Sex="Aliquam maecenas quis metus dignissim"
+                                           State="Bibendum dictumst semper eleifend hac"
+                                           Street="Cras adipiscing integer" Weight="35" ZipCode="Porta facilisi sociis" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Fusce imperdiet integer" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="69" Number="Accumsan bibendum aptent diam" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Vestibulum vestibulum adipiscing" DoB="02/09/2015 22:36:26"
+                           EyeColor="Himenaeos faucibus tortor" FirstName="Est" Height="22"
+                           HairColor="Mus tempus hendrerit" Id="14" LastName="Accumsan" LicenceId="95"
+                           MiddleName="Purus fringilla ante arcu tellus" Sex="Habitasse diam tempor"
+                           State="Imperdiet habitant parturient" Street="Eget turpis nec non" Weight="10"
+                           ZipCode="Inceptos risus per">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="16" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Aptent nam ultricies" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Class parturient sit curae" FirstName="Class" Height="61"
+                                           HairColor="Lobortis mauris adipiscing tristique eros" Id="25"
+                                           LastName="Bibendum" LicenceId="18"
+                                           MiddleName="Porttitor vivamus sem interdum aliquam" Sex="Aenean tincidunt"
+                                           State="Vestibulum aliquet sed nascetur nisi" Street="Nullam vel nibh"
+                                           Weight="19" ZipCode="Vestibulum donec blandit adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="29" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Morbi leo" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Consequat commodo pulvinar convallis odio" FirstName="Duis"
+                                           Height="36" HairColor="Fusce hac" Id="85" LastName="Dictumst" LicenceId="45"
+                                           MiddleName="Nisl nunc auctor phasellus" Sex="Pharetra placerat"
+                                           State="Conubia congue" Street="Lorem orci pede sagittis" Weight="28"
+                                           ZipCode="Cubilia dignissim" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="44" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Cras duis" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Quam torquent ligula quis urna" FirstName="Curae" Height="26"
+                                           HairColor="Dapibus augue" Id="37" LastName="Aenean" LicenceId="70"
+                                           MiddleName="Lectus vestibulum sociosqu"
+                                           Sex="Libero proin fermentum suscipit"
+                                           State="Fringilla habitasse nec euismod" Street="Egestas mus" Weight="45"
+                                           ZipCode="Vestibulum ultrices dolor feugiat fames" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="15" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Vel imperdiet mauris" DoB="02/09/2015 22:36:26" EyeColor="Sit mattis"
+                                           FirstName="Mauris" Height="62"
+                                           HairColor="Sem adipiscing parturient vestibulum" Id="98" LastName="Mauris"
+                                           LicenceId="86" MiddleName="Luctus per himenaeos ante"
+                                           Sex="Vehicula sed ipsum magnis" State="Vestibulum adipiscing"
+                                           Street="Volutpat maecenas praesent justo accumsan" Weight="97"
+                                           ZipCode="Parturient arcu bibendum gravida" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="84" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Tincidunt tristique" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Adipiscing erat massa nostra est" FirstName="Nunc" Height="95"
+                                           HairColor="Lorem dis eleifend montes magna" Id="49" LastName="Amet"
+                                           LicenceId="15" MiddleName="Vestibulum laoreet enim natoque"
+                                           Sex="Mollis vestibulum posuere sed penatibus" State="Potenti ultricies"
+                                           Street="Hac porttitor metus ornare morbi" Weight="39"
+                                           ZipCode="Pretium facilisi leo faucibus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Malesuada quisque" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="77" Number="Elit vestibulum sed" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Non consequat convallis" DoB="02/09/2015 22:36:26"
+                           EyeColor="Vestibulum viverra habitant" FirstName="Amet" Height="45"
+                           HairColor="Phasellus mus nibh nisi nisl" Id="98" LastName="Eleifend" LicenceId="69"
+                           MiddleName="Neque vestibulum" Sex="Eros curabitur sodales"
+                           State="Aliquam semper dignissim sociis per" Street="Nec adipiscing inceptos" Weight="60"
+                           ZipCode="Netus taciti nunc integer quisque">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="54" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nam tortor quis purus vestibulum" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Pede blandit quam commodo conubia" FirstName="Nullam" Height="36"
+                                           HairColor="Parturient sit aliquet tempus" Id="34" LastName="Sed"
+                                           LicenceId="54" MiddleName="Tellus vestibulum tempor"
+                                           Sex="Adipiscing orci fringilla placerat pulvinar" State="Dapibus risus"
+                                           Street="Sagittis vel cubilia" Weight="58" ZipCode="Sed habitasse" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="53" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Class gravida iaculis" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Aenean amet euismod" FirstName="Ante" Height="50"
+                                           HairColor="Duis nunc" Id="39" LastName="Facilisi" LicenceId="32"
+                                           MiddleName="Turpis imperdiet egestas" Sex="Velit varius hac"
+                                           State="Malesuada penatibus adipiscing porttitor mus"
+                                           Street="Vestibulum leo feugiat vitae" Weight="12"
+                                           ZipCode="Nec senectus mauris lacinia parturient" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="64" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Arcu congue parturient" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Ante natoque" FirstName="Arcu" Height="10"
+                                           HairColor="Torquent per lorem laoreet" Id="95" LastName="Faucibus"
+                                           LicenceId="67" MiddleName="Tristique adipiscing"
+                                           Sex="Etiam suscipit nullam ultricies fusce"
+                                           State="Potenti vehicula cursus volutpat vestibulum"
+                                           Street="Aptent posuere auctor ultrices" Weight="80"
+                                           ZipCode="Pretium morbi sed rhoncus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="36" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Enim ligula" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Vestibulum libero aliquam integer quisque" FirstName="Quisque"
+                                           Height="78" HairColor="Diam sit maecenas vel eget" Id="43" LastName="Dis"
+                                           LicenceId="72" MiddleName="Augue adipiscing" Sex="Lectus parturient viverra"
+                                           State="Aliquam praesent vestibulum" Street="Nam vivamus vulputate elit"
+                                           Weight="64" ZipCode="Aliquet erat eros sed dis" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="15" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Mollis fermentum dictumst" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Parturient mattis nisl mauris" FirstName="Maecenas" Height="12"
+                                           HairColor="Facilisis magnis" Id="60" LastName="Est" LicenceId="92"
+                                           MiddleName="Litora dolor luctus accumsan"
+                                           Sex="Dignissim commodo elementum conubia" State="Nunc montes"
+                                           Street="Bibendum cubilia" Weight="19"
+                                           ZipCode="Fames nostra est vestibulum dapibus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Vivamus lobortis parturient" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="98" Number="Odio interdum elementum sed" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Sapien mus adipiscing" DoB="02/09/2015 22:36:26"
+                           EyeColor="Habitant himenaeos leo quam" FirstName="Diam" Height="30"
+                           HairColor="Faucibus hendrerit pede" Id="67" LastName="Habitant" LicenceId="14"
+                           MiddleName="Orci hac platea fringilla euismod" Sex="Facilisi vestibulum habitasse primis"
+                           State="Semper inceptos urna" Street="Quis feugiat rutrum gravida iaculis" Weight="32"
+                           ZipCode="Nec lacinia lacus">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="84" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Massa potenti tempus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Tincidunt sed natoque tempor tristique" FirstName="Aptent"
+                                           Height="66" HairColor="Vestibulum porttitor per" Id="35" LastName="Hac"
+                                           LicenceId="90" MiddleName="Pharetra placerat malesuada lorem"
+                                           Sex="Penatibus laoreet nunc adipiscing parturient"
+                                           State="Adipiscing parturient pulvinar vestibulum tortor"
+                                           Street="Posuere vestibulum magna sem" Weight="29"
+                                           ZipCode="Sagittis turpis ultricies amet" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="20" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Venenatis parturient" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Sociosqu arcu adipiscing" FirstName="Vivamus" Height="67"
+                                           HairColor="Porta sit sodales" Id="11" LastName="Aliquam" LicenceId="26"
+                                           MiddleName="Morbi neque auctor netus vestibulum"
+                                           Sex="Senectus ante nulla rhoncus"
+                                           State="Diam viverra velit aliquam vestibulum"
+                                           Street="Purus vel congue risus" Weight="90" ZipCode="Vestibulum cursus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="75" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Erat eros" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Vulputate sed dis aliquet" FirstName="Donec" Height="60"
+                                           HairColor="Fusce nam aliquam" Id="57" LastName="Integer" LicenceId="32"
+                                           MiddleName="Suscipit vestibulum curae vivamus donec" Sex="Torquent etiam"
+                                           State="Blandit commodo est curabitur nibh" Street="Elit enim" Weight="75"
+                                           ZipCode="Ultrices vestibulum" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="88" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Facilisis mus conubia" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Elementum vestibulum" FirstName="Aliquam" Height="24"
+                                           HairColor="Praesent accumsan parturient" Id="48" LastName="Curae"
+                                           LicenceId="78" MiddleName="Nunc libero volutpat dignissim"
+                                           Sex="Hac odio maecenas adipiscing ligula" State="Nec fermentum"
+                                           Street="Litora leo" Weight="72" ZipCode="Vestibulum bibendum cubilia" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="65" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Inceptos malesuada quam dolor quis" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Mattis mauris non vestibulum himenaeos" FirstName="Praesent"
+                                           Height="95" HairColor="Orci magnis hendrerit pede" Id="66" LastName="Nullam"
+                                           LicenceId="92" MiddleName="Morbi faucibus" Sex="Euismod nulla"
+                                           State="Interdum per sed" Street="Imperdiet proin augue habitant" Weight="97"
+                                           ZipCode="Mollis urna sem" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Lobortis parturient" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="19" Number="Sociis cras interdum" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Lacinia nam sed" DoB="02/09/2015 22:36:26"
+                           EyeColor="Pharetra placerat vel amet pulvinar" FirstName="Etiam" Height="32"
+                           HairColor="Nunc nascetur gravida fames iaculis" Id="94" LastName="Ante" LicenceId="65"
+                           MiddleName="Lobortis montes nostra" Sex="Vestibulum duis" State="Ornare ante sociosqu"
+                           Street="Vestibulum adipiscing sagittis senectus" Weight="26"
+                           ZipCode="Arcu porttitor diam laoreet platea">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="33" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Curabitur phasellus sodales" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Parturient semper sociis vestibulum vulputate" FirstName="Hac"
+                                           Height="46" HairColor="Adipiscing elit enim" Id="17" LastName="Quisque"
+                                           LicenceId="48" MiddleName="Est vestibulum eget venenatis hac"
+                                           Sex="Pretium lacus rutrum sapien rhoncus" State="Vestibulum maecenas erat"
+                                           Street="Vehicula volutpat" Weight="92" ZipCode="Leo praesent adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="38" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Metus sed fringilla" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Dictumst nibh facilisis integer fermentum" FirstName="Accumsan"
+                                           Height="80" HairColor="Elementum per aliquam bibendum" Id="39"
+                                           LastName="Arcu" LicenceId="57" MiddleName="Tellus lorem viverra"
+                                           Sex="Tempor dignissim non" State="Quisque facilisi tempus sem habitasse"
+                                           Street="Eleifend vestibulum magna massa" Weight="89" ZipCode="Sit morbi" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="34" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Malesuada vestibulum est" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Sed orci dis" FirstName="Eget" Height="87"
+                                           HairColor="Nam himenaeos aliquet odio" Id="75" LastName="Donec"
+                                           LicenceId="96" MiddleName="Adipiscing vivamus nunc"
+                                           Sex="Aliquam faucibus netus" State="Penatibus pede porttitor"
+                                           Street="Parturient blandit imperdiet habitant inceptos" Weight="47"
+                                           ZipCode="Interdum nulla vestibulum quam" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="58" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Senectus sociosqu amet purus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Hac tincidunt parturient" FirstName="Elit" Height="37"
+                                           HairColor="Pulvinar adipiscing nunc" Id="99" LastName="Inceptos"
+                                           LicenceId="14" MiddleName="Urna nullam cras duis"
+                                           Sex="Placerat cubilia aptent" State="Leo congue risus"
+                                           Street="Sagittis auctor" Weight="87"
+                                           ZipCode="Vestibulum velit cursus tristique" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="29" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Curae elit donec etiam" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Ligula diam nec eget" FirstName="Fusce" Height="59"
+                                           HairColor="Libero adipiscing" Id="15" LastName="Diam" LicenceId="54"
+                                           MiddleName="Feugiat gravida" Sex="Arcu dictum lectus"
+                                           State="Vulputate iaculis curabitur" Street="Non class litora venenatis"
+                                           Weight="35" ZipCode="Ultrices phasellus luctus lacinia" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Tristique ipsum ultricies" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="87"
+                                  Number="Tincidunt parturient vestibulum felis suscipit" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Accumsan bibendum adipiscing" DoB="02/09/2015 22:36:26"
+                           EyeColor="Maecenas praesent consequat lorem montes" FirstName="Lorem" Height="39"
+                           HairColor="Eros mollis natoque vel" Id="27" LastName="Etiam" LicenceId="37"
+                           MiddleName="Sit vestibulum" Sex="Volutpat vestibulum mattis mauris"
+                           State="Nulla nam parturient" Street="Morbi posuere convallis" Weight="68"
+                           ZipCode="Vestibulum dictumst dignissim eleifend elementum">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="87" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Sodales leo mus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Parturient fringilla est habitasse rhoncus" FirstName="Leo"
+                                           Height="11" HairColor="Pede faucibus" Id="85" LastName="Vivamus"
+                                           LicenceId="93" MiddleName="Ipsum dis adipiscing"
+                                           Sex="Pretium orci platea primis" State="Quam inceptos quis viverra aliquam"
+                                           Street="Rutrum habitant sapien hac semper" Weight="13"
+                                           ZipCode="Nec interdum non lobortis per" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="68" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Metus morbi adipiscing urna tempor" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Vivamus lorem aliquam imperdiet magna" FirstName="Enim"
+                                           Height="67" HairColor="Sagittis lacus quisque" Id="21" LastName="Leo"
+                                           LicenceId="93" MiddleName="Himenaeos placerat pulvinar" Sex="Integer taciti"
+                                           State="Aliquet malesuada tempus tortor" Street="Tellus massa" Weight="36"
+                                           ZipCode="Blandit cras penatibus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="59" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Vestibulum purus nunc" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Neque netus conubia torquent vestibulum" FirstName="Bibendum"
+                                           Height="34" HairColor="Ultricies dis" Id="67" LastName="Aptent"
+                                           LicenceId="53" MiddleName="Sit sociosqu tincidunt turpis varius"
+                                           Sex="Suscipit vel tristique nam sed"
+                                           State="Est amet adipiscing risus parturient"
+                                           Street="Duis venenatis cubilia nulla porta" Weight="25"
+                                           ZipCode="Aenean dapibus ultrices hac" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="89" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Parturient aptent lacinia phasellus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Vestibulum eget nullam" FirstName="Aliquet" Height="57"
+                                           HairColor="Mauris velit" Id="79" LastName="Auctor" LicenceId="44"
+                                           MiddleName="Arcu diam euismod feugiat" Sex="Curabitur gravida"
+                                           State="Consequat laoreet vitae auctor" Street="Iaculis adipiscing"
+                                           Weight="10" ZipCode="Natoque leo congue mus posuere" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="94" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Eros sed aliquam" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Adipiscing parturient" FirstName="Dictumst" Height="39"
+                                           HairColor="Cursus pretium lorem rhoncus dictum" Id="94" LastName="Mus"
+                                           LicenceId="67" MiddleName="Volutpat maecenas per praesent accumsan"
+                                           Sex="Bibendum erat dictumst vestibulum fusce" State="Nibh nulla nisi"
+                                           Street="Sodales morbi viverra" Weight="61"
+                                           ZipCode="Sem convallis proin augue" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Proin augue potenti nostra" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="96" Number="Nibh sed nisi nisl facilisis" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Aliquam orci adipiscing" DoB="02/09/2015 22:36:26" EyeColor="Interdum nam"
+                           FirstName="Morbi" Height="57" HairColor="Nisl elementum vestibulum inceptos" Id="27"
+                           LastName="Nec" LicenceId="48" MiddleName="Vestibulum facilisi faucibus"
+                           Sex="Fames lectus vivamus habitant" State="Ligula litora lobortis felis"
+                           Street="Nunc libero sed dis odio" Weight="21" ZipCode="Luctus nascetur">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="99" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Magnis amet" DoB="02/09/2015 22:36:26" EyeColor="Mus conubia"
+                                           FirstName="Blandit" Height="53" HairColor="Duis nunc leo" Id="70"
+                                           LastName="Fusce" LicenceId="69" MiddleName="Urna placerat blandit fermentum"
+                                           Sex="Hac commodo cras justo"
+                                           State="Nec non parturient vestibulum vestibulum"
+                                           Street="Lacus vestibulum lorem adipiscing fringilla" Weight="92"
+                                           ZipCode="Ante cubilia habitasse per" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="49" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Feugiat eget" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Malesuada neque montes netus nostra" FirstName="Eleifend"
+                                           Height="83" HairColor="Sem diam egestas pulvinar morbi" Id="73"
+                                           LastName="Aliquam" LicenceId="38"
+                                           MiddleName="Sed massa imperdiet adipiscing" Sex="Metus mollis"
+                                           State="Porttitor gravida parturient tincidunt" Street="Euismod penatibus"
+                                           Weight="54" ZipCode="Vestibulum ornare nulla" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="47" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Suscipit vestibulum semper torquent ultrices"
+                                           DoB="02/09/2015 22:36:26" EyeColor="Venenatis rutrum" FirstName="Facilisi"
+                                           Height="10" HairColor="Senectus parturient" Id="41" LastName="Lorem"
+                                           LicenceId="54" MiddleName="Primis lacinia porta"
+                                           Sex="Sagittis adipiscing laoreet ultricies"
+                                           State="Vulputate vehicula natoque sociis"
+                                           Street="Enim vestibulum sociosqu sapien" Weight="93"
+                                           ZipCode="Taciti sit adipiscing curabitur" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="61" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Parturient odio convallis" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Accumsan vestibulum nunc vestibulum" FirstName="Erat" Height="44"
+                                           HairColor="Consequat risus sed nisl" Id="81" LastName="Aliquet"
+                                           LicenceId="64" MiddleName="Purus maecenas nisi praesent"
+                                           Sex="Posuere parturient nam"
+                                           State="Velit dignissim vestibulum elementum vitae"
+                                           Street="Potenti adipiscing" Weight="81" ZipCode="Facilisis pretium" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="47" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Habitasse aliquam fusce" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Hac habitant vestibulum" FirstName="Commodo" Height="68"
+                                           HairColor="Viverra etiam faucibus" Id="82" LastName="Morbi" LicenceId="12"
+                                           MiddleName="Class fermentum sodales curae parturient"
+                                           Sex="Fringilla facilisi est donec" State="Vestibulum integer hendrerit"
+                                           Street="Tellus orci" Weight="92" ZipCode="Lorem tempor inceptos morbi leo" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Pede quam pharetra" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="30" Number="Facilisis parturient" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Sit imperdiet" DoB="02/09/2015 22:36:26" EyeColor="Blandit himenaeos" FirstName="Mus"
+                           Height="55" HairColor="Tortor dolor aliquet" Id="93" LastName="Non" LicenceId="46"
+                           MiddleName="Adipiscing pede nec interdum" Sex="Non tempus quam augue"
+                           State="Malesuada penatibus vel" Street="Parturient per sed commodo sem" Weight="50"
+                           ZipCode="Quis vestibulum">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="20" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Egestas hac" DoB="02/09/2015 22:36:26" EyeColor="Sed amet"
+                                           FirstName="Conubia" Height="29" HairColor="Phasellus consequat aenean"
+                                           Id="99" LastName="Eget" LicenceId="94"
+                                           MiddleName="Dapibus vulputate duis nunc" Sex="Nascetur nam varius curabitur"
+                                           State="Ante vestibulum pharetra adipiscing parturient"
+                                           Street="Dis est mauris convallis" Weight="16"
+                                           ZipCode="Euismod feugiat placerat dignissim" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="89" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Sociosqu natoque congue facilisis parturient"
+                                           DoB="02/09/2015 22:36:26" EyeColor="Laoreet senectus aptent auctor"
+                                           FirstName="Auctor" Height="41" HairColor="Lacus adipiscing lacinia" Id="23"
+                                           LastName="Congue" LicenceId="14"
+                                           MiddleName="Vestibulum ipsum vestibulum gravida nec"
+                                           Sex="Elementum iaculis justo non" State="Arcu posuere diam cursus potenti"
+                                           Street="Lorem magna" Weight="55" ZipCode="Per dictum" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="26" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nulla sit erat" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Elit vehicula neque volutpat netus" FirstName="Nulla" Height="13"
+                                           HairColor="Vestibulum adipiscing parturient metus morbi" Id="96"
+                                           LastName="Cursus" LicenceId="97" MiddleName="Litora massa pretium"
+                                           Sex="Torquent ultrices rhoncus vestibulum"
+                                           State="Maecenas magnis sodales hendrerit"
+                                           Street="Enim luctus habitasse sem vestibulum" Weight="71"
+                                           ZipCode="Eros praesent" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="63" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nostra vestibulum est ornare quam" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Sed orci dis parturient risus" FirstName="Eros" Height="45"
+                                           HairColor="Mauris nunc accumsan purus odio" Id="94" LastName="Interdum"
+                                           LicenceId="16" MiddleName="Imperdiet nibh porta" Sex="Nisi viverra nisl"
+                                           State="Malesuada velit" Street="Bibendum pede mollis vestibulum montes"
+                                           Weight="17" ZipCode="Aliquam platea hac penatibus adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="46" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Taciti quis donec ultricies tellus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Eleifend sapien" FirstName="Nec" Height="39"
+                                           HairColor="Dictumst mus" Id="23" LastName="Nulla" LicenceId="83"
+                                           MiddleName="Porttitor vestibulum" Sex="Tincidunt rutrum vitae class aliquam"
+                                           State="Tempor urna blandit etiam"
+                                           Street="Curae tristique semper sociis aliquet" Weight="84"
+                                           ZipCode="Cras fusce" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Porttitor cubilia" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="75" Number="Urna turpis conubia lobortis" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Sed tortor" DoB="02/09/2015 22:36:26" EyeColor="Per lorem morbi tempus vestibulum"
+                           FirstName="Cubilia" Height="11" HairColor="Dapibus vulputate egestas amet" Id="27"
+                           LastName="Per" LicenceId="90" MiddleName="Non faucibus adipiscing"
+                           Sex="Cubilia habitant parturient" State="Inceptos arcu diam eget"
+                           Street="Ante curabitur phasellus consequat" Weight="61" ZipCode="Sem nulla sit">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="93" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Ipsum facilisis vestibulum pulvinar" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Pharetra fames felis aptent" FirstName="Congue" Height="47"
+                                           HairColor="Iaculis mauris enim nullam erat" Id="33" LastName="Proin"
+                                           LicenceId="28" MiddleName="Gravida lobortis aenean"
+                                           Sex="Dolor parturient vestibulum nascetur"
+                                           State="Eros cursus nam sed sagittis"
+                                           Street="Elementum auctor placerat lacinia congue" Weight="78"
+                                           ZipCode="Justo lacus adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="47" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Lectus sodales viverra malesuada vestibulum" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Dictum magna massa imperdiet" FirstName="Non" Height="94"
+                                           HairColor="Potenti sociosqu leo himenaeos" Id="22" LastName="Dictum"
+                                           LicenceId="64" MiddleName="Natoque hendrerit hac"
+                                           Sex="Lorem posuere vestibulum" State="Nisl metus"
+                                           Street="Pretium rhoncus suscipit" Weight="99" ZipCode="Aliquam libero" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="47" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Nec vestibulum urna ultrices commodo" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Penatibus aliquam" FirstName="Cursus" Height="88"
+                                           HairColor="Pede litora vivamus" Id="49" LastName="Elit" LicenceId="48"
+                                           MiddleName="Orci quisque" Sex="Vestibulum adipiscing mus ligula parturient"
+                                           State="Porttitor tincidunt" Street="Netus quam quis aliquet blandit"
+                                           Weight="77" ZipCode="Non vehicula vestibulum tristique adipiscing" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="50" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Dapibus egestas curabitur" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Accumsan bibendum sem" FirstName="Per" Height="96"
+                                           HairColor="Venenatis praesent adipiscing sed porta" Id="78"
+                                           LastName="Lobortis" LicenceId="49"
+                                           MiddleName="Vestibulum ultricies cubilia mattis"
+                                           Sex="Per vestibulum volutpat maecenas" State="Nunc phasellus"
+                                           Street="Vulputate parturient duis" Weight="95" ZipCode="Mauris mollis sit" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="99" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Dis facilisi nostra" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Ante eleifend gravida" FirstName="Nibh" Height="42"
+                                           HairColor="Vestibulum adipiscing parturient sed" Id="20" LastName="Sed"
+                                           LicenceId="39" MiddleName="Risus consequat nam"
+                                           Sex="Feugiat convallis velit" State="Dignissim est elementum"
+                                           Street="Arcu vitae" Weight="39" ZipCode="Diam iaculis" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Proin vel" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="76" Number="Turpis interdum elit" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+        <Entities:Customer City="Adipiscing elit donec parturient" DoB="02/09/2015 22:36:26"
+                           EyeColor="Habitasse laoreet natoque hendrerit nec" FirstName="Sed" Height="70"
+                           HairColor="Leo eget mus" Id="96" LastName="Sem" LicenceId="32" MiddleName="Platea primis"
+                           Sex="Rutrum vestibulum" State="Malesuada posuere non"
+                           Street="Habitant himenaeos imperdiet vestibulum" Weight="44"
+                           ZipCode="Enim erat etiam potenti eros">
+            <Entities:Customer.CheckIns>
+                <Entities:CheckIn Id="87" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Interdum vestibulum" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Tellus augue aliquam venenatis tempor" FirstName="Dapibus"
+                                           Height="51" HairColor="Viverra nisl" Id="62" LastName="Lectus"
+                                           LicenceId="20" MiddleName="Taciti sed proin" Sex="Tristique ultricies"
+                                           State="Fames sem" Street="Dolor inceptos vulputate" Weight="79"
+                                           ZipCode="Adipiscing integer" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="92" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Pulvinar ipsum sagittis nullam aliquam" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Turpis convallis varius quam aenean" FirstName="Faucibus"
+                                           Height="34" HairColor="Pharetra consequat" Id="59" LastName="Blandit"
+                                           LicenceId="60" MiddleName="Vestibulum sit curabitur"
+                                           Sex="Phasellus nascetur orci pede tortor"
+                                           State="Aptent justo senectus vel quis" Street="Placerat mauris" Weight="53"
+                                           ZipCode="Dignissim nam sociosqu" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="50" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Cras lorem accumsan dapibus mus" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Maecenas hac leo praesent" FirstName="Dictum" Height="45"
+                                           HairColor="Cubilia elementum adipiscing" Id="99" LastName="Enim"
+                                           LicenceId="68" MiddleName="Est vehicula commodo"
+                                           Sex="Conubia volutpat lacus" State="Egestas parturient congue magna"
+                                           Street="Facilisis fermentum urna" Weight="52"
+                                           ZipCode="Vestibulum fringilla cursus massa bibendum" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="97" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Sed diam neque" DoB="02/09/2015 22:36:26" EyeColor="Ante arcu metus"
+                                           FirstName="Egestas" Height="62" HairColor="Feugiat imperdiet per parturient"
+                                           Id="34" LastName="Nascetur" LicenceId="42"
+                                           MiddleName="Dictumst eleifend duis vestibulum"
+                                           Sex="Hendrerit nunc himenaeos adipiscing amet" State="Dictum facilisi eget"
+                                           Street="Gravida morbi" Weight="45" ZipCode="Elit faucibus" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+                <Entities:CheckIn Id="48" Time="02/09/2015 22:36:26">
+                    <Entities:CheckIn.Customer>
+                        <Entities:Customer City="Adipiscing nisi velit inceptos" DoB="02/09/2015 22:36:26"
+                                           EyeColor="Nibh ligula porta" FirstName="Nisi" Height="65"
+                                           HairColor="Lacinia malesuada" Id="14" LastName="Erat" LicenceId="77"
+                                           MiddleName="Habitant erat" Sex="Eros vel nulla libero"
+                                           State="Parturient interdum vitae vestibulum"
+                                           Street="Laoreet purus vestibulum natoque risus" Weight="51"
+                                           ZipCode="Nam lobortis sed nascetur pharetra" />
+                    </Entities:CheckIn.Customer>
+                </Entities:CheckIn>
+            </Entities:Customer.CheckIns>
+            <Entities:Customer.Licence>
+                <Entities:Licence ClassCode="Penatibus porttitor fusce nisi tincidunt" ExpiryDate="02/09/2015 22:36:26"
+                                  IssueDate="02/09/2015 22:36:26" Id="77" Number="Pretium sapien rhoncus nibh" />
+            </Entities:Customer.Licence>
+        </Entities:Customer>
+    </ViewModel:CustomersViewModel.Customers>
+</ViewModel:CustomersViewModel>
