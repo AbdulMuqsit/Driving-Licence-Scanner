@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using DrivingLicenceScanner.Entities;
+﻿using System.Windows;
 using DrivingLicenceScanner.Entities.Infrastructure;
 using DrivingLicenceScanner.EntityFramework;
 using DrivingLicenceScanner.Model;
@@ -11,8 +7,26 @@ namespace DrivingLicenceScanner.Infrastructure
 {
     public class ViewModelBase : ObjectBase
     {
+        #region Fields
+
         private static ViewModelLocator _viewModelLocator;
+        private string _busyMessage;
         private BusyState _busyState;
+
+        #endregion
+
+        #region Properties
+
+        public string BusyMessage
+        {
+            get { return _busyMessage; }
+            set
+            {
+                if (value == _busyMessage) return;
+                _busyMessage = value;
+                OnPropertyChanged();
+            }
+        }
 
         public BusyState BusyState
         {
@@ -27,10 +41,7 @@ namespace DrivingLicenceScanner.Infrastructure
 
         public DrivingLicenceScannerDbContext Context
         {
-            get
-            {
-                return new DrivingLicenceScannerDbContext();
-            }
+            get { return new DrivingLicenceScannerDbContext(); }
         }
 
         public static ViewModelLocator ViewModelLocator
@@ -39,17 +50,10 @@ namespace DrivingLicenceScanner.Infrastructure
             {
                 return _viewModelLocator ??
                        (_viewModelLocator =
-                           (ViewModelLocator)Application.Current.Resources["ViewModelLocator"]);
+                           (ViewModelLocator) Application.Current.Resources["ViewModelLocator"]);
             }
-
         }
 
-        public ViewModelBase()
-        {
-
-
-        }
-
-
+        #endregion
     }
 }

@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
+using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
     public class CheckInsViewModel : ViewModelBase
     {
-        private ObservableCollection<CheckIn> _checkIns;
+        #region Fields
+
         private CheckIn _checkIn;
+        private ObservableCollection<CheckIn> _checkIns;
+
+        #endregion
+
+        #region Properties
 
         public ObservableCollection<CheckIn> CheckIns
         {
-            get
-            {
-
-                return _checkIns;
-            }
+            get { return _checkIns; }
             set
             {
                 if (Equals(value, _checkIns)) return;
@@ -41,7 +41,15 @@ namespace DrivingLicenceScanner.ViewModel
             }
         }
 
+        #region Commands
+
         public RelayCommand LoadCheckInsCommand { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region Methods
 
         public CheckInsViewModel()
         {
@@ -50,11 +58,22 @@ namespace DrivingLicenceScanner.ViewModel
 
         private async void LoadCheckIns()
         {
-            await Task.Run(async () =>
-            {
-               
-                CheckIns = new ObservableCollection<CheckIn>(await Context.CheckIns.Where(e => e.Customer.Licence.Number == ViewModelLocator.ScanViewModel.Customer.Licence.Number).ToListAsync());
-            });
+            BusyState = BusyState.Busy;
+            await
+                Task.Run(
+                    async () =>
+                    {
+                        CheckIns =
+                            new ObservableCollection<CheckIn>(
+                                await
+                                    Context.CheckIns.Where(
+                                        e =>
+                                            e.Customer.Licence.Number ==
+                                            ViewModelLocator.ScanViewModel.Customer.Licence.Number).ToListAsync());
+                    });
+            BusyState = BusyState.Free;
         }
+
+        #endregion
     }
 }

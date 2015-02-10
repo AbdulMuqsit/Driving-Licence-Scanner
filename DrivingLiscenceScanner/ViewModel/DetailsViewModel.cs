@@ -5,7 +5,13 @@ namespace DrivingLicenceScanner.ViewModel
 {
     public class DetailsViewModel : ViewModelBase
     {
+        #region Fields
+
         private Customer _customer;
+
+        #endregion
+
+        #region Properties
 
         public Customer Customer
         {
@@ -17,5 +23,7 @@ namespace DrivingLicenceScanner.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        #endregion
     }
 }

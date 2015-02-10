@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
+using DrivingLicenceScanner.EntityFramework;
 using DrivingLicenceScanner.Infrastructure;
+using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
     public class SettingsViewModel : ViewModelBase
     {
-        private ObservableCollection<LegalAge> _legalAges;
+        #region Fields
+
         private LegalAge _legalAge;
+        private ObservableCollection<LegalAge> _legalAges;
+
+        #endregion
+
+        #region Properties
 
         public LegalAge LegalAge
         {
@@ -26,9 +33,6 @@ namespace DrivingLicenceScanner.ViewModel
             }
         }
 
-        public RelayCommand AddLegalAgeCommand { get; set; }
-        public RelayCommand RemoveLegalAgeCommand { get; set; }
-
         public ObservableCollection<LegalAge> LegalAges
         {
             get { return _legalAges; }
@@ -39,43 +43,61 @@ namespace DrivingLicenceScanner.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        #region Commands
+
+        public RelayCommand AddLegalAgeCommand { get; set; }
+        public RelayCommand RemoveLegalAgeCommand { get; set; }
         public RelayCommand LoadLegalAgesCommand { get; set; }
         public RelayCommand ClearCommand { get; set; }
 
+        #endregion
+
+        #endregion
+
+        #region Methods
 
         public SettingsViewModel()
         {
-            AddLegalAgeCommand = new RelayCommand(AddLegalAge, () => LegalAge != null && !String.IsNullOrWhiteSpace(LegalAge.Name) && LegalAge.Age > 0);
+            AddLegalAgeCommand = new RelayCommand(AddLegalAge,
+                () => LegalAge != null && !String.IsNullOrWhiteSpace(LegalAge.Name) && LegalAge.Age > 0);
             RemoveLegalAgeCommand = new RelayCommand(RemoveLegalAge, () => LegalAge != null && LegalAge.Id != 0);
             LoadLegalAgesCommand = new RelayCommand(LoadLegalAges);
-            ClearCommand = new RelayCommand(() => LegalAge = new LegalAge() { Age = 18 });
-            LoadLegalAgesCommand.Execute(null);
+            ClearCommand = new RelayCommand(() => LegalAge = new LegalAge {Age = 18});
+            LoadLegalAges();
         }
 
         private async void RemoveLegalAge()
         {
-            using (var context = Context)
+            BusyMessage = "Saving Changes...";
+            BusyState = BusyState.Busy;
+            await Task.Run(async () =>
             {
-                DbEntityEntry entry = context.Entry(LegalAge);
-                if (entry.State == EntityState.Detached)
+                using (DrivingLicenceScannerDbContext context = Context)
                 {
-                    context.LegalAges.Attach(LegalAge);
-                }
-                context.LegalAges.Remove(LegalAge);
+                    DbEntityEntry entry = context.Entry(LegalAge);
+                    if (entry.State == EntityState.Detached)
+                    {
+                        context.LegalAges.Attach(LegalAge);
+                    }
+                    context.LegalAges.Remove(LegalAge);
 
-                await context.SaveChangesAsync();
-                LoadLegalAges();
-            }
+                    await context.SaveChangesAsync();
+                    LoadLegalAges();
+                }
+            });
+            BusyState = BusyState.Free;
         }
 
         private async void AddLegalAge()
         {
-            using (var context = Context)
+            BusyMessage = "Saving Changes...";
+            BusyState = BusyState.Busy;
+            using (DrivingLicenceScannerDbContext context = Context)
             {
                 if (LegalAge.Id == 0)
                 {
                     context.LegalAges.Add(LegalAge);
-
                 }
                 else
                 {
@@ -85,44 +107,45 @@ namespace DrivingLicenceScanner.ViewModel
                         context.LegalAges.Attach(LegalAge);
                         entry.State = EntityState.Modified;
                     }
-
                 }
                 await context.SaveChangesAsync();
 
                 LoadLegalAges();
-                LegalAge = new LegalAge() { Age = 18 };
-
+                LegalAge = new LegalAge {Age = 18};
             }
+
+            BusyState = BusyState.Free;
         }
 
         private async void LoadLegalAges()
         {
+            BusyMessage = "Loading Legal Ages...";
+            BusyState = BusyState.Busy;
             await Task.Run(async () =>
             {
-
                 LegalAges = new ObservableCollection<LegalAge>(await Context.LegalAges.ToListAsync());
-                using (var context = Context)
+                using (DrivingLicenceScannerDbContext context = Context)
                 {
                     if (LegalAges.Count == 0)
                     {
                         var legalAges = new List<LegalAge>();
 
-                        legalAges.Add(new LegalAge() { Age = 18, Name = "Cigarettes" });
-                        legalAges.Add(new LegalAge() { Age = 21, Name = "Alcohol" });
-                        legalAges.Add(new LegalAge() { Age = 17, Name = "Lottery" });
+                        legalAges.Add(new LegalAge {Age = 18, Name = "Cigarettes"});
+                        legalAges.Add(new LegalAge {Age = 21, Name = "Alcohol"});
+                        legalAges.Add(new LegalAge {Age = 17, Name = "Lottery"});
 
                         context.LegalAges.AddRange(legalAges);
                         await context.SaveChangesAsync();
 
                         //using the Context (capital C) object because local context gets destroyed
                         LegalAges = new ObservableCollection<LegalAge>(await Context.LegalAges.ToListAsync());
-
                     }
                 }
-
             });
+
+            BusyState = BusyState.Free;
         }
 
-
+        #endregion
     }
 }

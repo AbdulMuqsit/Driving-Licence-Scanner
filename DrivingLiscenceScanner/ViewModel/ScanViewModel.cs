@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -125,6 +126,9 @@ namespace DrivingLicenceScanner.ViewModel
             Customer = null;
             ErrorMessage = String.Empty;
             Customer = new Customer();
+
+            BusyMessage = "Scanning...";
+            BusyState = BusyState.Busy;
             await Task.Run(async () =>
             {
                 try
@@ -195,7 +199,7 @@ namespace DrivingLicenceScanner.ViewModel
                         .Replace(Patterns.LicenceNumberInitToken, String.Empty)
                         .Replace(Patterns.LicenceNumberExitToken, String.Empty);
 
-                    using (var context = Context)
+                    using (DrivingLicenceScannerDbContext context = Context)
                     {
                         //if customer alrady exists, add a new checkin
                         Customer customer =
@@ -204,26 +208,29 @@ namespace DrivingLicenceScanner.ViewModel
                                     cust => cust.Licence.Number == Customer.Licence.Number);
                         if ((customer != null))
                         {
-                            customer.CheckIns.Add(new CheckIn { Time = DateTime.Now });
+                            customer.CheckIns.Add(new CheckIn {Time = DateTime.Now});
                         }
                         else
                         {
                             context.Customers.Add(Customer);
-                            Customer.CheckIns = new Collection<CheckIn> { new CheckIn { Time = DateTime.Now } };
+                            Customer.CheckIns = new Collection<CheckIn> {new CheckIn {Time = DateTime.Now}};
                         }
                         await context.SaveChangesAsync();
                     }
                     OnPropertyChanged("Age");
                 }
-                catch (InvalidOperationException)
+                catch (DbException)
                 {
                     ErrorMessage = "Application encountered an error while saving new check in.";
+                    BusyState = BusyState.Free;
                 }
 
                 catch (Exception)
                 {
                     ErrorMessage = "Invalid Data, Please Scan again.";
+                    BusyState = BusyState.Free;
                 }
+
 
                 //checking legal status of customer
                 List<LegalAge> legalAges = await Context.LegalAges.ToListAsync();
@@ -231,9 +238,10 @@ namespace DrivingLicenceScanner.ViewModel
                 var legal = new ObservableCollection<CustomerLegalStatus>();
                 foreach (LegalAge legality in legalAges)
                 {
-                    legal.Add(new CustomerLegalStatus { Allowed = Age >= legality.Age, Name = legality.Name });
+                    legal.Add(new CustomerLegalStatus {Allowed = Age >= legality.Age, Name = legality.Name});
                 }
                 CustomerLegalStatuses = legal;
+                BusyState = BusyState.Free;
             });
         }
 

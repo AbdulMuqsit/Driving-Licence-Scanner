@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DrivingLicenceScanner.Infrastructure;
+using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -13,12 +14,6 @@ namespace DrivingLicenceScanner.ViewModel
 
         #region Properties
 
-        public RelayCommand SwitchToScanViewCommand { get; private set; }
-        public RelayCommand SwitchToCustomersViewCommand { get; private set; }
-        public RelayCommand SwitchToDetailsViewCommand { get; private set; }
-        public RelayCommand SwitchToCheckInsViewCommand { get; private set; }
-        public RelayCommand SwitchToSettingsViewCommand { get; private set; }
-
         public ViewModelBase CurrentChildViewModel
         {
             get { return _currentChildViewModel; }
@@ -30,6 +25,16 @@ namespace DrivingLicenceScanner.ViewModel
                 OnPropertyChanged("CurrentChildViewModel");
             }
         }
+
+        #region Commands
+
+        public RelayCommand SwitchToScanViewCommand { get; private set; }
+        public RelayCommand SwitchToCustomersViewCommand { get; private set; }
+        public RelayCommand SwitchToDetailsViewCommand { get; private set; }
+        public RelayCommand SwitchToCheckInsViewCommand { get; private set; }
+        public RelayCommand SwitchToSettingsViewCommand { get; private set; }
+
+        #endregion
 
         #endregion
 
@@ -45,34 +50,60 @@ namespace DrivingLicenceScanner.ViewModel
         {
             SwitchToCheckInsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() =>
+                    async () =>
                     {
-                        Navigator.SwitchView(ViewModelLocator.CheckInsViewMode);
-                        ViewModelLocator.CheckInsViewMode.LoadCheckInsCommand.Execute(null);
-                    }),
-                    () =>
+                        BusyMessage = "Loading Check Ins...";
+                        BusyState = BusyState.Busy;
+                        await Task.Run(() =>
+                        {
+                            Navigator.SwitchView(ViewModelLocator.CheckInsViewMode);
+                            ViewModelLocator.CheckInsViewMode.LoadCheckInsCommand.Execute(null);
+                        });
+                        BusyState = BusyState.Free;
+                    }, () =>
                         ViewModelLocator.ScanViewModel.Customer != null ||
                         ViewModelLocator.DetailsViewModel.Customer != null);
 
             SwitchToScanViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel)));
+                    async () =>
+                    {
+                        BusyMessage = "";
+                        BusyState = BusyState.Busy;
+                        await Task.Run(() => Navigator.SwitchView(ViewModelLocator.ScanViewModel));
+                        BusyState = BusyState.Free;
+                    });
 
             SwitchToSettingsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.SettingsViewModel)));
+                    async () =>
+                    {
+                        BusyMessage = "";
+                        BusyState = BusyState.Busy;
+                        await Task.Run(() => Navigator.SwitchView(ViewModelLocator.SettingsViewModel));
+                        BusyState = BusyState.Free;
+                    });
 
             SwitchToCustomersViewCommand =
                 new RelayCommand(
                     async () =>
                     {
+                        BusyMessage = "Loading Customers...";
+                        BusyState = BusyState.Busy;
                         await Task.Run(() => Navigator.SwitchView(ViewModelLocator.CustomersViewModel));
                         ViewModelLocator.CustomersViewModel.LoadCustomersCommand.Execute(null);
+                        BusyState = BusyState.Free;
                     });
 
             SwitchToDetailsViewCommand =
                 new RelayCommand(
-                    async () => await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel)),
+                    async () =>
+                    {
+                        BusyMessage = "";
+                        BusyState = BusyState.Busy;
+                        await Task.Run(() => Navigator.SwitchView(ViewModelLocator.DetailsViewModel));
+                        BusyState = BusyState.Free;
+                    },
                     () => ViewModelLocator.ScanViewModel.Customer != null);
         }
 
