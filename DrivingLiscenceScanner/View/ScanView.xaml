@@ -266,7 +266,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}">
+                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}" Margin="20,5,5,5">
                             <Run Text="{Binding Customer.FirstName}" /><Run Text=" " />
                             <Run Text="{Binding Customer.LastName}" />
                         </TextBlock>

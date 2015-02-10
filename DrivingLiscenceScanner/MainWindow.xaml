@@ -352,5 +352,16 @@
                             Margin="50"
                             Busy="{Binding BusyState}"
                             BusyMessage="{Binding BusyMessage}" />
+        <TextBlock HorizontalAlignment="Right"
+                   Margin="15,5"
+                   FontSize="9"
+                   Grid.Row="1" Grid.Column="1"
+                   Foreground="#404040" VerticalAlignment="Bottom">           
+    <Hyperlink Foreground="#404040"
+               NavigateUri="http://Fiverr.com/Amuqsit"
+               RequestNavigate="Hyperlink_RequestNavigate">
+        Author: fiverr.com/Amuqsit
+    </Hyperlink>
+        </TextBlock>
     </Grid>
 </windows:CustomWindow>
