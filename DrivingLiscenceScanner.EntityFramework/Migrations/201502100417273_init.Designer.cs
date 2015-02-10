@@ -13,7 +13,7 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201502081826044_init"; }
+            get { return "201502100417273_init"; }
         }
         
         string IMigrationMetadata.Source

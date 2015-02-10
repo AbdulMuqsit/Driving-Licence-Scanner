@@ -10,6 +10,7 @@ namespace DrivingLicenceScanner.Entities
         private int _id;
         private string _classCode;
         private string _number;
+        private Customer _customer;
 
         #region Fields
        
@@ -70,6 +71,17 @@ namespace DrivingLicenceScanner.Entities
                 if (value == _classCode) return;
                 _classCode = value;
                 OnPropertyChanged("ClassCode");
+            }
+        }
+        
+        public virtual Customer Customer
+        {
+            get { return _customer; }
+            set
+            {
+                if (Equals(value, _customer)) return;
+                _customer = value;
+                OnPropertyChanged();
             }
         }
 

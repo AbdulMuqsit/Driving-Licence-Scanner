@@ -60,9 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrivingLicenceScannerDbContext.cs" />
-    <Compile Include="Migrations\201502081826044_init.cs" />
-    <Compile Include="Migrations\201502081826044_init.Designer.cs">
-      <DependentUpon>201502081826044_init.cs</DependentUpon>
+    <Compile Include="Migrations\201502100417273_init.cs" />
+    <Compile Include="Migrations\201502100417273_init.Designer.cs">
+      <DependentUpon>201502100417273_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="netfx\Testing\Ipsum.cs" />
@@ -79,8 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502081826044_init.resx">
-      <DependentUpon>201502081826044_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502100417273_init.resx">
+      <DependentUpon>201502100417273_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

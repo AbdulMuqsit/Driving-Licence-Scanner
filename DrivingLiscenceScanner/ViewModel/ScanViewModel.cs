@@ -195,7 +195,7 @@ namespace DrivingLicenceScanner.ViewModel
                         .Replace(Patterns.LicenceNumberInitToken, String.Empty)
                         .Replace(Patterns.LicenceNumberExitToken, String.Empty);
 
-                    using (DrivingLicenceScannerDbContext context = Context)
+                    using (var context = Context)
                     {
                         //if customer alrady exists, add a new checkin
                         Customer customer =

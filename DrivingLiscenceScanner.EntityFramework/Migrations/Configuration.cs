@@ -23,7 +23,7 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
             var checkIns = new List<CheckIn>();
             var legalAges = new List<LegalAge>();
 
-            legalAges.Add(new LegalAge() { Age = 17, Name = "Cigerettes" });
+            legalAges.Add(new LegalAge() { Age = 17, Name = "Cigarettes" });
             legalAges.Add(new LegalAge() { Age = 20, Name = "Alcohol" });
             legalAges.Add(new LegalAge() { Age = 21, Name = "Lottery" });
 

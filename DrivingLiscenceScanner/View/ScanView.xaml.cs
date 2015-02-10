@@ -22,7 +22,6 @@ namespace DrivingLicenceScanner.View
                 this.Focus();
                 var window = Window.GetWindow(this);
                 Application.Current.MainWindow.KeyDown += ScanView_KeyDown;
-                Application.Current.MainWindow.MouseDown += MainWindow_MouseDown;
                 this.Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
             }
 
@@ -30,18 +29,7 @@ namespace DrivingLicenceScanner.View
 
       
 
-        void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (!(sender == TxtBoxScan))
-            {
-                Keyboard.DefaultRestoreFocusMode = RestoreFocusMode.Auto;
-                Keyboard.ClearFocus();
-            }
-            else
-            {
-                TxtBoxScan.Clear();
-            }
-        }
+      
         
         public override void OnApplyTemplate()
         {

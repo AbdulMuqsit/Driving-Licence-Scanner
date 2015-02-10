@@ -39,21 +39,21 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
                         ZipCode = c.String(maxLength: 4000),
                         LicenceId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Licences", t => t.LicenceId, cascadeDelete: true)
-                .Index(t => t.LicenceId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Licences",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         IssueDate = c.DateTime(nullable: false),
                         ExpiryDate = c.DateTime(nullable: false),
                         Number = c.String(maxLength: 4000),
                         ClassCode = c.String(maxLength: 4000),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Customers", t => t.Id)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.LegalAges",
@@ -69,9 +69,9 @@ namespace DrivingLicenceScanner.EntityFramework.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Customers", "LicenceId", "dbo.Licences");
+            DropForeignKey("dbo.Licences", "Id", "dbo.Customers");
             DropForeignKey("dbo.CheckIns", "Customer_Id", "dbo.Customers");
-            DropIndex("dbo.Customers", new[] { "LicenceId" });
+            DropIndex("dbo.Licences", new[] { "Id" });
             DropIndex("dbo.CheckIns", new[] { "Customer_Id" });
             DropTable("dbo.LegalAges");
             DropTable("dbo.Licences");

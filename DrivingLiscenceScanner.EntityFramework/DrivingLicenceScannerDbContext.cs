@@ -18,6 +18,12 @@ namespace DrivingLicenceScanner.EntityFramework
         public DrivingLicenceScannerDbContext():base("DrivingLicenceScannerDb")
         {
             Configuration.LazyLoadingEnabled = true;
+          
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>().HasRequired(e => e.Licence).WithRequiredPrincipal(e => e.Customer);
         }
     }
 }
