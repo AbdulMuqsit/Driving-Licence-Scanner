@@ -32,7 +32,7 @@ namespace ChatApp.Infrastructure
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public class MONITORINFO
     {
-        public int cbSize = Marshal.SizeOf(typeof(MINMAXINFO));
+        public int cbSize = Marshal.SizeOf(typeof (MINMAXINFO));
         public RECT rcMonitor = new RECT();
         public RECT rcWork = new RECT();
         public int dwFlags = 0;

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using DrivingLicenceScanner.Entities.Infrastructure;
+﻿using DrivingLicenceScanner.Entities.Infrastructure;
 
 namespace DrivingLicenceScanner.Entities
 {
     public class LegalAge : ObjectBase
     {
+        private int _age;
         private int _id;
         private string _name;
-        private int _age;
 
         public int Id
         {

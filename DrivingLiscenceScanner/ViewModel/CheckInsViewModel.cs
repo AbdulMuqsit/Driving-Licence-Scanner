@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
-using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -58,7 +57,6 @@ namespace DrivingLicenceScanner.ViewModel
 
         private async void LoadCheckIns()
         {
-            
             await
                 Task.Run(
                     async () =>

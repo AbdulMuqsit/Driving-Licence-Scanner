@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.EntityFramework;
 using DrivingLicenceScanner.Infrastructure;
-using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -63,7 +62,7 @@ namespace DrivingLicenceScanner.ViewModel
                 () => LegalAge != null && !String.IsNullOrWhiteSpace(LegalAge.Name) && LegalAge.Age > 0);
             RemoveLegalAgeCommand = new RelayCommand(RemoveLegalAge, () => LegalAge != null && LegalAge.Id != 0);
             LoadLegalAgesCommand = new RelayCommand(LoadLegalAges);
-            ClearCommand = new RelayCommand(() => LegalAge = new LegalAge { Age = 18 });
+            ClearCommand = new RelayCommand(() => LegalAge = new LegalAge {Age = 18});
             LoadLegalAges();
         }
 
@@ -111,7 +110,7 @@ namespace DrivingLicenceScanner.ViewModel
                 await context.SaveChangesAsync();
 
                 LoadLegalAges();
-                LegalAge = new LegalAge { Age = 18 };
+                LegalAge = new LegalAge {Age = 18};
             }
 
             BusyState = false;
@@ -130,9 +129,9 @@ namespace DrivingLicenceScanner.ViewModel
                     {
                         var legalAges = new List<LegalAge>();
 
-                        legalAges.Add(new LegalAge { Age = 18, Name = "Cigarettes" });
-                        legalAges.Add(new LegalAge { Age = 21, Name = "Alcohol" });
-                        legalAges.Add(new LegalAge { Age = 17, Name = "Lottery" });
+                        legalAges.Add(new LegalAge {Age = 18, Name = "Cigarettes"});
+                        legalAges.Add(new LegalAge {Age = 21, Name = "Alcohol"});
+                        legalAges.Add(new LegalAge {Age = 17, Name = "Lottery"});
 
                         context.LegalAges.AddRange(legalAges);
                         await context.SaveChangesAsync();

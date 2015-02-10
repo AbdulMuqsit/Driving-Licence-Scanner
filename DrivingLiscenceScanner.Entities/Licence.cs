@@ -5,15 +5,14 @@ namespace DrivingLicenceScanner.Entities
 {
     public class Licence : ObjectBase
     {
-        private DateTime _expiryDate;
-        private DateTime _issueDate;
-        private int _id;
         private string _classCode;
-        private string _number;
         private Customer _customer;
+        private DateTime _expiryDate;
+        private int _id;
+        private DateTime _issueDate;
+        private string _number;
 
         #region Fields
-       
 
         #endregion
 
@@ -73,7 +72,7 @@ namespace DrivingLicenceScanner.Entities
                 OnPropertyChanged("ClassCode");
             }
         }
-        
+
         public virtual Customer Customer
         {
             get { return _customer; }

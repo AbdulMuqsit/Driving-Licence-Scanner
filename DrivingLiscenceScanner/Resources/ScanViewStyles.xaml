@@ -3,7 +3,7 @@
     <Style x:Key="TxtBoxScanStyle"
            TargetType="{x:Type TextBox}"
            BasedOn="{StaticResource TxtBoxBaseStyle}">
-    	<Setter Property="MaxHeight" Value="60"/>
+        <Setter Property="MaxHeight" Value="60" />
 
     </Style>
     <Style x:Key="TxtBlkMessageStyle"
@@ -12,9 +12,9 @@
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
         <Setter Property="VerticalAlignment"
-                Value="Top"></Setter>
-        <Setter Property="Foreground" Value="Gray"/>
-        <Setter Property="FontSize" Value="30"></Setter>
+                Value="Top" />
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontSize" Value="30" />
     </Style>
     <Style x:Key="BtnScanViewStyle"
            TargetType="ButtonBase"
@@ -22,40 +22,48 @@
         <Setter Property="MinWidth"
                 Value="70" />
         <Setter Property="MaxHeight"
-                Value="30"></Setter>
+                Value="30" />
     </Style>
     <ItemsPanelTemplate x:Key="ItemsPanelTemplate">
-    	<VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+        <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal" />
     </ItemsPanelTemplate>
     <DataTemplate x:Key="LstBoxAgeLimitsTemplate">
-    	<Grid>
-    		<Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="3.333,2.5,0,0" VerticalAlignment="Top" Width="100"/>
-    		<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
-    	</Grid>
+        <Grid>
+            <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="3.333,2.5,0,0"
+                     VerticalAlignment="Top" Width="100" />
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" />
+        </Grid>
     </DataTemplate>
-    <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#1F26A0DA"/>
-    <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da"/>
-    <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA"/>
-    <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA"/>
-    <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA"/>
-    <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA"/>
+    <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#1F26A0DA" />
+    <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da" />
+    <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA" />
+    <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA" />
+    <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA" />
+    <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA" />
     <Style x:Key="LstBoxLegalAgesContainerStyle" TargetType="{x:Type ListBoxItem}">
-    	<Setter Property="SnapsToDevicePixels" Value="True"/>
-    	<Setter Property="Padding" Value="4,1"/>
-    	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-    	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-    	<Setter Property="Background" Value="Transparent"/>
-    	<Setter Property="BorderBrush" Value="Transparent"/>
-    	<Setter Property="BorderThickness" Value="1"/>
-    	<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-    	<Setter Property="Template">
-    		<Setter.Value>
-    			<ControlTemplate TargetType="{x:Type ListBoxItem}">
-    				<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true" IsEnabled="False">
-    					<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-    				</Border>
-    			</ControlTemplate>
-    		</Setter.Value>
-    	</Setter>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,1" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment"
+                Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true" IsEnabled="False">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

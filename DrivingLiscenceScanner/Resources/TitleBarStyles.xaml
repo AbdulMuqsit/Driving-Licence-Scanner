@@ -4,15 +4,15 @@
            BasedOn="{StaticResource TxtBlkBaseStyle}"
            TargetType="{x:Type TextBlock}">
         <Setter Property="VerticalAlignment"
-                Value="Center"></Setter>
+                Value="Center" />
         <Setter Property="FontFamily"
                 Value="Myriad Web Pro" />
         <Setter Property="Background"
                 Value="{x:Null}" />
         <Setter Property="Foreground" Value="#AFAFAF" />
-       <Setter Property="FontSize" Value="40"/>
-        <Setter Property="IsHitTestVisible" Value="False"></Setter>
-        <Setter Property="Text" Value=""/>
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Text" Value="" />
     </Style>
 
 </ResourceDictionary>

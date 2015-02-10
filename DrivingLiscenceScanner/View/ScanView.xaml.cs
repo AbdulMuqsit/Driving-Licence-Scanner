@@ -8,39 +8,37 @@ using System.Windows.Input;
 namespace DrivingLicenceScanner.View
 {
     /// <summary>
-    /// Interaction logic for ScanView.xaml
+    ///     Interaction logic for ScanView.xaml
     /// </summary>
     public partial class ScanView : UserControl
     {
         private FrameworkElement _root;
-        
+
         public ScanView()
         {
             InitializeComponent();
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
-                this.Focus();
-                var window = Window.GetWindow(this);
+                Focus();
+                Window window = Window.GetWindow(this);
                 Application.Current.MainWindow.KeyDown += ScanView_KeyDown;
-                this.Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
+                Unloaded += (sender, args) => { Application.Current.MainWindow.KeyDown -= ScanView_KeyDown; };
             }
-
         }
 
-      
+        public TextBox TxtBoxScan { get; set; }
 
-      
-        
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            _root = (FrameworkElement)GetTemplateChild("RootElement");
-            TxtBoxScan = (TextBox)GetTemplateChild("TxtBoxScan");
-            var went = VisualStateManager.GoToElementState(_root, "BeforeState", false);
+            _root = (FrameworkElement) GetTemplateChild("RootElement");
+            TxtBoxScan = (TextBox) GetTemplateChild("TxtBoxScan");
+            bool went = VisualStateManager.GoToElementState(_root, "BeforeState", false);
             Debug.Write(went);
         }
 
-        void ScanView_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void ScanView_KeyDown(object sender, KeyEventArgs e)
         {
             if (TxtBoxScan != null && !TxtBoxScan.IsFocused)
             {
@@ -49,7 +47,5 @@ namespace DrivingLicenceScanner.View
                 Keyboard.Focus(TxtBoxScan);
             }
         }
-
-        public TextBox TxtBoxScan { get; set; }
     }
 }

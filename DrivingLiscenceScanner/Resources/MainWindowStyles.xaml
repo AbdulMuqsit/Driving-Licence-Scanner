@@ -3,7 +3,7 @@
     <Style x:Key="PthMainMenuBarButtonsStyle"
            TargetType="Path">
         <Setter Property="Fill"
-                Value="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=ButtonBase} ,Path=Foreground}"></Setter>
+                Value="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=ButtonBase} ,Path=Foreground}" />
     </Style>
     <Style x:Key="BtnMainMenuBarStyle"
            TargetType="{x:Type ToggleButton}">
@@ -12,18 +12,14 @@
             <Trigger Property="IsMouseOver"
                      Value="true">
                 <Setter Property="Foreground"
-                        Value="#E8E8E8">
-
-                </Setter>
+                        Value="#E8E8E8" />
 
             </Trigger>
             <Trigger Property="IsChecked"
                      Value="
                         true">
                 <Setter Property="Foreground"
-                        Value="#E8E8E8">
-
-                </Setter>
+                        Value="#E8E8E8" />
 
             </Trigger>
             <Trigger Property="IsEnabled"
@@ -35,15 +31,13 @@
         <Setter Property="FocusVisualStyle"
                 Value="{StaticResource FocusVisual}" />
         <Setter Property="Background"
-                Value="#01FFFFFF"></Setter>
+                Value="#01FFFFFF" />
         <Setter Property="Foreground"
-                Value="LightGray">
-
-        </Setter>
+                Value="LightGray" />
         <Setter Property="BorderThickness"
                 Value="0,0,0,2" />
         <Setter Property="BorderBrush"
-                Value="Black"></Setter>
+                Value="Black" />
         <Setter Property="HorizontalContentAlignment"
                 Value="Center" />
         <Setter Property="VerticalContentAlignment"
@@ -72,10 +66,10 @@
                                  Value="True">
                             <Setter Property="Background"
                                     TargetName="border"
-                                    Value="Black"></Setter>
+                                    Value="Black" />
                             <Setter Property="Margin"
                                     TargetName="border"
-                                    Value="1,0,1,0"></Setter>
+                                    Value="1,0,1,0" />
 
                         </Trigger>
 
@@ -90,7 +84,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Width" Value="58"/>
+        <Setter Property="Width" Value="58" />
 
     </Style>
 

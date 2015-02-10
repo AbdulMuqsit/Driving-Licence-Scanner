@@ -50,29 +50,33 @@
                                 <Storyboard x:Key="Busy"
                                             RepeatBehavior="Forever"
                                             AutoReverse="False">
-                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
-                                                                      Storyboard.TargetName="rectangle">
+                                    <ThicknessAnimationUsingKeyFrames
+                                        Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                        Storyboard.TargetName="rectangle">
                                         <EasingThicknessKeyFrame KeyTime="0:0:0.5"
                                                                  Value="2,1,-15,1" />
                                         <EasingThicknessKeyFrame KeyTime="0:0:1"
                                                                  Value="-15,1,2,1" />
                                     </ThicknessAnimationUsingKeyFrames>
-                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
-                                                                      Storyboard.TargetName="rectangle1">
+                                    <ThicknessAnimationUsingKeyFrames
+                                        Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                        Storyboard.TargetName="rectangle1">
                                         <EasingThicknessKeyFrame KeyTime="0:0:0.5"
                                                                  Value="2,1,-15,1" />
                                         <EasingThicknessKeyFrame KeyTime="0:0:1"
                                                                  Value="-15,1,2,1" />
                                     </ThicknessAnimationUsingKeyFrames>
-                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
-                                                                      Storyboard.TargetName="rectangle2">
+                                    <ThicknessAnimationUsingKeyFrames
+                                        Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                        Storyboard.TargetName="rectangle2">
                                         <EasingThicknessKeyFrame KeyTime="0:0:0.5"
                                                                  Value="-15,1,2,1" />
                                         <EasingThicknessKeyFrame KeyTime="0:0:1"
                                                                  Value="2,1,-15,1" />
                                     </ThicknessAnimationUsingKeyFrames>
-                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
-                                                                      Storyboard.TargetName="rectangle3">
+                                    <ThicknessAnimationUsingKeyFrames
+                                        Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                        Storyboard.TargetName="rectangle3">
                                         <EasingThicknessKeyFrame KeyTime="0:0:0.5"
                                                                  Value="-15,1,2,1" />
                                         <EasingThicknessKeyFrame KeyTime="0:0:1"
@@ -88,20 +92,30 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <i:Interaction.Triggers>
-                                <ei:DataTrigger Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Value="True">
+                                <ei:DataTrigger
+                                    Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Value="True">
                                     <ei:ControlStoryboardAction Storyboard="{StaticResource Busy}" />
                                 </ei:DataTrigger>
-                                <ei:DataTrigger Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
-                                                Value="False">
+                                <ei:DataTrigger
+                                    Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Value="False">
                                     <ei:ControlStoryboardAction Storyboard="{StaticResource Busy}"
                                                                 ControlStoryboardOption="Stop" />
                                 </ei:DataTrigger>
-                                <ei:DataTrigger Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}" Value="True">
-                                	<ei:ChangePropertyAction TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" PropertyName="Opacity" Value="1" Duration="0:0:0.3"/>
+                                <ei:DataTrigger
+                                    Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Value="True">
+                                    <ei:ChangePropertyAction
+                                        TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                        PropertyName="Opacity" Value="1" Duration="0:0:0.3" />
                                 </ei:DataTrigger>
-                                <ei:DataTrigger Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                	<ei:ChangePropertyAction TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" PropertyName="Opacity" Value="0" Duration="0:0:0.3"/>
+                                <ei:DataTrigger
+                                    Binding="{Binding Busy, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Value="False">
+                                    <ei:ChangePropertyAction
+                                        TargetObject="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                        PropertyName="Opacity" Value="0" Duration="0:0:0.3" />
                                 </ei:DataTrigger>
                             </i:Interaction.Triggers>
                             <Rectangle x:Name="rectangle"

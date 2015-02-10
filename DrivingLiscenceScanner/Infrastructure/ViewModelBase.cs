@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using DrivingLicenceScanner.Entities.Infrastructure;
 using DrivingLicenceScanner.EntityFramework;
-using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.Infrastructure
 {

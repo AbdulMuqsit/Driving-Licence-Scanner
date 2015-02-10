@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using DrivingLicenceScanner.Infrastructure;
-using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -10,10 +9,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         private ViewModelBase _currentChildViewModel;
 
-
         #endregion
-
-
 
         #region Properties
 
@@ -62,7 +58,6 @@ namespace DrivingLicenceScanner.ViewModel
                             Navigator.SwitchView(ViewModelLocator.CheckInsViewMode);
                             ViewModelLocator.CheckInsViewMode.LoadCheckInsCommand.Execute(null);
                         });
-                       
                     }, () =>
                         ViewModelLocator.ScanViewModel.Customer != null ||
                         ViewModelLocator.DetailsViewModel.Customer != null);

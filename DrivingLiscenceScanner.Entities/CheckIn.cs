@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities.Infrastructure;
 
 namespace DrivingLicenceScanner.Entities
 {
     public class CheckIn : ObjectBase
     {
+        private Customer _customer;
         private int _id;
         private DateTime _time;
-        private Customer _customer;
 
         public int Id
         {

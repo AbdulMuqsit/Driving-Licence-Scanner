@@ -122,8 +122,9 @@
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.3"
                                                           Value="48" />
                                 </DoubleAnimationUsingKeyFrames>
-                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)"
-                                                               Storyboard.TargetName="textBlock">
+                                <ObjectAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)"
+                                    Storyboard.TargetName="textBlock">
                                     <DiscreteObjectKeyFrame KeyTime="0:0:0.3"
                                                             Value="{x:Static VerticalAlignment.Bottom}" />
                                 </ObjectAnimationUsingKeyFrames>
@@ -155,15 +156,17 @@
                                     <DiscreteObjectKeyFrame KeyTime="0:0:0.3"
                                                             Value="{x:Static Visibility.Visible}" />
                                 </ObjectAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
-                                                              Storyboard.TargetName="TxtBlkError">
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                    Storyboard.TargetName="TxtBlkError">
                                     <EasingColorKeyFrame KeyTime="0"
                                                          Value="Gray" />
                                     <EasingColorKeyFrame KeyTime="0:0:0.3"
                                                          Value="#FFD85959" />
                                 </ColorAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
-                                                               Storyboard.TargetName="TxtBlkError">
+                                <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+                                    Storyboard.TargetName="TxtBlkError">
                                     <EasingDoubleKeyFrame KeyTime="0"
                                                           Value="40" />
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.3"
@@ -208,7 +211,9 @@
                                             TargetName="RootElement" />
                     </ei:DataTrigger>
                 </i:Interaction.Triggers>
-                <TextBlock Style="{DynamicResource TxtBlkTitleStyle}"><Run Text="Scan" /></TextBlock>
+                <TextBlock Style="{DynamicResource TxtBlkTitleStyle}">
+                    <Run Text="Scan" />
+                </TextBlock>
                 <TextBox x:Name="TxtBoxScan"
                          Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource TxtBoxScanStyle}"
@@ -261,10 +266,15 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <TextBlock  Style="{DynamicResource TxtBlkNameStyle}"><Run Text="{Binding Customer.FirstName}" /><Run Text=" " /><Run Text="{Binding Customer.LastName}" /></TextBlock>
+                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}">
+                            <Run Text="{Binding Customer.FirstName}" /><Run Text=" " />
+                            <Run Text="{Binding Customer.LastName}" />
+                        </TextBlock>
                         <TextBlock x:Name="textBlock"
                                    Style="{DynamicResource TxtBlkAgeStyle}"
-                                   Text="{Binding Age}"><Run Text="0" /></TextBlock>
+                                   Text="{Binding Age}">
+                            <Run Text="0" />
+                        </TextBlock>
                     </StackPanel>
                     <ListBox x:Name="listBox"
                              ItemsPanel="{DynamicResource ItemsPanelTemplate}"

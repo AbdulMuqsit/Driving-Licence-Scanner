@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using DrivingLicenceScanner.Entities.Infrastructure;
-using DrivingLiscenceScanner.Entities;
 
 namespace DrivingLicenceScanner.Entities
 {
-    public class Customer :ObjectBase
+    public class Customer : ObjectBase
     {
-       
-
         #region Fields
-        private Licence _licence;
-        private string _zipCode;
-        private string _state;
-        private int _licenceId;
-        private string _city;
-        private string _street;
-        private string _eyeColor;
-        private string _hairColor;
-        private int _weight;
-        private int _height;
-        private string _sex;
-        private DateTime _doB;
-        private string _middleName;
-        private string _lastName;
-        private string _firstName;
-        private int _id;
+
         private ICollection<CheckIn> _checkIns;
+        private string _city;
+        private DateTime _doB;
+        private string _eyeColor;
+        private string _firstName;
+        private string _hairColor;
+        private int _height;
+        private int _id;
+        private string _lastName;
+        private Licence _licence;
+        private int _licenceId;
+        private string _middleName;
+        private string _sex;
+        private string _state;
+        private string _street;
+        private int _weight;
+        private string _zipCode;
 
         #endregion
 
@@ -220,7 +218,5 @@ namespace DrivingLicenceScanner.Entities
         }
 
         #endregion
-
-       
     }
 }

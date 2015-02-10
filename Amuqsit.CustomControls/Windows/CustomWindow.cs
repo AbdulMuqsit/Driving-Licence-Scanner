@@ -4,53 +4,41 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using ChatApp.Infrastructure;
+
 //using System.Threading.Tasks;
 
 namespace Amuqsit.CustomControls.Windows
 {
     /// <summary>
-    /// Interaction logic for CustomWindow.xaml
+    ///     Interaction logic for CustomWindow.xaml
     /// </summary>
-    public partial class CustomWindow : Window
+    public class CustomWindow : Window
     {
-        
-        private Point _cursorOffset;
-        private FrameworkElement _borderLeft;
-        private FrameworkElement _borderTopLeft;
-        private FrameworkElement _borderTop;
-        private FrameworkElement _borderTopRight;
-        private FrameworkElement _borderRight;
-        private FrameworkElement _borderBottomRight;
         private FrameworkElement _borderBottom;
         private FrameworkElement _borderBottomLeft;
-        private FrameworkElement _tittleBar;
-        private Button _minimizeButton;
-        private Button _maximizeButton;
+        private FrameworkElement _borderBottomRight;
+        private FrameworkElement _borderLeft;
+        private FrameworkElement _borderRight;
+        private FrameworkElement _borderTop;
+        private FrameworkElement _borderTopLeft;
+        private FrameworkElement _borderTopRight;
         private Button _closeButton;
-
-        private enum WindowBorderEdge
-        {
-            Left,
-            TopLeft,
-            Top,
-            TopRight,
-            Right,
-            BottomRight,
-            Bottom,
-            BottomLeft
-        }
+        private Point _cursorOffset;
+        private Button _maximizeButton;
+        private Button _minimizeButton;
+        private FrameworkElement _tittleBar;
 
         public CustomWindow()
         {
             SourceInitialized += (sender, e) =>
             {
                 IntPtr handle = new WindowInteropHelper(this).Handle;
-                var hwndSource = HwndSource.FromHwnd(handle);
+                HwndSource hwndSource = HwndSource.FromHwnd(handle);
                 if (hwndSource != null)
                     hwndSource.AddHook(WndProc);
             };
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomWindow),new FrameworkPropertyMetadata(typeof(CustomWindow)));
-
+            DefaultStyleKeyProperty.OverrideMetadata(typeof (CustomWindow),
+                new FrameworkPropertyMetadata(typeof (CustomWindow)));
         }
 
 
@@ -67,7 +55,7 @@ namespace Amuqsit.CustomControls.Windows
 
         private void RegisterTittleBar()
         {
-            _tittleBar = (FrameworkElement)GetTemplateChild("tittleBar");
+            _tittleBar = (FrameworkElement) GetTemplateChild("tittleBar");
             if (_tittleBar != null)
                 _tittleBar.MouseLeftButtonDown += (sender, e) =>
                 {
@@ -79,14 +67,13 @@ namespace Amuqsit.CustomControls.Windows
                             : WindowState.Normal;
                     }
                     Application.Current.MainWindow.DragMove();
-
                 };
         }
 
 
         private void RegisterCloseButton()
         {
-            _closeButton = (Button)GetTemplateChild("PART_WindowCaptionCloseButton");
+            _closeButton = (Button) GetTemplateChild("PART_WindowCaptionCloseButton");
 
             if (_closeButton != null)
             {
@@ -96,20 +83,21 @@ namespace Amuqsit.CustomControls.Windows
 
         private void RegisterMaximizeButton()
         {
-            _maximizeButton = (Button)GetTemplateChild("PART_WindowCaptionMaximizeButton");
+            _maximizeButton = (Button) GetTemplateChild("PART_WindowCaptionMaximizeButton");
 
             if (_maximizeButton != null)
             {
-                _maximizeButton.Click += (sender, e) =>
-                {
-                    WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
-                };
+                _maximizeButton.Click +=
+                    (sender, e) =>
+                    {
+                        WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+                    };
             }
         }
 
         private void RegisterMinimizeButton()
         {
-            _minimizeButton = (Button)GetTemplateChild("PART_WindowCaptionMinimizeButton");
+            _minimizeButton = (Button) GetTemplateChild("PART_WindowCaptionMinimizeButton");
 
             if (_minimizeButton != null)
             {
@@ -119,7 +107,6 @@ namespace Amuqsit.CustomControls.Windows
 
         private void RegisterBorderEvents(WindowBorderEdge borderEdge, FrameworkElement border)
         {
-
             border.MouseLeftButtonDown += (sender, e) =>
             {
                 if (WindowState != WindowState.Maximized && ResizeMode == ResizeMode.CanResize)
@@ -245,14 +232,14 @@ namespace Amuqsit.CustomControls.Windows
 
         private void RegisterBorders()
         {
-            _borderLeft = (FrameworkElement)GetTemplateChild("PART_WindowBorderLeft");
-            _borderTopLeft = (FrameworkElement)GetTemplateChild("PART_WindowBorderTopLeft");
-            _borderTop = (FrameworkElement)GetTemplateChild("PART_WindowBorderTop");
-            _borderTopRight = (FrameworkElement)GetTemplateChild("PART_WindowBorderTopRight");
-            _borderRight = (FrameworkElement)GetTemplateChild("PART_WindowBorderRight");
-            _borderBottomRight = (FrameworkElement)GetTemplateChild("PART_WindowBorderBottomRight");
-            _borderBottom = (FrameworkElement)GetTemplateChild("PART_WindowBorderBottom");
-            _borderBottomLeft = (FrameworkElement)GetTemplateChild("PART_WindowBorderBottomLeft");
+            _borderLeft = (FrameworkElement) GetTemplateChild("PART_WindowBorderLeft");
+            _borderTopLeft = (FrameworkElement) GetTemplateChild("PART_WindowBorderTopLeft");
+            _borderTop = (FrameworkElement) GetTemplateChild("PART_WindowBorderTop");
+            _borderTopRight = (FrameworkElement) GetTemplateChild("PART_WindowBorderTopRight");
+            _borderRight = (FrameworkElement) GetTemplateChild("PART_WindowBorderRight");
+            _borderBottomRight = (FrameworkElement) GetTemplateChild("PART_WindowBorderBottomRight");
+            _borderBottom = (FrameworkElement) GetTemplateChild("PART_WindowBorderBottom");
+            _borderBottomLeft = (FrameworkElement) GetTemplateChild("PART_WindowBorderBottomLeft");
 
             RegisterBorderEvents(WindowBorderEdge.Left, _borderLeft);
             RegisterBorderEvents(WindowBorderEdge.TopLeft, _borderTopLeft);
@@ -266,7 +253,7 @@ namespace Amuqsit.CustomControls.Windows
 
         private void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam)
         {
-            var mmi = (MINMAXINFO)Marshal.PtrToStructure(lParam, typeof(MINMAXINFO));
+            var mmi = (MINMAXINFO) Marshal.PtrToStructure(lParam, typeof (MINMAXINFO));
 
             const int monitorDefaulttonearest = 0x00000002;
             IntPtr monitor = NativeMethods.MonitorFromWindow(hwnd, monitorDefaulttonearest);
@@ -300,6 +287,17 @@ namespace Amuqsit.CustomControls.Windows
 
             return IntPtr.Zero;
         }
-    }
 
+        private enum WindowBorderEdge
+        {
+            Left,
+            TopLeft,
+            Top,
+            TopRight,
+            Right,
+            BottomRight,
+            Bottom,
+            BottomLeft
+        }
+    }
 }

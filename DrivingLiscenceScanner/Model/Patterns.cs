@@ -48,7 +48,10 @@
         public const string LicenceNumberPattern = LicenceNumberInitToken + AnyPattern + LicenceNumberExitToken;
         public const string DoBPattern = DoBInitToken + AnyPattern + DoBExitToken;
         public const string LicenceIssueDatePattern = LicenceIssueDateInitToken + AnyPattern + LicenceIssueDateExitToken;
-        public const string LicenceExpireDatePattern = LicenceExpireDateInitToken + AnyPattern + LicenceExpireDateExitToken;
+
+        public const string LicenceExpireDatePattern =
+            LicenceExpireDateInitToken + AnyPattern + LicenceExpireDateExitToken;
+
         public const string SexPattern = SexInitToken + AnyPattern + SexExitToken;
         public const string HeightPattern = HeightInitToken + AnyPattern + HeightExitToken;
         public const string EyeColorPattern = EyeColorInitToken + AnyPattern + EyeColorExitToken;
@@ -56,6 +59,5 @@
         public const string StatePattern = StateInitToken + AnyPattern + StateExitToken;
         public const string ZipCodePattern = ZipCodeInitToken + AnyPattern + ZipCodeExitToken;
         public const string StreetPattern = StreetInitToken + AnyPattern + StreetExitToken;
-
     }
 }

@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using DrivingLicenceScanner.Entities;
 using DrivingLicenceScanner.Infrastructure;
-using DrivingLicenceScanner.Model;
 
 namespace DrivingLicenceScanner.ViewModel
 {
@@ -51,11 +50,9 @@ namespace DrivingLicenceScanner.ViewModel
                 Task.Run(
                     async () =>
                     {
-
                         Customers = new ObservableCollection<Customer>(await Context.Customers.ToListAsync());
                     });
             ViewModelLocator.MainViewModel.BusyState = false;
-         
         }
 
         #endregion

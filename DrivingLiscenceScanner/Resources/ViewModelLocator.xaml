@@ -3,11 +3,11 @@
                     xmlns:infrastructure="clr-namespace:DrivingLicenceScanner.Infrastructure">
     <infrastructure:ViewModelLocator x:Key="ViewModelLocator" />
     <Style x:Key="TxtBoxLegalAgeBoldStyle" TargetType="{x:Type TextBlock}">
-    	<Setter Property="TextWrapping" Value="NoWrap"/>
-    	<Setter Property="TextTrimming" Value="None"/>
-    	<Setter Property="Foreground" Value="#FF404040"/>
-    	<Setter Property="FontSize" Value="18.667"/>
-    	<Setter Property="FontFamily" Value="Segoe UI"/>
-    	<Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextWrapping" Value="NoWrap" />
+        <Setter Property="TextTrimming" Value="None" />
+        <Setter Property="Foreground" Value="#FF404040" />
+        <Setter Property="FontSize" Value="18.667" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 </ResourceDictionary>

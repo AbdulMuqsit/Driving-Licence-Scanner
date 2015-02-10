@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using DrivingLicenceScanner.Entities;
 
 namespace DrivingLicenceScanner.EntityFramework
 {
     public class DrivingLicenceScannerDbContext : DbContext
     {
-       
+        public DrivingLicenceScannerDbContext() : base("DrivingLicenceScannerDb")
+        {
+            Configuration.LazyLoadingEnabled = true;
+        }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CheckIn> CheckIns { get; set; }
         public DbSet<LegalAge> LegalAges { get; set; }
         public DbSet<Licence> Licences { get; set; }
-        public DrivingLicenceScannerDbContext():base("DrivingLicenceScannerDb")
-        {
-            Configuration.LazyLoadingEnabled = true;
-          
-        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
