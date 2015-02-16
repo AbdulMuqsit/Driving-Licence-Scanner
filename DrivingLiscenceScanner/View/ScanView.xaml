@@ -5,6 +5,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:view="clr-namespace:DrivingLicenceScanner.View"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="DrivingLicenceScanner.View.ScanView"
              mc:Ignorable="d"
              d:DesignHeight="566"
@@ -14,10 +15,10 @@
             <Grid Height="Auto"
                   Width="Auto">
                 <Ellipse Stroke="#FF464646"
-                         Height="150"
-                         Width="150"
+                         Height="40"
+                         Width="80"
                          Style="{DynamicResource EllipseStyle}"
-                         StrokeThickness="10">
+                         StrokeThickness="4">
                     <Ellipse.Resources>
                         <Style x:Key="EllipseStyle"
                                TargetType="{x:Type Ellipse}">
@@ -36,12 +37,12 @@
                         </Style>
                     </Ellipse.Resources>
                 </Ellipse>
-                <TextBlock Text="{Binding Name}"
-                           VerticalAlignment="Center"
+                <TextBlock VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontSize="21.333"
+                           FontSize="9.333"
                            FontWeight="Bold"
-                           Foreground="#FFB2B2B2" />
+                           Foreground="#FFB2B2B2"
+                           Text="{Binding Name}" />
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
@@ -110,24 +111,33 @@
                                 <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
                                                                   Storyboard.TargetName="listBox">
                                     <EasingThicknessKeyFrame KeyTime="0:0:0.3"
-                                                             Value="10,20,10,0" />
+                                                             Value="10,-5,10,0" />
                                 </ThicknessAnimationUsingKeyFrames>
                                 <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
                                                                   Storyboard.TargetName="textBlock">
                                     <EasingThicknessKeyFrame KeyTime="0:0:0.3"
-                                                             Value="20,5,5,5" />
+                                                             Value="10,0,5,5" />
                                 </ThicknessAnimationUsingKeyFrames>
                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)"
                                                                Storyboard.TargetName="textBlock">
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.3"
-                                                          Value="48" />
+                                                          Value="24" />
                                 </DoubleAnimationUsingKeyFrames>
-                                <ObjectAnimationUsingKeyFrames
-                                    Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)"
-                                    Storyboard.TargetName="textBlock">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)"
+                                                               Storyboard.TargetName="textBlock">
                                     <DiscreteObjectKeyFrame KeyTime="0:0:0.3"
                                                             Value="{x:Static VerticalAlignment.Bottom}" />
                                 </ObjectAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                                                  Storyboard.TargetName="textBlock1">
+                                    <EasingThicknessKeyFrame KeyTime="0:0:0.3"
+                                                             Value="20,0,0,0" />
+                                </ThicknessAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)"
+                                                                  Storyboard.TargetName="textBlock2">
+                                    <EasingThicknessKeyFrame KeyTime="0:0:0.3"
+                                                             Value="5,0,0,0" />
+                                </ThicknessAnimationUsingKeyFrames>
                             </Storyboard>
                         </VisualState>
                         <VisualState x:Name="ErrorState">
@@ -156,17 +166,15 @@
                                     <DiscreteObjectKeyFrame KeyTime="0:0:0.3"
                                                             Value="{x:Static Visibility.Visible}" />
                                 </ObjectAnimationUsingKeyFrames>
-                                <ColorAnimationUsingKeyFrames
-                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
-                                    Storyboard.TargetName="TxtBlkError">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                              Storyboard.TargetName="TxtBlkError">
                                     <EasingColorKeyFrame KeyTime="0"
                                                          Value="Gray" />
                                     <EasingColorKeyFrame KeyTime="0:0:0.3"
                                                          Value="#FFD85959" />
                                 </ColorAnimationUsingKeyFrames>
-                                <DoubleAnimationUsingKeyFrames
-                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
-                                    Storyboard.TargetName="TxtBlkError">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+                                                               Storyboard.TargetName="TxtBlkError">
                                     <EasingDoubleKeyFrame KeyTime="0"
                                                           Value="40" />
                                     <EasingDoubleKeyFrame KeyTime="0:0:0.3"
@@ -217,32 +225,38 @@
                 <TextBox x:Name="TxtBoxScan"
                          Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource TxtBoxScanStyle}"
-                         AcceptsReturn="True"
                          Grid.Row="1"
                          Grid.Column="0"
                          FontSize="5.333"
                          FontFamily="Rod"
                          VerticalContentAlignment="Center"
-                         Height="30"
-                         Background="#4CFFFFFF" />
+                         Height="1"
+                         Background="#4CFFFFFF"
+                         MinHeight="1"
+                         Margin="5,5,5,0" />
                 <Button Grid.Row="1"
+                        IsDefault="True"
                         Grid.Column="1"
                         Content="Scan"
                         Command="{Binding ScanCommand}"
-                        Style="{StaticResource BtnScanViewStyle}" />
+                        Style="{StaticResource BtnScanViewStyle}"
+                        Height="1"
+                        Margin="5,5,5,0" />
                 <TextBlock Visibility="Visible"
                            x:Name="TxtBlkReady"
                            Grid.Row="2"
                            Grid.Column="0"
                            Text="Ready to scan..."
-                           Style="{DynamicResource TxtBlkMessageStyle}" />
+                           Style="{DynamicResource TxtBlkMessageStyle}"
+                           Margin="5,0,0,0" />
                 <TextBlock x:Name="TxtBlkError"
                            Grid.Row="2"
                            Grid.Column="0"
                            Text="{Binding ErrorMessage, FallbackValue=Error}"
                            Style="{DynamicResource TxtBlkMessageStyle}"
                            Visibility="Collapsed"
-                           RenderTransformOrigin="0.5,0.5">
+                           RenderTransformOrigin="0.5,0.5"
+                           Margin="5,5,5,0">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform />
@@ -266,19 +280,25 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}" Margin="20,5,5,5">
+                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}"
+                                   Margin="20,0,5,0">
                             <Run Text="{Binding Customer.FirstName}" /><Run Text=" " />
+                        </TextBlock>
+                        <TextBlock Style="{DynamicResource TxtBlkNameStyle}"
+                                   Margin="0,0,5,0">
                             <Run Text="{Binding Customer.LastName}" />
                         </TextBlock>
                         <TextBlock x:Name="textBlock"
                                    Style="{DynamicResource TxtBlkAgeStyle}"
-                                   Text="{Binding Age}">
-                            <Run Text="0" />
+                                   Text="{Binding Age}"
+                                   Margin="5,0"
+                                   VerticalAlignment="Stretch">
+
                         </TextBlock>
                     </StackPanel>
                     <ListBox x:Name="listBox"
                              ItemsPanel="{DynamicResource ItemsPanelTemplate}"
-                             Grid.Row="2"
+                             Grid.Row="1"
                              ItemTemplate="{DynamicResource CustomerLegalStatusTemplate}"
                              ItemsSource="{Binding CustomerLegalStatuses}"
                              Background="{x:Null}"
@@ -286,22 +306,29 @@
                              BorderThickness="0"
                              ScrollViewer.CanContentScroll="False"
                              SnapsToDevicePixels="True"
-                             Margin="10,50,10,0"
+                             Margin="10,-4,10,0"
                              ItemContainerStyle="{DynamicResource LstBoxLegalAgesContainerStyle}" />
-                    <Button Content="X"
-                            Command="{Binding ClearCommand}"
-                            Style="{StaticResource BtnScanViewStyle}"
-                            Height="Auto"
-                            Width="Auto"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                            MinWidth="0"
-                            ToolTip="Clear"
-                            Padding="5,0,5,3"
-                            Grid.RowSpan="4"
-                            Margin="15,-32,88,5" />
+
+                    <UserControl Grid.Row="2"
+                                 Content="{Binding CurrentChildViewModel}" />
+                    <StackPanel Margin="5"  Grid.Row="3"
+                                 Orientation="Horizontal">
+                        <TextBlock x:Name="textBlock1">
+                            <Run Text="Time Stamp"
+                                 Style="{StaticResource TextBlockBoldStyle}">
+                            </Run>
+                        </TextBlock>
+                        <TextBlock x:Name="textBlock2"
+                                   Style="{StaticResource TxtBoxLegalAgeBoldStyle}">
+                             <Run Text="{Binding TimeStamp, Mode=OneWay, StringFormat=\{0:F\}}"
+                                   Style="{StaticResource TextBlockNormalStyle}">
+                            </Run>
+                        </TextBlock>
+                    </StackPanel>
+
                 </Grid>
-                <view:BusyAnimation Opacity="0" Grid.Row="2"
+                <view:BusyAnimation Opacity="0"
+                                    Grid.Row="2"
                                     Grid.Column="0"
                                     Busy="{Binding BusyState}"
                                     BusyMessage="{Binding BusyMessage}"

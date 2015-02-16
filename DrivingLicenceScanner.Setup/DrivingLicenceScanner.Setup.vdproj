@@ -154,6 +154,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_94B68F56F094787B2A8901C3DB63497C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_EFFD9BBB04B4421EAB471C47AAD56548"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -211,12 +217,6 @@
         "OwnerKey" = "8:_FDBF3B68DE5513622FEB4F99C0B800AB"
         "MsmSig" = "8:_UNDEFINED"
         }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_94B68F56F094787B2A8901C3DB63497C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
     }
     "Configurations"
     {
@@ -242,6 +242,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -263,7 +271,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -824,7 +832,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Driving Licence Scanner "
         "ProductCode" = "8:{B14275E2-B7EF-47A9-AD2C-CBCC271FE481}"
-        "PackageCode" = "8:{87B60B4C-C5F8-48AE-AEC7-C7B848D2E319}"
+        "PackageCode" = "8:{0AA79B46-33F4-4D3B-AB95-D2483C699AF3}"
         "UpgradeCode" = "8:{E9EB4E3C-368B-4020-BF21-3E4EBAF6C75E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

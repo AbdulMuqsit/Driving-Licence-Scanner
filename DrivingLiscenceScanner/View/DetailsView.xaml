@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              d:DesignHeight="550.207"
              d:DesignWidth="410.788">
-    <Grid d:DataContext="{d:DesignData /SampleData/DetailsViewModelSampleData.xaml}">
+    <Grid d:DataContext="{d:DesignData /SampleData/DetailsViewModelSampleData.xaml}" Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -16,92 +16,73 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.Resources>
-            <Style TargetType="{x:Type Run}"
-                   x:Key="TextBlockBoldStyle">
-                <Setter Property="FontFamily"
-                        Value="Myriad Web Pro" />
-                <Setter Property="FontWeight"
-                        Value="Bold" />
-                <Setter Property="Foreground"
-                        Value="#535151" />
-                <Setter Property="FontSize"
-                        Value="23" />
-            </Style>
-            <Style TargetType="{x:Type Run}"
-                   x:Key="TextBlockNormalStyle">
-                <Setter Property="FontSize"
-                        Value="23" />
-                <Setter Property="FontFamily"
-                        Value="Myriad Web Pro" />
-                <Setter Property="Foreground"
-                        Value="#535151" />
-            </Style>
+
         </Grid.Resources>
         <Grid.DataContext>
             <Binding Path="DetailsViewModel" Source="{StaticResource ViewModelLocator}" />
         </Grid.DataContext>
 
         <TextBlock Style="{DynamicResource TxtBlkTitleStyle}"
-                   Text="Details" />
-        <StackPanel Margin="10,10,5,10"
+                   Text="Details" FontSize="18.667" Margin="15,0,5,0" Foreground="#FF535151" />
+        <StackPanel Margin="10,0,5,10"
                     Grid.Row="1" Grid.Column="0">
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="First Name: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.FirstName}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Last Name: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.LastName}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Middle Name: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.MiddleName}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Date of Birth: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.DoB, StringFormat=\{0:d\}}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Sex: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Sex}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Height: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Height}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Weight: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Weight}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Eye Color: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.EyeColor}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,1">
                 <Run Text="Hair Color: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
@@ -109,58 +90,58 @@
                      Text="{Binding Customer.HairColor}" />
             </TextBlock>
         </StackPanel>
-        <StackPanel Margin="5,10,10,10" Grid.Row="1" Grid.Column="1">
+        <StackPanel Margin="5,0,10,10" Grid.Row="1" Grid.Column="1">
 
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Street: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Street}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="City: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.City}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="State: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.State}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Zip Code: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.ZipCode}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Driving Licence: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Licence.Number}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Licence Class Code: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Licence.ClassCode}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Licence Issue Date: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />
                 <Run Style="{StaticResource TextBlockNormalStyle}"
                      Text="{Binding Customer.Licence.IssueDate, StringFormat=\{0:d\}}" />
             </TextBlock>
-            <TextBlock Margin="5">
+            <TextBlock Margin="5,5,5,0">
                 <Run Text="Licence Expire Date: "
                      Style="{StaticResource TextBlockBoldStyle}" />
                 <Run Text=" " />

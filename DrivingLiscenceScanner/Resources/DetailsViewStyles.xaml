@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type Run}"
+           x:Key="TextBlockBoldStyle">
+        <Setter Property="FontFamily"
+                Value="Myriad Web Pro" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="Foreground"
+                Value="#535151" />
+        <Setter Property="FontSize"
+                Value="10" />
+    </Style>
+    <Style TargetType="{x:Type Run}"
+           x:Key="TextBlockNormalStyle">
+        <Setter Property="FontSize"
+                Value="10" />
+        <Setter Property="FontFamily"
+                Value="Myriad Web Pro" />
+        <Setter Property="Foreground"
+                Value="#535151" />
+    </Style>
+</ResourceDictionary>

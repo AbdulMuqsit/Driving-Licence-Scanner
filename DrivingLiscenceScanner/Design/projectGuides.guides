@@ -1,16 +1,6 @@
 <?xml version="1.0"?>
 <ProjectGuidesConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectItemGuides>
-    <ProjectItemGuide TargetFile="MainWindow.xaml">
-      <GuideModels>
-        <GuideModel>
-          <Guides>
-            <Guide Alignment="Left" Position="60" />
-            <Guide Alignment="Top" Position="50" />
-          </Guides>
-        </GuideModel>
-      </GuideModels>
-    </ProjectItemGuide>
     <ProjectItemGuide TargetFile="View\BusyAnimation.xaml">
       <GuideModels>
         <GuideModel>
@@ -29,11 +19,12 @@
         </GuideModel>
       </GuideModels>
     </ProjectItemGuide>
-    <ProjectItemGuide TargetFile="View\ScanView.xaml">
+    <ProjectItemGuide TargetFile="MainWindow.xaml">
       <GuideModels>
         <GuideModel>
           <Guides>
-            <Guide Alignment="Left" Position="16" />
+            <Guide Alignment="Top" Position="50" />
+            <Guide Alignment="Left" Position="60" />
           </Guides>
         </GuideModel>
       </GuideModels>

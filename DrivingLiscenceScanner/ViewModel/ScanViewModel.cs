@@ -20,6 +20,8 @@ namespace DrivingLicenceScanner.ViewModel
         private ObservableCollection<CustomerLegalStatus> _customerLegalStatuses;
         private string _errorMessage;
         private string _scanText;
+        private DetailsViewModel _currentChildViewModel;
+        private DateTime _timeStamp;
 
         public int Age
         {
@@ -39,6 +41,17 @@ namespace DrivingLicenceScanner.ViewModel
         #endregion
 
         #region Properties
+
+        public DateTime TimeStamp
+        {
+            get { return _timeStamp; }
+            set
+            {
+                if (value.Equals(_timeStamp)) return;
+                _timeStamp = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Customer Customer
         {
@@ -111,12 +124,24 @@ namespace DrivingLicenceScanner.ViewModel
         {
             // _customer = new Customer { Licence = new Licence() };
             CustomerLegalStatuses = new ObservableCollection<CustomerLegalStatus>();
+            CurrentChildViewModel = new DetailsViewModel();
         }
 
         private void InitializeCommands()
         {
             ScanCommand = new RelayCommand(Scan, () => !String.IsNullOrWhiteSpace(ScanText));
             ClearCommand = new RelayCommand(Clear, () => Customer != null);
+        }
+
+        public DetailsViewModel CurrentChildViewModel
+        {
+            get { return _currentChildViewModel; }
+            set
+            {
+                if (Equals(value, _currentChildViewModel)) return;
+                _currentChildViewModel = value;
+                OnPropertyChanged();
+            }
         }
 
         #region HelperMethods
@@ -208,16 +233,17 @@ namespace DrivingLicenceScanner.ViewModel
                                     cust => cust.Licence.Number == Customer.Licence.Number);
                         if ((customer != null))
                         {
-                            customer.CheckIns.Add(new CheckIn {Time = DateTime.Now});
+                            customer.CheckIns.Add(new CheckIn { Time = DateTime.Now });
                         }
                         else
                         {
                             context.Customers.Add(Customer);
-                            Customer.CheckIns = new Collection<CheckIn> {new CheckIn {Time = DateTime.Now}};
+                            Customer.CheckIns = new Collection<CheckIn> { new CheckIn { Time = DateTime.Now } };
                         }
                         await context.SaveChangesAsync();
                     }
                     OnPropertyChanged("Age");
+                    TimeStamp = DateTime.Now;
                 }
                 catch (DbException)
                 {
@@ -227,8 +253,15 @@ namespace DrivingLicenceScanner.ViewModel
 
                 catch (Exception)
                 {
-                    ErrorMessage = "Invalid Data, Please Scan again.";
+                    if (ScanText != "@")
+                    {
+                        ErrorMessage = "Invalid Data, Please Scan again.";
+                    }
                     BusyState = false;
+                }
+                finally
+                {
+                    ScanText = String.Empty;
                 }
 
 
@@ -238,7 +271,7 @@ namespace DrivingLicenceScanner.ViewModel
                 var legal = new ObservableCollection<CustomerLegalStatus>();
                 foreach (LegalAge legality in legalAges)
                 {
-                    legal.Add(new CustomerLegalStatus {Allowed = Age >= legality.Age, Name = legality.Name});
+                    legal.Add(new CustomerLegalStatus { Allowed = Age >= legality.Age, Name = legality.Name });
                 }
                 CustomerLegalStatuses = legal;
                 BusyState = false;
