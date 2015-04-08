@@ -82,6 +82,8 @@
     <Compile Include="Infrastructure\ViewModelBase.cs" />
     <Compile Include="Infrastructure\ViewModelLocator.cs" />
     <Compile Include="Model\CustomerLegalStatus.cs" />
+    <Compile Include="Model\DataExtractor.cs" />
+    <Compile Include="Model\IExtractor.cs" />
     <Compile Include="Model\Patterns.cs" />
     <Compile Include="ViewModel\CheckInsViewModel.cs" />
     <Compile Include="ViewModel\CustomersViewModel.cs" />

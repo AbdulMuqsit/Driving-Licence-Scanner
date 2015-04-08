@@ -228,6 +228,7 @@
                          Grid.Row="1"
                          Grid.Column="0"
                          FontSize="5.333"
+                         AcceptsReturn="True"
                          FontFamily="Rod"
                          VerticalContentAlignment="Center"
                          Height="1"
