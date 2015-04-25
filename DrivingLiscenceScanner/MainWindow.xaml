@@ -174,7 +174,8 @@
 
                 </Canvas>
             </RadioButton>
-            <RadioButton BorderBrush="Black"
+            <RadioButton
+                          BorderBrush="Black"
                          Style="{DynamicResource BtnMainMenuBarStyle}"
                          Height="60"
                          Command="{Binding SwitchToCustomersViewCommand, Mode=OneWay}" ToolTip="Customers">
@@ -252,7 +253,8 @@
                         Style="{DynamicResource PthMainMenuBarButtonsStyle}" />
                 </Canvas>
             </RadioButton>
-            <RadioButton BorderBrush="Black"
+            <RadioButton
+                          BorderBrush="Black"
                          Style="{DynamicResource BtnMainMenuBarStyle}"
                          Height="60"
                          Command="{Binding SwitchToCheckInsViewCommand, Mode=OneWay}" ToolTip="Time Stamps">
@@ -272,7 +274,8 @@
             		<Path Data="M3.432,0.073C3.645,0.456 3.582,1.425 3.495,1.901 2.744,2.207 0.841,2.207 0.091,1.901 0.044,1.404 -0.166,0.221 0.28,0.01 1.314,0.048 2.501,-0.069 3.432,0.073" Height="2.13" Canvas.Left="24.335" Canvas.Top="24.928" Width="3.575" Style="{DynamicResource PthMainMenuBarButtonsStyle}"/>
             	</Canvas>
             </RadioButton>
-            <RadioButton BorderBrush="Black"
+            <RadioButton
+                          BorderBrush="Black"
                          Style="{DynamicResource BtnMainMenuBarStyle}"
                          Height="60"
                          Command="{Binding SwitchToSettingsViewCommand, Mode=OneWay}" ToolTip="Settings">

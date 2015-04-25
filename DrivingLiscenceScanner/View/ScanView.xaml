@@ -223,7 +223,7 @@
                     <Run Text="Scan" />
                 </TextBlock>
                 <TextBox x:Name="TxtBoxScan"
-                         Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding ScanText,Delay=500, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          Style="{DynamicResource TxtBoxScanStyle}"
                          Grid.Row="1"
                          Grid.Column="0"
@@ -231,18 +231,12 @@
                          AcceptsReturn="True"
                          FontFamily="Rod"
                          VerticalContentAlignment="Center"
-                         Height="1"
                          Background="#4CFFFFFF"
                          MinHeight="1"
-                         Margin="5,5,5,0" />
-                <Button Grid.Row="1"
-                        IsDefault="True"
-                        Grid.Column="1"
-                        Content="Scan"
-                        Command="{Binding ScanCommand}"
-                        Style="{StaticResource BtnScanViewStyle}"
-                        Height="1"
-                        Margin="5,5,5,0" />
+                         Margin="5,5,5,0"
+                         Height="1"
+                         Grid.RowSpan="1"
+                         Grid.ColumnSpan="2" />
                 <TextBlock Visibility="Visible"
                            x:Name="TxtBlkReady"
                            Grid.Row="2"
@@ -312,8 +306,9 @@
 
                     <UserControl Grid.Row="2"
                                  Content="{Binding CurrentChildViewModel}" />
-                    <StackPanel Margin="5"  Grid.Row="3"
-                                 Orientation="Horizontal">
+                    <StackPanel Margin="5"
+                                Grid.Row="3"
+                                Orientation="Horizontal">
                         <TextBlock x:Name="textBlock1">
                             <Run Text="Time Stamp"
                                  Style="{StaticResource TextBlockBoldStyle}">
@@ -322,7 +317,7 @@
                         <TextBlock x:Name="textBlock2"
                                    Style="{StaticResource TxtBoxLegalAgeBoldStyle}">
                              <Run Text="{Binding TimeStamp, Mode=OneWay, StringFormat=\{0:F\}}"
-                                   Style="{StaticResource TextBlockNormalStyle}">
+                                  Style="{StaticResource TextBlockNormalStyle}">
                             </Run>
                         </TextBlock>
                     </StackPanel>

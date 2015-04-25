@@ -73,6 +73,7 @@ namespace DrivingLicenceScanner.ViewModel
                 if (value == _scanText) return;
                 _scanText = value;
                 OnPropertyChanged("ScanText");
+                ScanCommand.Execute(null);
             }
         }
 
@@ -134,6 +135,7 @@ namespace DrivingLicenceScanner.ViewModel
 
         private async void Scan()
         {
+            if (String.IsNullOrWhiteSpace(ScanText)) return;
             Customer = null;
             ErrorMessage = String.Empty;
             Customer = new Customer();
@@ -185,7 +187,7 @@ namespace DrivingLicenceScanner.ViewModel
                             context.Customers.Add(Customer);
                             Customer.CheckIns = new Collection<CheckIn> {new CheckIn {Time = DateTime.Now}};
                         }
-                        //await context.SaveChangesAsync();
+                        await context.SaveChangesAsync();
                     }
                     OnPropertyChanged("Age");
                     TimeStamp = DateTime.Now;

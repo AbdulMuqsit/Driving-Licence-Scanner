@@ -8,6 +8,7 @@ namespace DrivingLicenceScanner.Model
     {
         public DataExtractor(string scanText)
         {
+
             List<string> values = scanText.Split('\n').Select(value => value.Trim(' ', '\r', '\n')).ToList();
 
             LicenceNumber = values[0];

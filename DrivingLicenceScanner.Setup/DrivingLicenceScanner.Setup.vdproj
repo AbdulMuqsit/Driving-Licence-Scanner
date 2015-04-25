@@ -154,12 +154,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_94B68F56F094787B2A8901C3DB63497C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_EFFD9BBB04B4421EAB471C47AAD56548"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -215,6 +209,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FDBF3B68DE5513622FEB4F99C0B800AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_94B68F56F094787B2A8901C3DB63497C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -831,15 +831,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Driving Licence Scanner "
-        "ProductCode" = "8:{B14275E2-B7EF-47A9-AD2C-CBCC271FE481}"
-        "PackageCode" = "8:{0AA79B46-33F4-4D3B-AB95-D2483C699AF3}"
+        "ProductCode" = "8:{4B052370-FF8C-44AC-AE67-0D90E54FF271}"
+        "PackageCode" = "8:{B11404F4-80D1-4399-8DD2-FBC10D6F0A58}"
         "UpgradeCode" = "8:{E9EB4E3C-368B-4020-BF21-3E4EBAF6C75E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Enigma Inc."
         "ARPHELPTELEPHONE" = "8:+923328805520"
         "ARPHELPLINK" = "8:https://www.fiverr.com/amuqsit"
