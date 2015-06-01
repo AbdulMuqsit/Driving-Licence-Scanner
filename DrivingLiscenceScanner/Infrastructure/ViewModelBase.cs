@@ -4,6 +4,22 @@ using DrivingLicenceScanner.EntityFramework;
 
 namespace DrivingLicenceScanner.Infrastructure
 {
+    /*
+     *  B22sdaf00007234
+        7/24/1968
+        3/23/2012
+        7/31/2015
+        well
+        nice
+        MIDDLE NAME
+        1
+        073 in
+        HZL
+        438 LONNA
+        BRICK
+        NJ
+        07202-3941
+     */
     public class ViewModelBase : ObjectBase
     {
         #region Fields
@@ -49,7 +65,7 @@ namespace DrivingLicenceScanner.Infrastructure
             {
                 return _viewModelLocator ??
                        (_viewModelLocator =
-                           (ViewModelLocator) Application.Current.Resources["ViewModelLocator"]);
+                           (ViewModelLocator)Application.Current.Resources["ViewModelLocator"]);
             }
         }
 
